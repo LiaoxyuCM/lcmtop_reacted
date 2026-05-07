@@ -17,10 +17,18 @@ function Styletest() {
         <em>{t("teststyle.em")} em</em>&nbsp;
         <u>{t("teststyle.u")} u</u>&nbsp;
         <del>{t("teststyle.del")} del</del>
+        <br />
+        <a href="#" onClick={(e) => { e.preventDefault() }}>
+          {t("teststyle.a")} a
+        </a>
+        <br />
+        <code>
+          # {t("teststyle.code.comment")}<br />
+          from django.http import HttpResponse, HttpRequest<br /><br />
+          def helloView(request: HttpRequest):<br />
+          &nbsp;&nbsp;return HttpResponse("Hello, world!")
+        </code>
       </p>
-      <a href="#" onClick={(e) => { e.preventDefault() }}>
-        {t("teststyle.a")} a
-      </a>
       <button>{t("teststyle.button")} button</button>
       <div className="buttongroup">
         <button>{t("teststyle.button")} 1 .buttongroup&gt;button+</button>
@@ -28,22 +36,36 @@ function Styletest() {
         <button className="selected">
           {t("teststyle.button.highlighted")} button.selected
         </button>
+        <button disabled>{t("teststyle.button.disabled")} button[disabled]</button>
       </div>
-      <input type="text" placeholder={t("teststyle.input") + " input"} />
-      <textarea placeholder={t("teststyle.textarea") + " textarea"}></textarea>
-      <select>
+      <input
+        name="namefield.teststyle.input"
+        type="text"
+        placeholder={t("teststyle.input") + " input"}
+      />
+      <textarea
+        name="namefield.teststyle.textarea"
+        placeholder={t("teststyle.textarea") + " textarea"}>
+      </textarea>
+      <select name="namefield.teststyle.select">
         <option value="one">{t("teststyle.choice")} 1 select&gt;option+</option>
         <option value="two">{t("teststyle.choice")} 2</option>
         <option value="three">{t("teststyle.choice")} 3</option>
       </select>
-      <div className="hint error">
-        {t("teststyle.hint.err")} div.hint.error
+      <br />
+      <div className="hint info">
+        {t('teststyle.hint')}
       </div>
-      <div className="hint warn">
-        {t("teststyle.hint.warn")} div.hint.warn
-      </div>
-      <div className="hint success">
-        {t("teststyle.hint.suc")} div.hint.success
+      <br />
+      <p>{t('teststyle.hintgroup')} .hintgroup&gt;.hint</p>
+      <div className="hintgroup">
+        {
+          ['error', 'warn', 'success', 'info', 'debug'].map((type) => (
+            <div className={`hint ${type}`} key={type}>
+              {t(`teststyle.hint.${type}`)} div.hint.{type}
+            </div>
+          ))
+        }
       </div>
       <ul>
         <li>{t("teststyle.list")} ul&gt;li+</li>

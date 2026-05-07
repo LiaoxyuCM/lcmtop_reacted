@@ -26,16 +26,22 @@
   --nav-shadow-color: #{shadow-black(0.05)};
   --h1-gradient-left: #0f2b5e;
   --h1-gradient-right: #2563eb;
+  --code-bg-color: #e2e8ed;
+  --code-text-color: #24292e;
   --footer-bordertop-color: #d1dff0;
   --footer-text-color: #4b5b6c;
   --button-bg-color: #d9e2ef;
   --button-selected-color: #a4c1ff;
-  --hint-err-bg-color: #f5b9b9;
-  --hint-err-fg-color: #c02d2d;
+  --hint-error-bg-color: #f5b9b9;
+  --hint-error-fg-color: #c02d2d;
   --hint-warn-bg-color: #f5efb9;
   --hint-warn-fg-color: #888a1f;
-  --hint-suc-bg-color: #c0f5b9;
-  --hint-suc-fg-color: #1f8a31;
+  --hint-success-bg-color: #c0f5b9;
+  --hint-success-fg-color: #1f8a31;
+  --hint-info-bg-color: #b9d9f5;
+  --hint-info-fg-color: #1f5f8a;
+  --hint-debug-bg-color: #e0e4e8;
+  --hint-debug-fg-color: #4a5058;
   --card-border-color: #cbd5e1;
   --card-shadow-color: #{shadow-black(0.02)};
   --card-title-bg-gradient-left: #94a3b8;
@@ -64,16 +70,22 @@
     --nav-shadow-color: #{shadow-black(0.3)};
     --h1-gradient-left: #90caf9;
     --h1-gradient-right: #bbd7fb;
+    --code-bg-color: #262928;
+    --code-text-color: #d4d4d4;
     --footer-bordertop-color: #334155;
     --footer-text-color: #94a3b8;
     --button-bg-color: #2d3b4f;
     --button-selected-color: #3b82f6;
-    --hint-err-bg-color: #442326;
-    --hint-err-fg-color: #f87171;
+    --hint-error-bg-color: #442326;
+    --hint-error-fg-color: #f87171;
     --hint-warn-bg-color: #444123;
     --hint-warn-fg-color: #f8ef71;
-    --hint-suc-bg-color: #264423;
-    --hint-suc-fg-color: #71f878;
+    --hint-success-bg-color: #264423;
+    --hint-success-fg-color: #71f878;
+    --hint-info-bg-color: #2a4a5c;
+    --hint-info-fg-color: #8abae0;
+    --hint-debug-bg-color: #2e343a;
+    --hint-debug-fg-color: #a8b4c0;
     --card-border-color: #2d3b4f;
     --card-shadow-color: #{shadow-black(0.5)};
     --card-title-bg-gradient-left: #475569;
@@ -173,6 +185,20 @@ h1 {
   letter-spacing: -0.02em;
 }
 
+code {
+  display: block;
+  background-color: var(--code-bg-color);
+  color: var(--code-text-color);
+  font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 12px 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 @function generate-arrowdown-img($theme) {
   $basetext-part1: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23";
   $basetext-part2: "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E";
@@ -265,12 +291,18 @@ button {
   transition: all .3s ease-in-out;
   height: 40px;
 
-  &:hover {
+  &:not([disabled]):hover {
     border-color: var(--nav-text-color);
     box-shadow: 0 0 0 3px var(--body-link-hover-shadow-color);
   }
   &.selected {
     background-color: var(--button-selected-color);
+  }
+  &[disabled] {
+    background-color: var(--button-bg-color);
+    color: var(--subtitle-text-color);
+    cursor: not-allowed;
+    box-shadow: none;
   }
 }
 
@@ -295,29 +327,39 @@ button {
   color: $fg;
 }
 
+.hintgroup {
+  .hint {
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    &:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--card-border-color);
+    }
+  }
+}
+
 .hint {
   display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-
-  &.error {
-    @include process-hints(
-      var(--hint-err-fg-color),
-      var(--hint-err-bg-color)
-    );
-  }
-  &.warn {
-    @include process-hints(
-      var(--hint-warn-fg-color),
-      var(--hint-warn-bg-color)
-    );
-  }
-  &.success {
-    @include process-hints(
-      var(--hint-suc-fg-color),
-      var(--hint-suc-bg-color)
-    );
+  
+  $hint-types: error, warn, success, info, debug;
+  
+  @each $value in $hint-types {
+    &.#{$value} {
+      @include process-hints(
+        var(--hint-#{$value}-fg-color),
+        var(--hint-#{$value}-bg-color)
+      );
+    }
   }
 }
 
