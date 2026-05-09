@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 interface BaseCardProps {
   title: string;
@@ -85,6 +86,26 @@ export function FooterBase() {
   )
 }
 
+export function SelectBar({ choices, selectedIdx = 0 }: { choices: string[], selectedIdx?: number }) {
+  let [selectedIndex, chgSelIdx] = useState<number>(selectedIdx);
+
+  return (
+    <div className="selectbar">
+      {choices.map((choice, index) => (
+        <div
+          className={"choice" + (selectedIndex == index ? " selected" : "")}
+          key={index}
+          onClick={() => {
+            chgSelIdx(index);
+          }}
+        >
+          {choice}
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export var Icons = {
   GitHub: () => (
     <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -110,3 +131,5 @@ export var Icons = {
     </svg>
   )
 }
+
+

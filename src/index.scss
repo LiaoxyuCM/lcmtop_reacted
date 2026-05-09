@@ -199,7 +199,7 @@ code {
   word-break: break-word;
 }
 
-@function generate-arrowdown-img($theme) {
+@function gen-arrdown-img($theme) {
   $basetext-part1: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23";
   $basetext-part2: "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E";
   @if $theme == 'dark' {
@@ -229,9 +229,9 @@ select {
   color: var(--body-text-color);
   box-shadow: 0 1px 2px var(--card-shadow-color);
     
-  background-image: url("#{generate-arrowdown-img('dark')}");
+  background-image: url("#{gen-arrdown-img('dark')}");
   @media (prefers-color-scheme: dark) {
-    background-image: url("#{generate-arrowdown-img('light')}");
+    background-image: url("#{gen-arrdown-img('light')}");
   }
   
   background-repeat: no-repeat;
@@ -340,7 +340,7 @@ button {
       border-bottom-right-radius: 5px;
     }
     &:not(:last-child) {
-      border-bottom: 1px solid var(--card-border-color);
+      border-bottom: 1px solid var(--list-border-color);
     }
   }
 }
@@ -350,6 +350,10 @@ button {
   align-items: center;
   padding: 10px;
   border-radius: 5px;
+  @include process-hints(
+    var(--hint-info-fg-color),
+    var(--hint-info-bg-color)
+  );
   
   $hint-types: error, warn, success, info, debug;
   
@@ -520,18 +524,50 @@ input {
   }
 }
 
-ul {
-  list-style: none;
+%selectbar-and-ul {
   padding: 0;
   margin: 20px 0;
+}
+
+@mixin base-borderbottom($weight: 2px) {
+  border-bottom: $weight solid var(--list-border-color);
+}
+
+%selectbar-choices-and-li {
+  position: relative;
+  padding: 7.5px 12px 9px 24px;
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  font-size: 15px;
+
+}
+
+.selectbar {
+  @extend %selectbar-and-ul;
+  .choice {
+    @extend %selectbar-choices-and-li;
+    @include base-borderbottom;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      border-bottom: 2px solid var(--nav-link-color);
+    }
+    &.selected {
+      border-bottom: 2px solid var(--nav-text-color);
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  @extend %selectbar-and-ul;
 
   li {
-    position: relative;
-    padding: 7.5px 12px 9px 24px;
-    margin: 8px 0;
-    transition: all 0.3s ease;
-    font-size: 15px;
+    @extend %selectbar-choices-and-li;
 
+    &:not(:last-child) {
+      @include base-borderbottom;
+    }
     &::before {
       content: ">";
       position: absolute;
@@ -543,9 +579,6 @@ ul {
       font-weight: bold;
     }
 
-    &:not(:last-child) {
-      border-bottom: 2px solid var(--list-border-color);
-    }
   }
 }
 
@@ -570,7 +603,7 @@ table {
     @extend %table-th-td;
   }
   tr:not(:last-child) {
-    border-bottom: 1px solid var(--list-border-color);
+    @include base-borderbottom(1px);
   }
 }
 

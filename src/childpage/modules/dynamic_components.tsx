@@ -24,7 +24,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
     </>
   )
   if (advanced) {
-    const [isUnscrolled, setIsUnscrolled] = useState(true);
+    const [isUnscrolled, setIsUnscrolled] = useState<boolean>(true);
 
     useEffect(() => {
       const handleScroll = () => {

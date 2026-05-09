@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 function HomepageContent() {
   const { t } = useTranslation();
-  const [filter1, setFilter1] = useState('@all');
-  const [filter2, setFilter2] = useState('@all');
+  const [filter1, setFilter1] = useState<string>('@all');
+  const [filter2, setFilter2] = useState<string>('@all');
   const isCardVisible = (cardClasses: string) => {
     const match1 = filter1 === '@all' || cardClasses.includes(filter1);
     const match2 = filter2 === '@all' || cardClasses.includes(filter2);
@@ -81,7 +81,7 @@ function HomepageContent() {
           }
         }>=&gt;</button>
       </form>
-      <div className="hint success">
+      <div className="hint">
         <p>{t("index.rewritten_using_react")}</p>
       </div>
       <select
