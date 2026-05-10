@@ -82,7 +82,7 @@ export function Timeline({ datetime, content }: TimelineProps) {
 
 export function FooterBase() {
   return (
-    <p>&copy; LiaoxyuCM × LcmTech 2024-2026</p>
+    <p>&copy; LiaoxyuCM/Lclimir × LcmTech 2024-2026</p>
   )
 }
 

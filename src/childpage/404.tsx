@@ -9,7 +9,7 @@ function FourZeroFour() {
         <p>{t("err.404.message")}</p>
       </div>
       <br />
-      <a href="/">{t("err.404.goback")}</a>
+      <a href="/"><button>{t("err.404.goback")}</button></a>
     </div>
   );
 }

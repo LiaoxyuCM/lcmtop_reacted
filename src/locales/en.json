@@ -16,7 +16,7 @@
   "index.card.aboutme.content": "Self Intro",
   "index.card.starter.title": "Starter",
   "index.card.starter.content": "Simple and no ads",
-  "index.card.encoder.title": "encoder",
+  "index.card.encoder.title": "Encoder",
   "index.card.encoder.content": "You can encode something need to be private",
   "index.card.randompicker.title": "Random Picker",
   "index.card.randompicker.content": "Generate random number(s)",
@@ -72,6 +72,6 @@
   "frdlylnks.huayumomo.chenqingmua": "ChenQingMua",
   "frdlylnks.gnjjws.content": "ZHTech-工农阶级万岁🅥",
   "frdlylnks.zi.content": "The Universal NHS",
-  "err.404.message": "Nothing here",
+  "err.404.message": "I don't know either! The page seems to have been eaten by that little cat from muah.top.",
   "err.404.goback": "Go Back"
 }

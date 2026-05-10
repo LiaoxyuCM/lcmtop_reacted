@@ -27,7 +27,7 @@ function Styletest() {
           # {t("teststyle.element.code.comment")} p&gt;code<br />
           from django.http import HttpResponse, HttpRequest<br /><br />
           def helloView(request: HttpRequest):<br />
-          &nbsp;&nbsp;return HttpResponse(f"Hello, from {"{request.GET.get('name', 'React.js')}"}!")
+          &nbsp;&nbsp;return HttpResponse(f"Hello from {"{request.GET.get('name', 'React.js')}"}!")
         </code>
       </p>
       <button>{t("teststyle.element.button")} button</button>
@@ -69,15 +69,15 @@ function Styletest() {
       <br />
 
       <div className="hint">
-        {t('teststyle.hint')} .hint
+        {t('teststyle.element.hint')} .hint
       </div>
       <br />
-      <p>{t('teststyle.hintgroup')} .hintgroup&gt;.hint</p>
+      <p>{t('teststyle.element.hintgroup')} .hintgroup&gt;.hint</p>
       <div className="hintgroup">
         {
           ['error', 'warn', 'success', 'info', 'debug'].map((type) => (
             <div className={`hint ${type}`} key={type}>
-              {t(`teststyle.hint.${type}`)} div.hint.{type}
+              {t(`teststyle.element.hint.${type}`)} div.hint.{type}
             </div>
           ))
         }

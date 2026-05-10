@@ -533,27 +533,61 @@ input {
   border-bottom: $weight solid var(--list-border-color);
 }
 
-%selectbar-choices-and-li {
+@mixin selectbar-choices-and-li($padding-bottom: 9px) {
   position: relative;
-  padding: 7.5px 12px 9px 24px;
+  padding: 7.5px 12px $padding-bottom 24px;
   margin: 8px 0;
   transition: all 0.3s ease;
   font-size: 15px;
-
 }
 
 .selectbar {
   @extend %selectbar-and-ul;
+  // .choice {
+  //   @extend %selectbar-choices-and-li;
+  //   @include base-borderbottom;
+  //   transition: all 0.3s ease;
+  //   cursor: pointer;
+  //   &:hover {
+  //     border-bottom: 2px solid var(--nav-link-color);
+  //   }
+  //   &.selected {
+  //     border-bottom: 2px solid var(--nav-text-color);
+  //   }
+  // }
   .choice {
-    @extend %selectbar-choices-and-li;
-    @include base-borderbottom;
-    transition: all 0.3s ease;
+    @include selectbar-choices-and-li(11px);
     cursor: pointer;
-    &:hover {
-      border-bottom: 2px solid var(--nav-link-color);
+    position: relative;
+
+    @mixin choices-bottom-styles($bg) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $bg;
+    }
+
+    &::before {
+      @include choices-bottom-styles(var(--list-border-color));
+      width: 100%;
+    }
+    &::after {
+      @include choices-bottom-styles(var(--nav-link-color));
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover::after {
+      width: 100%;
     }
     &.selected {
-      border-bottom: 2px solid var(--nav-text-color);
+      position: relative;
+      
+      &::after {
+        background-color: var(--nav-text-color);
+        width: 100%
+      }
     }
   }
 }
@@ -563,7 +597,7 @@ ul {
   @extend %selectbar-and-ul;
 
   li {
-    @extend %selectbar-choices-and-li;
+    @include selectbar-choices-and-li;
 
     &:not(:last-child) {
       @include base-borderbottom;
