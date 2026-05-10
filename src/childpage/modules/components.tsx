@@ -80,12 +80,6 @@ export function Timeline({ datetime, content }: TimelineProps) {
   )
 }
 
-export function FooterBase() {
-  return (
-    <p>&copy; LiaoxyuCM/Lclimir × LcmTech 2024-2026</p>
-  )
-}
-
 export function SelectBar({ choices, selectedIdx = 0 }: { choices: string[], selectedIdx?: number }) {
   let [selectedIndex, chgSelIdx] = useState<number>(selectedIdx);
 

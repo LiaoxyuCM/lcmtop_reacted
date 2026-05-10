@@ -20,6 +20,7 @@
   "index.card.encoder.content": "You can encode something need to be private",
   "index.card.randompicker.title": "Random Picker",
   "index.card.randompicker.content": "Generate random number(s)",
+  "index.timer": "This site has been safely running for %dd %hh %mmin %ss.",
   "index.filter": "Filter",
   "index.filter.red2gh": "Redirect to GitHub",
   "index.filter.thissite": "Current site",

@@ -1,6 +1,5 @@
 import type { ComponentType } from 'react';
-import { NavBar } from './childpage/modules/dynamic_components';
-import { FooterBase } from './childpage/modules/components';
+import { NavBar, FooterBase } from './childpage/modules/dynamic_components';
 // import './index.scss'
 
 function Template(elem: { element: ComponentType }) {

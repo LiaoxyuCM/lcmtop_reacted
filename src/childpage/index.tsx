@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
-import { NavBar } from './modules/dynamic_components';
+import { NavBar, FooterBase } from './modules/dynamic_components';
 import { useTranslation } from 'react-i18next';
-import { Card, Icons, FooterBase } from './modules/components';
+import { Card, Icons } from './modules/components';
 import { useState } from 'react';
 
 function HomepageContent() {
@@ -14,7 +14,7 @@ function HomepageContent() {
     return match1 && match2;
   }
 
-  const generateFilterOption = (key: string) => (<option value={key}>{t("index.filter." + key)}</option>)
+  const generateFilterOption = (key_: string) => (<option key={key_} value={key_}>{t("index.filter." + key_)}</option>)
 
   const cardsData = [
     {
@@ -107,7 +107,7 @@ function HomepageContent() {
       </select>
 
       <div className="cards">
-        {cardsData.map((card) => {
+        {cardsData.map((card, index) => {
           const visible = isCardVisible(card.filter ? card.filter.join(" ") : "");
 
           return (
@@ -118,6 +118,7 @@ function HomepageContent() {
               iconAttach={card.filter.includes("red2gh") ? <Icons.GitHub /> : <></>}
               targetblank={card.targetblank}
               visible={visible}
+              key={index}
             />
           );
         })}
@@ -179,7 +180,7 @@ function Homepage() {
         </main>
       </HomepageStyles.MainParent>
       <section className="footer" style={{ margin: 0 }}>
-        <FooterBase />
+        <FooterBase advanced={true} />
       </section>
     </>
   )
