@@ -59,7 +59,7 @@ export function FooterBase({advanced = false}: {advanced?: boolean}) {
     )
   };
 
-  let siteTimer = useRef(null);
+  let siteTimer = useRef<HTMLParagraphElement>(null);
   let { t } = useTranslation();
   let timerContentTemplate: string = t("index.timer");
   useEffect(() => {
@@ -76,7 +76,9 @@ export function FooterBase({advanced = false}: {advanced?: boolean}) {
         .replace(/%s/g, sec.toString());
     }
     function update(){
-      siteTimer.current.textContent = fmtDuration(Date.now() - startTime);
+      if (siteTimer.current) {
+        siteTimer.current!.textContent = fmtDuration(Date.now() - startTime);
+      }
     }
 
     update();
