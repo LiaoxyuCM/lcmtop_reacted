@@ -1,28 +1,67 @@
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Icons } from "./components";
 
 export function NavBar({ advanced = false }: { advanced?: boolean }) {
   const { t, i18n } = useTranslation();
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+  let NavBarBaseContent = () => ( // 以后会不会有NavBarBaseContentMessage，NavBarBaseContentMessageCharacter这些的（疑问
+    <>
+      <a href="#" onClick={
+        (e) => {
+          e.preventDefault();
+          if (i18n.language === 'zh-CN') {
+            i18n.changeLanguage('en');
+          } else {
+            i18n.changeLanguage('zh-CN');
+          }
+        }
+      }>{t("translate.anotherlang")}</a>
+      <a href="https://github.com/LiaoxyuCM" target="_blank">GitHub</a>
+      <a href="/friendlylinks">{t("index.nav.frdlylnks")}</a>
+    </>
+  )
 
   let NavBarBase = () => (
     <>
       <a href="/">LiaoxyuCM</a>
-      <div className="pc">
-        <a href="#" onClick={
-          (e) => {
-            e.preventDefault();
-            if (i18n.language === 'zh-CN') {
-              i18n.changeLanguage('en');
-            } else {
-              i18n.changeLanguage('zh-CN');
-            }
-          }
-        }>{t("translate.anotherlang")}</a>
-        <a href="https://github.com/LiaoxyuCM" target="_blank">GitHub</a>
-        <a href="/friendlylinks">{t("index.nav.frdlylnks")}</a>
+      <div
+        className="pe" style={{ display: isMobile ? "" : "none" }}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <Icons.Menu />
       </div>
+      <div className="pc" style={{ display: isMobile ? "none" : "" }}>
+        <NavBarBaseContent />
+      </div>
+
+      {isMobile && ( // 死磕deepseek的第n天
+        <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+          <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
+          <NavBarBaseContent />
+        </div>
+      )}
+
     </>
   )
+
+  // Navbar on Mobile device
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 600);
+    };
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
   if (advanced) {
     const [isUnscrolled, setIsUnscrolled] = useState<boolean>(true);
 
@@ -38,6 +77,8 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
         window.removeEventListener('scroll', handleScroll);
       };
     }, []);
+
+
     return (
       <nav className={(isUnscrolled) ? 'unscrolled' : ''} style={{ position: "fixed" }}>
         <NavBarBase />
@@ -52,10 +93,10 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
   }
 }
 
-export function FooterBase({advanced = false}: {advanced?: boolean}) {
+export function FooterBase({ advanced = false }: { advanced?: boolean }) {
   if (!advanced) {
     return (
-      <p>&copy; LiaoxyuCM/Lclimir × LcmTech 2024-2026</p>
+      <p>Presented by &copy; LiaoxyuCM, thank all of contributors</p>
     )
   };
 
@@ -64,25 +105,25 @@ export function FooterBase({advanced = false}: {advanced?: boolean}) {
   let timerContentTemplate: string = t("index.timer");
   useEffect(() => {
     const startTime: number = new Date('2026/01/04 22:25:00').getTime();
-    function fmtDuration(ms: number): string{
-      const day: number = Math.floor(ms/86400000);
-      const hour: number = Math.floor(ms%86400000/3600000);
-      const min: number = Math.floor(ms%3600000/60000);
-      const sec: number = Math.floor(ms%60000/1000);
+    function fmtDuration(ms: number): string {
+      const day: number = Math.floor(ms / 86400000);
+      const hour: number = Math.floor(ms % 86400000 / 3600000);
+      const min: number = Math.floor(ms % 3600000 / 60000);
+      const sec: number = Math.floor(ms % 60000 / 1000);
       return timerContentTemplate
         .replace(/%d/g, day.toString())
         .replace(/%h/g, hour.toString())
         .replace(/%m/g, min.toString())
         .replace(/%s/g, sec.toString());
     }
-    function update(){
+    function update() {
       if (siteTimer.current) {
         siteTimer.current!.textContent = fmtDuration(Date.now() - startTime);
       }
     }
 
     update();
-    const interval: number = setInterval(update, 100);
+    const interval: number = setInterval(update, 150);
 
     return () => clearInterval(interval);
   }, [timerContentTemplate]);
@@ -93,4 +134,79 @@ export function FooterBase({advanced = false}: {advanced?: boolean}) {
       <p ref={siteTimer}></p>
     </>
   )
+}
+
+export function Cursor() {
+  const cursorRef = useRef<HTMLDivElement>(null);
+  const [closestInteractable, setClosestInteractable] = useState<boolean>(false);
+  const [hasMouse, setHasMouse] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMouse = () => {
+      const hasMouseDevice = window.matchMedia('(pointer: fine)').matches;
+      setHasMouse(hasMouseDevice);
+    };
+
+    checkMouse();
+
+    const mediaQuery = window.matchMedia('(pointer: fine)');
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches) { setHasMouse(e.matches) }
+    };
+
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    const cursor = cursorRef.current;
+    if (!cursor) return;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      cursor.style.left = `${event.clientX - 20}px`;
+      cursor.style.top = `${event.clientY - 20}px`;
+    };
+
+    const selectors = 'a, button, select, .selectbar, nav div.pe svg';
+
+    const handleMouseOver = (e: MouseEvent) => {
+      const isInteractable = (e.target as HTMLElement).closest(selectors);
+      setClosestInteractable(!!isInteractable);
+    };
+    const handleMouseOut = (e: MouseEvent) => {
+      const isInteractable = (e.target as HTMLElement).closest(selectors);
+      if (isInteractable) setClosestInteractable(false);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseover', handleMouseOver);
+    document.addEventListener('mouseout', handleMouseOut);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseover', handleMouseOver);
+      document.removeEventListener('mouseout', handleMouseOut);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cursorRef}
+      style={{
+        display: hasMouse ? 'block' : 'none',
+        position: 'fixed',
+        pointerEvents: 'none',
+        zIndex: 9999,
+        transition: 'border-radius 0.2s ease, box-shadow 0.2s ease, width 0.2s ease, height 0.2s ease, transform 0.2s ease',
+        background: 'none',
+        width: closestInteractable ? '80px' : '40px',
+        height: closestInteractable ? '80px' : '40px',
+        borderRadius: '50%',
+        boxShadow: closestInteractable
+          ? '0 0 0 2px var(--nav-text-color, black)'
+          : '0 0 0 1px var(--nav-text-color, black)',
+        transform: closestInteractable ? 'translate(-20px, -20px)' : 'none',
+      }}
+    />
+  );
 }

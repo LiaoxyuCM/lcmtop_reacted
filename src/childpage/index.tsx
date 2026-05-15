@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { NavBar, FooterBase } from './modules/dynamic_components';
+import { NavBar, FooterBase, Cursor } from './modules/dynamic_components';
 import { useTranslation } from 'react-i18next';
 import { Card, Icons } from './modules/components';
 import { useState } from 'react';
@@ -165,6 +165,7 @@ function Homepage() {
   const { t } = useTranslation();
   return (
     <>
+      <Cursor />
       <NavBar advanced={true} />
       <HomepageStyles.BackImg />
       <HomepageStyles.Overlay>
@@ -179,9 +180,9 @@ function Homepage() {
           <HomepageContent />
         </main>
       </HomepageStyles.MainParent>
-      <section className="footer" style={{ margin: 0 }}>
+      <footer style={{ margin: 0 }}>
         <FooterBase advanced={true} />
-      </section>
+      </footer>
     </>
   )
 }

@@ -123,6 +123,18 @@ export var Icons = {
     } viewBox="0 0 24 24">
       <path d="M12 14.5l-5-5 1.4-1.4 3.6 3.6 3.6-3.6 1.4 1.4z" />
     </svg>
+  ),
+  Menu: () => ( // Source: Ionicons
+    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        fill="none"
+        strokeLinecap="round"
+        strokeMiterlimit="10"
+        strokeWidth="1.5"
+        stroke="currentColor"
+        d="M3.75 7.5h16.5M3.75 12h16.5M3.75 16.5h16.5"
+      />
+    </svg>
   )
 }
 

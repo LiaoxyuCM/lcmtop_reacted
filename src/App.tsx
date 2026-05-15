@@ -1,19 +1,20 @@
 import type { ComponentType } from 'react';
-import { NavBar, FooterBase } from './childpage/modules/dynamic_components';
+import { NavBar, FooterBase, Cursor } from './childpage/modules/dynamic_components';
 // import './index.scss'
 
 function Template(elem: { element: ComponentType }) {
   return (
     <>
+      <Cursor />
       <NavBar />
       <div className="mainpare">
         <main>
           <elem.element />
         </main>
       </div>
-      <section className="footer">
+      <footer>
         <FooterBase />
-      </section>
+      </footer>
     </>
   )
 }

@@ -14,7 +14,7 @@
   --body-bg-color: #f8fafc;
   --overlay-bg-color: #{shadow-white(0.4)};
   --body-text-color: #0f172a;
-  --subtitle-text-color: #333;
+  --subtitle-text-color: #121212;
   --body-link-border: #dde3ea;
   --body-link-shadow-color: #{shadow-black(0.1)};
   --body-link-hover-shadow-color: #2563eb80;
@@ -22,7 +22,7 @@
   --nav-bg-color: #ffffff80;
   --nav-border-color: #e2e8f0;
   --nav-text-color: #1e40af;
-  --nav-link-color: #334155;
+  --nav-link-color: #222529;
   --nav-shadow-color: #{shadow-black(0.05)};
   --h1-gradient-left: #0f2b5e;
   --h1-gradient-right: #2563eb;
@@ -151,18 +151,61 @@ nav {
     margin-right: auto;
     text-decoration: none;
   }
-  div.pc a {
+  %global-navbar {
+    cursor: pointer;
     text-decoration: none;
     color: var(--nav-link-color);
-    font-weight: 500;
     padding: 0.4rem 0.2rem;
-    border-bottom: 2px solid transparent;
     transition: color 0.2s, border-color 0.2s;
-    font-size: 1rem;
     &:hover {
       color: var(--nav-text-color);
       border-bottom-color: var(--nav-text-color);
     }
+  }
+  div.pc a {
+    @extend %global-navbar;
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+  }
+  div.pe svg {
+    @extend %global-navbar;
+    padding: 0;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  color: var(--body-text-color);
+  background: var(--body-bg-color);
+  box-shadow: 0 0 20px #{shadow-black(0.5)};
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 60px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  &.open {
+    right: 0;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none
   }
 }
 
@@ -260,7 +303,7 @@ svg {
   margin: 2.5rem 0 3rem 0;
 }
 
-.footer {
+footer {
   margin-top: 3.5rem;
   padding: 1.5rem 0.5rem;
   text-align: center;
@@ -291,7 +334,7 @@ button {
   transition: all .3s ease-in-out;
   height: 40px;
 
-  &:not([disabled]):hover {
+  &:not(.ignore-button-default-style):not([disabled]):hover {
     border-color: var(--nav-text-color);
     box-shadow: 0 0 0 3px var(--body-link-hover-shadow-color);
   }
@@ -650,7 +693,7 @@ table {
       min-height: 90px;
     }
   }
-  .footer {
+  footer {
     margin-top: 2rem;
     padding: 1.2rem 0.5rem;
   }
