@@ -96,7 +96,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
 export function FooterBase({ advanced = false }: { advanced?: boolean }) {
   if (!advanced) {
     return (
-      <p>Presented by &copy; LiaoxyuCM, thank all of contributors</p>
+      <p>&copy; LiaoxyuCM/Lclimir/LcmTech 2024-2026</p>
     )
   };
 

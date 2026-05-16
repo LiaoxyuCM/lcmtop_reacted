@@ -188,6 +188,10 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media (min-width: 601px) {
+    display: none;
+  }
   
   &.open {
     right: 0;
