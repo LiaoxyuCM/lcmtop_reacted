@@ -182,18 +182,19 @@ nav {
   height: 100vh;
   color: var(--body-text-color);
   background: var(--body-bg-color);
-  transition: right 0.3s ease;
+//  transition: right 0.3s ease; 既然transition没用的话那别要了
   z-index: 1000;
   padding: 60px 20px 20px;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 20px;
 
-  @media (min-width: 601px) {
+  @media(min-width: 601px) {
     display: none;
   }
   
   &.open {
+    display: flex;
     right: 0;
     box-shadow: 0 0 20px #{shadow-black(0.5)};
   }
