@@ -171,7 +171,6 @@ nav {
     font-size: 1rem;
     font-weight: 500;
     border-bottom: 2px solid transparent;
-    vertical-align: middle;
   }
   div.pe svg {
     @extend %global-navbar;
@@ -433,12 +432,12 @@ button {
   height: 50px;
   line-height: 50px;
   padding: 0 20px;
-  background-color: var(--body-link-bg-color);
+  background-color: var(--overlay-bg-color);
   color: var(--body-text-color);
   border-radius: 8px;
   font-size: 14px;
   z-index: 9990;
-  white-space: nowrap;
+  white-space: normal;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);

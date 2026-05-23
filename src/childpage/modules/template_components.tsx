@@ -59,14 +59,6 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
           )
         }
       </a>
-      {/* <a */}
-      {/*   target="_blank" */}
-      {/*   href={ */}
-      {/*     "https://qun.qq.com/universal-share/share?ac=1&authKey=9MRpRTP4yhUhdwkDgdHfblbcwTfUSlwgCmxt8DyDf5EPJ80r0USzpoQZYGp3l4Tu&busi_data=eyJncm91cENvZGUiOiIxMDgxMzMyNjEwIiwidG9rZW4iOiIxNTRGYnZmODgxU29aU1F3VHJINmx2MHZpc0dFUCt5aEQ1MWhhTkszbFhYOG9Yd0VKMkI3VGJCcURBd2ZSVE02IiwidWluIjoiMzkxMjUwNjYwNyJ9&data=9Fh7ZrzFw4h6dFuehKJqTh_PM_SnDo4CXesR8i1MuclCa3bHBXATcwXEb5qcKDNNtARhHWkuAira5Tp9_p95iA&svctype=4&tempid=h5_group_info" */}
-      {/*   } */}
-      {/* > */}
-      {/*   {t("index.nav.joinqq")} */}
-      {/* </a> */}
       <a href="/friendlylinks">{t("index.nav.frdlylnks")}</a>
     </>
   )

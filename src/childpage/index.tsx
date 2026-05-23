@@ -5,6 +5,8 @@ import { Card, Icons } from './modules/components';
 import { showToast } from './modules/toast';
 import { useState } from 'react';
 
+const VERSION = "0.6.1";
+
 function HomepageContent() {
   const { t } = useTranslation();
   const [filter1, setFilter1] = useState<string>('@all');
@@ -149,6 +151,7 @@ const HomepageStyles = {
     justify-content: center;
     align-items: center;
     position: relative;
+    transition: .1s all ease-out;
   `,
   MainParent: styled.div`
     background-color: var(--body-bg-color);
@@ -170,8 +173,11 @@ function Homepage() {
     case 0: case 1: case 2: case 3: case 4: case 5:
       greet = "late_night";
       break
-    case 6: case 7: case 8: case 9: case 10: case 11:
+    case 6: case 7: case 8:
       greet = "morning";
+      break;
+    case 9: case 10: case 11:
+      greet = "forenoon";
       break;
     case 12: case 13: case 14: case 15:
       greet = "noon";
@@ -185,6 +191,11 @@ function Homepage() {
     case 22: case 23:
       greet = "night";
       break;
+  }
+
+  if (localStorage.getItem("version") !== VERSION) {
+    localStorage.setItem("version", VERSION);
+    showToast.nohook(t("index.version.update").replace(/%ver/g, VERSION));
   }
 
   showToast.hook(t("index.greeting." + greet));

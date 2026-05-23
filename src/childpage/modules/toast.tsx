@@ -75,7 +75,6 @@ const showToast_ = (options: ToastOptions | string) => {
   };
 };
 
-// Call hook when rendering, nohook when event callback!
 export const showToast = {
   nohook: (options: ToastOptions | string) => {
     let hasShown = false;
