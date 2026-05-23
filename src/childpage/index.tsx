@@ -2,10 +2,10 @@ import { styled } from 'styled-components';
 import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { Card, Icons } from './modules/components';
-import { showToast } from './modules/toast';
+import { showToast, ToastOnclickAction } from './modules/toast';
 import { useState } from 'react';
 
-const VERSION = "0.6.3";
+const VERSION = "0.6.4";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -175,11 +175,14 @@ function Homepage() {
     case 6: case 7: case 8:
       greet = "morning";
       break;
-    case 9: case 10: case 11:
+    case 9: case 10:
       greet = "forenoon";
       break;
-    case 12: case 13: case 14: case 15:
+    case 11: case 12:
       greet = "noon";
+      break;
+    case 13: case 14: case 15:
+      greet = "afternoon_early";
       break;
     case 16: case 17: case 18:
       greet = "afternoon";
@@ -194,7 +197,10 @@ function Homepage() {
 
   if (localStorage.getItem("version") !== VERSION) {
     localStorage.setItem("version", VERSION);
-    showToast.nohook(t("index.version.update").replace(/%ver/g, VERSION));
+    showToast.nohook(
+      t("index.version.update").replace(/%ver/g, VERSION),
+      new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest")
+    );
   }
 
   showToast.hook(t("index.greeting." + greet));

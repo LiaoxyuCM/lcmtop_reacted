@@ -582,7 +582,6 @@ textarea {
 
 input {
   @extend %textarea-input;
-  height: 40px;
   padding: 8px;
   border: 1px solid var(--card-border-color);
 }

@@ -6,6 +6,20 @@ export interface ToastOptions {
   duration?: number;
 }
 
+class ActionRemoveToast { }
+class ActionRedirect2Url {
+  url: string;
+
+  constructor(url: string) {
+    this.url = url;
+  }
+}
+
+export const ToastOnclickAction = {
+  RemoveToast: ActionRemoveToast,
+  Redirect2Url: ActionRedirect2Url
+}
+
 const activeToasts: { element: HTMLElement; height: number }[] = [];
 
 const updateToastPositions = () => {
@@ -30,13 +44,15 @@ const removeToast = (toastElement: HTMLElement) => {
   }
 };
 
-const showToast_ = (options: ToastOptions | string) => {
-  const { content, duration = 2000 } = typeof options === 'string'
-    ? { content: options, duration: 2000 }
-    : options;
-
+const showToast_ = (
+  content: string,
+  onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast()
+) => {
   const toastElement = document.createElement('div');
   toastElement.className = 'toast-notification';
+  if (onClick instanceof ActionRedirect2Url) {
+    toastElement.style.borderLeft = '2px solid var(--nav-text-color)';
+  }
   const parag = document.createElement("p")
   parag.textContent = content
   toastElement.appendChild(parag);
@@ -62,11 +78,15 @@ const showToast_ = (options: ToastOptions | string) => {
 
   const timeoutId = setTimeout(() => {
     removeToast(toastElement);
-  }, duration);
+  }, 2000);
 
   toastElement.addEventListener('click', () => {
-    clearTimeout(timeoutId);
-    removeToast(toastElement);
+    if (onClick instanceof ActionRedirect2Url) {
+      window.open(onClick.url, '_blank');
+    } else if (onClick instanceof ActionRemoveToast) {
+      clearTimeout(timeoutId);
+      removeToast(toastElement);
+    }
   });
 
   return {
@@ -78,18 +98,18 @@ const showToast_ = (options: ToastOptions | string) => {
 };
 
 export const showToast = {
-  nohook: (options: ToastOptions | string) => {
+  nohook: (content: | string, onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast()) => {
     let hasShown = false;
     if (!hasShown) {
       hasShown = true;
-      showToast_(options);
+      showToast_(content, onClick);
     }
   },
-  hook: (options: ToastOptions | string) => {
+  hook: (content: | string, onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast()) => {
     let hasShown = useRef<boolean>(false);
     if (!hasShown.current) {
       hasShown.current = true;
-      showToast_(options);
+      showToast_(content, onClick);
     }
   }
 }
