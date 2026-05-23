@@ -37,7 +37,9 @@ const showToast_ = (options: ToastOptions | string) => {
 
   const toastElement = document.createElement('div');
   toastElement.className = 'toast-notification';
-  toastElement.textContent = content;
+  const parag = document.createElement("p")
+  parag.textContent = content
+  toastElement.appendChild(parag);
 
   toastElement.style.opacity = '0';
   toastElement.style.visibility = 'hidden';

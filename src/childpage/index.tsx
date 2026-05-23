@@ -5,7 +5,7 @@ import { Card, Icons } from './modules/components';
 import { showToast } from './modules/toast';
 import { useState } from 'react';
 
-const VERSION = "0.6.2";
+const VERSION = "0.6.3";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -206,7 +206,7 @@ function Homepage() {
       <HomepageStyles.Overlay>
         <h1>{t("index.welcome")}</h1>
         <HomepageStyles.Subtitle>
-          /* LiaoxyuCM, LcmTech */
+          /* LiaoxyuCM, Lclimir */
         </HomepageStyles.Subtitle>
         <Icons.Scrolldown />
       </HomepageStyles.Overlay>
