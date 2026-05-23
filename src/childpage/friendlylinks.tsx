@@ -15,7 +15,7 @@ function FriendlyLinksContent() {
           imagesrc="https://assets.liaoxyucm.top/muah.top/g.jpg"
         />
         <CardFriendlyLink
-          title="工农阶级万岁🅥"
+          title="工农阶级万岁🅥" // He has no english name so don't translate it to english, if u wanna do it, ask him 1st.
           content={"© 2025 " + t("frdlylnks.gnjjws.content")}
           link="https://zh2026.cn"
           imagesrc="https://assets.liaoxyucm.top/zh2026.cn/tx.jpg"

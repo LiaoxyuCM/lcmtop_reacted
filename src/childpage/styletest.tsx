@@ -135,9 +135,12 @@ function Styletest() {
           content="Timeline({datetime: string, content: string}) => JSX.Element"
         />
       </div>
-      <a href="/styletest/doc/components#timeline">{
-        t("teststyle.doc.components.learn")
+      <a href="/styletest/doc/components#timeline">
+        {t("teststyle.doc.components.learn")
           .replace(/%el/g, t("teststyle.element.timeline"))}
+      </a><br />
+      <a href="/styletest/play/toast">
+        {t("teststyle.toast.enter")}
       </a>
     </>
   )

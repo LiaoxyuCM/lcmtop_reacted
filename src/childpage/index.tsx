@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
-import { NavBar, FooterBase, Cursor } from './modules/dynamic_components';
+import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { Card, Icons } from './modules/components';
+import { showToast } from './modules/toast';
 import { useState } from 'react';
 
 function HomepageContent() {
@@ -69,7 +70,7 @@ function HomepageContent() {
       <form method="get" action="https://cn.bing.com/search" style={{ display: "flex" }}>
         <input name="q" placeholder={t("index.search_via_bing")} style={
           {
-            flex: 1,
+            flex: "1 1 0%",
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0
           }
@@ -163,6 +164,30 @@ const HomepageStyles = {
 
 function Homepage() {
   const { t } = useTranslation();
+  // Greeting: 0AM-5AM late_night, 6AM-11AM morning, 12AM-3PM noon, 4PM-6PM afternoon, 7PM-9PM evening, 10PM-0AM night
+  let greet: string = ""
+  switch (new Date().getHours()) {
+    case 0: case 1: case 2: case 3: case 4: case 5:
+      greet = "late_night";
+      break
+    case 6: case 7: case 8: case 9: case 10: case 11:
+      greet = "morning";
+      break;
+    case 12: case 13: case 14: case 15:
+      greet = "noon";
+      break;
+    case 16: case 17: case 18:
+      greet = "afternoon";
+      break;
+    case 19: case 20: case 21:
+      greet = "evening";
+      break;
+    case 22: case 23:
+      greet = "night";
+      break;
+  }
+
+  showToast.hook(t("index.greeting." + greet));
   return (
     <>
       <Cursor />

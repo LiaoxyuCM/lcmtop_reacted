@@ -13,6 +13,12 @@ npm run build # Build 构建 (Will be output to dist/ 将输出到 dist/)
 
 ## Contributing 贡献
 
+First, thanks for your interest in contributing to this project, even it's **PERSONAL**!
+首先, 感谢你对这个项目\(即使作为一个**个人**项目\)的兴趣和贡献！
+
+There are some guidelines to help you contribute to this project:
+下面是一些指导方针来贡献这个项目：
+
 1. If you want your branch to be merged, please make sure you passed test\(s\).
    I/We will test again before merging.
    If you have any questions, feel free to open an issue or contact me/us directly.

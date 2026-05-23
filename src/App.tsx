@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import { NavBar, FooterBase, Cursor } from './childpage/modules/dynamic_components';
+import { NavBar, FooterBase, Cursor } from './childpage/modules/template_components.tsx';
 // import './index.scss'
 
 function Template(elem: { element: ComponentType }) {

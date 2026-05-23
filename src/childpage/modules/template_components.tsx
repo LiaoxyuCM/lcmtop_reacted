@@ -7,7 +7,24 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
-  let NavBarBaseContent = () => ( // 以后会不会有NavBarBaseContentMessage，NavBarBaseContentMessageCharacter这些的（疑问
+  // read color theme (light / dark) from localStorage and set it to the root element
+  const [darkmode, setDarkmode] = useState<boolean>(
+    Boolean(localStorage.getItem("darkmode") === "true")
+  );
+
+  useEffect(() => { // 直接操作dom啊，有意思
+    const mainElement = document.querySelector('body');
+    if (mainElement) {
+      if (darkmode) {
+        mainElement.classList.add('dark');
+      } else {
+        mainElement.classList.remove('dark');
+      }
+    }
+    localStorage.setItem("darkmode", String(darkmode));
+  }, [darkmode]);
+
+  let NavBarBaseContent = ({ verbose = false }: { verbose?: boolean }) => (
     <>
       <a href="#" onClick={
         (e) => {
@@ -18,8 +35,38 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
             i18n.changeLanguage('zh-CN');
           }
         }
-      }>{t("translate.anotherlang")}</a>
-      <a href="https://github.com/LiaoxyuCM" target="_blank">GitHub</a>
+      }>{t("translate.anotherlang" + (verbose ? ".verbose" : ""))}</a>
+      <a href="https://github.com/LiaoxyuCM" target="_blank">
+        {verbose ?
+          <>GitHub</> :
+          <Icons.GitHub />
+        }
+      </a>
+      <a href="#" onClick={(e) => {
+        e.preventDefault();
+        setDarkmode(!darkmode);
+      }}>
+        {darkmode ?
+          (
+            verbose ?
+              t("index.nav.theme.light") :
+              <Icons.LightMode />
+          ) :
+          (
+            verbose ?
+              t("index.nav.theme.dark") :
+              <Icons.DarkMode />
+          )
+        }
+      </a>
+      {/* <a */}
+      {/*   target="_blank" */}
+      {/*   href={ */}
+      {/*     "https://qun.qq.com/universal-share/share?ac=1&authKey=9MRpRTP4yhUhdwkDgdHfblbcwTfUSlwgCmxt8DyDf5EPJ80r0USzpoQZYGp3l4Tu&busi_data=eyJncm91cENvZGUiOiIxMDgxMzMyNjEwIiwidG9rZW4iOiIxNTRGYnZmODgxU29aU1F3VHJINmx2MHZpc0dFUCt5aEQ1MWhhTkszbFhYOG9Yd0VKMkI3VGJCcURBd2ZSVE02IiwidWluIjoiMzkxMjUwNjYwNyJ9&data=9Fh7ZrzFw4h6dFuehKJqTh_PM_SnDo4CXesR8i1MuclCa3bHBXATcwXEb5qcKDNNtARhHWkuAira5Tp9_p95iA&svctype=4&tempid=h5_group_info" */}
+      {/*   } */}
+      {/* > */}
+      {/*   {t("index.nav.joinqq")} */}
+      {/* </a> */}
       <a href="/friendlylinks">{t("index.nav.frdlylnks")}</a>
     </>
   )
@@ -40,7 +87,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
       {isMobile && ( // 死磕deepseek的第n天
         <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
           <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
-          <NavBarBaseContent />
+          <NavBarBaseContent verbose={true} />
         </div>
       )}
 
@@ -96,7 +143,11 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
 export function FooterBase({ advanced = false }: { advanced?: boolean }) {
   if (!advanced) {
     return (
-      <p>&copy; LiaoxyuCM/Lclimir/LcmTech 2024-2026</p>
+      <p onClick={(e) => { // 因为你 linting，我TM多写两行代码 [哭]
+        if (e.currentTarget.textContent) {
+          e.currentTarget.textContent = "Hello, QiChong Chlorine!"; // Don't translate it to other langs, keep it english.
+        }
+      }}>&copy; LiaoxyuCM Lclimir × LcmTech 2024-{new Date().getFullYear()}</p> // It either (see above).
     )
   };
 

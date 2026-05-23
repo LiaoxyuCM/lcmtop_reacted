@@ -8,6 +8,7 @@ import Homepage from './childpage/index.tsx'
 import FriendlyLinksContent from './childpage/friendlylinks.tsx'
 import FourZeroFour from './childpage/404.tsx'
 import Styletest from './childpage/styletest.tsx'
+import ToastPlayground from './childpage/toast_playground.tsx'
 import { ComponentsDoc } from './childpage/styletest.tsx'
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     "path": "/styletest/doc/components",
     "element": <Template element={ComponentsDoc} />
+  },
+  {
+    "path": "/styletest/play/toast",
+    "element": <Template element={ToastPlayground} />
   },
   {
     "path": "*",
