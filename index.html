@@ -7,6 +7,20 @@
     <title>LiaoxyuCM</title>
   </head>
   <body>
+    <script>
+      (function() {
+        try {
+          const darkmode = localStorage.getItem('darkmode') === 'true';
+          if (darkmode) {
+            document.body.classList.add('dark');
+          }
+        } catch (e) {
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark');
+          }
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
