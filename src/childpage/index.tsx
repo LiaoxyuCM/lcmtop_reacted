@@ -5,7 +5,7 @@ import { Card, Icons } from './modules/components';
 import { showToast } from './modules/toast';
 import { useState } from 'react';
 
-const VERSION = "0.6.1";
+const VERSION = "0.6.2";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -167,7 +167,6 @@ const HomepageStyles = {
 
 function Homepage() {
   const { t } = useTranslation();
-  // Greeting: 0AM-5AM late_night, 6AM-11AM morning, 12AM-3PM noon, 4PM-6PM afternoon, 7PM-9PM evening, 10PM-0AM night
   let greet: string = ""
   switch (new Date().getHours()) {
     case 0: case 1: case 2: case 3: case 4: case 5:

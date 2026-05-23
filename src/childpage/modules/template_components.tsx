@@ -12,17 +12,6 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
     Boolean(localStorage.getItem("darkmode") === "true")
   );
 
-  useEffect(() => { // 直接操作dom啊，有意思
-    const mainElement = document.querySelector('body');
-    if (mainElement) {
-      if (darkmode) {
-        mainElement.classList.add('dark');
-      } else {
-        mainElement.classList.remove('dark');
-      }
-    }
-    localStorage.setItem("darkmode", String(darkmode));
-  }, [darkmode]);
 
   let NavBarBaseContent = ({ verbose = false }: { verbose?: boolean }) => (
     <>
@@ -44,7 +33,14 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
       </a>
       <a href="#" onClick={(e) => {
         e.preventDefault();
-        setDarkmode(!darkmode);
+        const newDarkmode = !darkmode;
+        setDarkmode(newDarkmode);
+        localStorage.setItem("darkmode", (!darkmode).toString());
+        if (newDarkmode) {
+          document.body.classList.add('dark');
+        } else {
+          document.body.classList.remove('dark');
+        }
       }}>
         {darkmode ?
           (
