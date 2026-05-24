@@ -69,7 +69,7 @@ function Styletest() {
       <br />
 
       <div className="hint">
-        {t('teststyle.element.hint')} .hint
+        {t('teststyle.element.hint.single')} .hint
       </div>
       <br />
       <p>{t('teststyle.element.hintgroup')} .hintgroup&gt;.hint</p>
@@ -77,7 +77,7 @@ function Styletest() {
         {
           ['error', 'warn', 'success', 'info', 'debug'].map((type) => (
             <div className={`hint ${type}`} key={type}>
-              {t(`teststyle.element.hint.${type}`)} div.hint.{type}
+              {t(`teststyle.lvl.${type}`) + t('teststyle.element.hint')} div.hint.{type}
             </div>
           ))
         }

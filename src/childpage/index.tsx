@@ -2,10 +2,10 @@ import { styled } from 'styled-components';
 import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { Card, Icons } from './modules/components';
-import { showToast, ToastOnclickAction } from './modules/toast';
+import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
 import { useState } from 'react';
 
-const VERSION = "0.6.4";
+const VERSION = "0.6.5";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -145,7 +145,7 @@ const HomepageStyles = {
   Overlay: styled.div`
     height: 100vh;
     width: 100%;
-    background-color: var(--overlay-bg-color);
+    background-color: var(--overlay-bg);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -154,12 +154,12 @@ const HomepageStyles = {
     transition: .1s all ease-out;
   `,
   MainParent: styled.div`
-    background-color: var(--body-bg-color);
+    background-color: var(--body-bg);
     position: relative;
     z-index: 0;
   `,
   Subtitle: styled.p`
-    color: var(--subtitle-text-color);
+    color: var(--subtitle-text);
     display: flex;
     justify-content: center;
   `
@@ -199,7 +199,9 @@ function Homepage() {
     localStorage.setItem("version", VERSION);
     showToast.nohook(
       t("index.version.update").replace(/%ver/g, VERSION),
-      new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest")
+      new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
+      ToastType.Normal,
+      5000
     );
   }
 

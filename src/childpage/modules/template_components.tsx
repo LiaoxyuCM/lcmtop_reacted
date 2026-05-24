@@ -242,8 +242,8 @@ export function Cursor() {
         height: closestInteractable ? '80px' : '40px',
         borderRadius: '50%',
         boxShadow: closestInteractable
-          ? '0 0 0 2px var(--nav-text-color, black)'
-          : '0 0 0 1px var(--nav-text-color, black)',
+          ? '0 0 0 2px var(--nav-text, black)'
+          : '0 0 0 1px var(--nav-text, black)',
         transform: closestInteractable ? 'translate(-20px, -20px)' : 'none',
       }}
     />

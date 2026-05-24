@@ -1,26 +1,54 @@
-import { showToast, ToastOnclickAction } from "./modules/toast";
+import { showToast, ToastOnclickAction, ToastType } from "./modules/toast";
 import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 
 export default function ToastPlayground() {
   const { t } = useTranslation();
+  const selectRef = useRef<HTMLSelectElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const inputRef2 = useRef<HTMLInputElement>(null);
+  const durationRef = useRef<HTMLInputElement>(null);
   const urlInputRef = useRef<HTMLInputElement>(null);
   return (
     <>
+      <h3>{t("global.global")}</h3>
+      <div style={{ display: "flex" }}>
+        <select name="type" ref={selectRef} style={{
+          borderRadius: 0,
+          borderTopLeftRadius: '8px',
+        }}>
+          <option value={ToastType.Normal}>{t("teststyle.lvl.normal")}</option>
+          <option value={ToastType.Error}>{t("teststyle.lvl.error")}</option>
+          <option value={ToastType.Warn}>{t("teststyle.lvl.warn")}</option>
+          <option value={ToastType.Success}>{t("teststyle.lvl.success")}</option>
+          <option value={ToastType.Info}>{t("teststyle.lvl.info")}</option>
+          <option value={ToastType.Debug}>{t("teststyle.lvl.debug")}</option>
+        </select>
+        <input ref={durationRef} name="duration" type="number" style={{
+          flex: "1",
+          borderRadius: 0,
+          borderTopRightRadius: '8px',
+        }} placeholder={t("teststyle.toast.input.duration")} />
+      </div>
+      <input ref={inputRef} name="content" style={{
+        width: "100%",
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0
+      }} type="text" placeholder={t("teststyle.toast.input")} />
+
       <h3>onclick=remove</h3>
       <div style={{ display: "flex" }}>
-        <input ref={inputRef} style={{
-          flex: "1 1 0%",
-          borderTopRightRadius: 0,
-          borderBottomRightRadius: 0
-        }} type="text" placeholder={t("teststyle.toast.input")} name="toast_content_input" />
         <button
-          onClick={() => showToast.nohook(inputRef.current?.value || t("teststyle.toast.default"))}
+          onClick={() => {
+            const durationValue = durationRef.current?.value;
+            showToast.nohook(
+              inputRef.current?.value || t("teststyle.toast.default"),
+              new ToastOnclickAction.RemoveToast(),
+              selectRef.current?.value as ToastType,
+              durationValue ? Number(durationValue) : 2000
+            )
+          }}
           style={{
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0
+            flex: 1
           }}
         >
           {t("global.submit")}
@@ -28,25 +56,25 @@ export default function ToastPlayground() {
       </div>
 
       <h3>onclick=redirect</h3>
-      <input ref={inputRef2} style={{
-        width: "100%",
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0
-      }} type="text" placeholder={t("teststyle.toast.input")} name="toast_url_input" />
       <div style={{ display: "flex" }}>
         <input ref={urlInputRef} style={{
           flex: "1 1 0%",
-          borderRadius: 0,
-          borderBottomLeftRadius: "8px",
+          borderTopRightRadius: 0,
+          borderBottomRightRadius: 0,
         }} type="text" placeholder={t("teststyle.toast.onclick_redirect.input") + "https://liaoxyucm.top"} name="toast_url_input" />
         <button
           onClick={() => {
-            showToast.nohook(inputRef2.current?.value || t("teststyle.toast.default"),
-              new ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://liaoxyucm.top"))
+            const durationValue = durationRef.current?.value;
+            showToast.nohook(
+              inputRef.current?.value || t("teststyle.toast.default"),
+              new ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://liaoxyucm.top"),
+              selectRef.current?.value as ToastType,
+              durationValue ? Number(durationValue) : 2000
+            )
           }}
           style={{
-            borderRadius: 0,
-            borderBottomRightRadius: "8px",
+            borderTopLeftRadius: 0,
+            borderBottomLeftRadius: 0,
           }}
         >
           {t("global.submit")}

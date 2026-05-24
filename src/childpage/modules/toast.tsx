@@ -15,6 +15,17 @@ class ActionRedirect2Url {
   }
 }
 
+export const ToastType = {
+  Normal: "",
+  Info: "info",
+  Success: "success",
+  Warn: "warn",
+  Error: "error",
+  Debug: "debug",
+} as const;
+
+export type ToastType = typeof ToastType[keyof typeof ToastType];
+
 export const ToastOnclickAction = {
   RemoveToast: ActionRemoveToast,
   Redirect2Url: ActionRedirect2Url
@@ -46,17 +57,22 @@ const removeToast = (toastElement: HTMLElement) => {
 
 const showToast_ = (
   content: string,
-  onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast()
+  onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast(),
+  type: ToastType = ToastType.Normal,
+  duration: number = 2000
 ) => {
   const toastElement = document.createElement('div');
   toastElement.className = 'toast-notification';
-  if (onClick instanceof ActionRedirect2Url) {
-    toastElement.style.borderLeft = '2px solid var(--nav-text-color)';
-  }
   const parag = document.createElement("p")
-  parag.textContent = content
+  parag.textContent = content;
+  if (onClick instanceof ActionRedirect2Url) {
+    parag.style.textDecoration = 'underline';
+    parag.style.textDecorationStyle = 'dotted';
+    parag.style.textUnderlineOffset = '4px';
+  }
   toastElement.appendChild(parag);
 
+  toastElement.style.setProperty('--toast-duration', `${(duration - 300) / 1000}s`);
   toastElement.style.opacity = '0';
   toastElement.style.visibility = 'hidden';
   document.body.appendChild(toastElement);
@@ -71,6 +87,9 @@ const showToast_ = (
   toastElement.style.opacity = '';
   toastElement.style.visibility = '';
   toastElement.classList.add('toast-enter');
+  if (type != ToastType.Normal) { // 又套了一层判断，烦
+    toastElement.classList.add(type);
+  }
 
   setTimeout(() => {
     toastElement.classList.remove('toast-enter');
@@ -78,7 +97,7 @@ const showToast_ = (
 
   const timeoutId = setTimeout(() => {
     removeToast(toastElement);
-  }, 2000);
+  }, duration);
 
   toastElement.addEventListener('click', () => {
     if (onClick instanceof ActionRedirect2Url) {
@@ -98,18 +117,28 @@ const showToast_ = (
 };
 
 export const showToast = {
-  nohook: (content: | string, onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast()) => {
+  nohook: (
+    content: string,
+    onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast(),
+    type: ToastType = ToastType.Normal,
+    duration: number = 2000
+  ) => {
     let hasShown = false;
     if (!hasShown) {
       hasShown = true;
-      showToast_(content, onClick);
+      showToast_(content, onClick, type, duration);
     }
   },
-  hook: (content: | string, onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast()) => {
+  hook: (
+    content: string,
+    onClick: ActionRedirect2Url | ActionRemoveToast = new ActionRemoveToast(),
+    type: ToastType = ToastType.Normal,
+    duration: number = 2000
+  ) => {
     let hasShown = useRef<boolean>(false);
     if (!hasShown.current) {
       hasShown.current = true;
-      showToast_(content, onClick);
+      showToast_(content, onClick, type, duration);
     }
   }
 }
