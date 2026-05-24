@@ -3,9 +3,10 @@ import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { Card, Icons } from './modules/components';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
-import { useState } from 'react';
+import LoadingPage from './modules/loadingpage';
+import { useState, useEffect } from 'react';
 
-const VERSION = "0.6.5";
+const VERSION = "0.7.0-pre.0";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -166,7 +167,11 @@ const HomepageStyles = {
 }
 
 function Homepage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [loading, setLoading] = useState(true);
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const [i18nReady, setI18nReady] = useState(false);
+
   let greet: string = ""
   switch (new Date().getHours()) {
     case 0: case 1: case 2: case 3: case 4: case 5:
@@ -195,37 +200,75 @@ function Homepage() {
       break;
   }
 
-  if (localStorage.getItem("version") !== VERSION) {
-    localStorage.setItem("version", VERSION);
-    showToast.nohook(
-      t("index.version.update").replace(/%ver/g, VERSION),
-      new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
-      ToastType.Normal,
-      5000
-    );
-  }
+  useEffect(() => {
+    const img = new Image();
+    img.src = "https://assets.liaoxyucm.top/wallpaper.jpg";
+    img.onload = () => {
+      setBgLoaded(true);
+    };
+    img.onerror = () => {
+      setBgLoaded(true);
+    };
+  }, []);
 
-  showToast.hook(t("index.greeting." + greet));
+  useEffect(() => {
+    if (i18n.isInitialized) {
+      setI18nReady(true);
+    }
+  }, [i18n]);
+
+  useEffect(() => {
+    if (bgLoaded && i18nReady) {
+      const timer = setTimeout(() => setLoading(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [bgLoaded, i18nReady]);
+
+  useEffect(() => {
+    if (!loading && localStorage.getItem("version") !== VERSION) {
+      localStorage.setItem("version", VERSION);
+      showToast.nohook(
+        t("index.version.update").replace(/%ver/g, VERSION),
+        new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
+        ToastType.Normal,
+        5000
+      );
+    }
+  }, [loading, t]);
+
+  useEffect(() => {
+    if (!loading) {
+      showToast.nohook(t("index.greeting." + greet));
+    }
+  }, [loading, greet]);
+
   return (
     <>
-      <Cursor />
-      <NavBar advanced={true} />
-      <HomepageStyles.BackImg />
-      <HomepageStyles.Overlay>
-        <h1>{t("index.welcome")}</h1>
-        <HomepageStyles.Subtitle>
-          /* LiaoxyuCM, Lclimir */
-        </HomepageStyles.Subtitle>
-        <Icons.Scrolldown />
-      </HomepageStyles.Overlay>
-      <HomepageStyles.MainParent>
-        <main>
-          <HomepageContent />
-        </main>
-      </HomepageStyles.MainParent>
-      <footer style={{ margin: 0 }}>
-        <FooterBase advanced={true} />
-      </footer>
+      <LoadingPage
+        isLoading={loading}
+      />
+      {!loading && (
+        <>
+          <Cursor />
+          <NavBar advanced={true} />
+          <HomepageStyles.BackImg />
+          <HomepageStyles.Overlay>
+            <h1>{t("index.welcome")}</h1>
+            <HomepageStyles.Subtitle>
+              /* LiaoxyuCM, Lclimir */
+            </HomepageStyles.Subtitle>
+            <Icons.Scrolldown />
+          </HomepageStyles.Overlay>
+          <HomepageStyles.MainParent>
+            <main>
+              <HomepageContent />
+            </main>
+          </HomepageStyles.MainParent>
+          <footer style={{ margin: 0 }}>
+            <FooterBase advanced={true} />
+          </footer>
+        </>
+      )}
     </>
   )
 }
