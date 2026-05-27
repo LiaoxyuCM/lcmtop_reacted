@@ -1,0 +1,33 @@
+.homepage {
+  &.back-img {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -9178;
+    transition: opacity 0.3s ease-in;
+  }
+  &.overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--overlay-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: .1s all ease-out;
+  }
+  &.main-parent {
+    background-color: var(--body-bg);
+    position: relative;
+    z-index: 0;
+  }
+  &.subtitle {
+    color: var(--subtitle-text);
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -16,7 +16,7 @@
 body {
   &:not(.dark) {
     --body-bg: #f8fafc;
-    --overlay-bg: #{shadow-white(0.5)};
+    --overlay-bg: #{shadow-white(0.45)};
     --body-text: #0f172a;
     --subtitle-text: #121212;
     --body-link-border: #dde3ea;
@@ -26,7 +26,7 @@ body {
     --nav-bg: #ffffff80;
     --nav-border: #e2e8f0;
     --nav-text: #1e40af;
-    --nav-link: #4f4f4f;
+    --nav-link: #212121;
     --nav-shadow: #{shadow-black(0.05)};
     --h1-gradient-left: #0f2b5e;
     --h1-gradient-right: #2563eb;

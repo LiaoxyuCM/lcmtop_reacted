@@ -80,7 +80,7 @@ const showToast_ = (
   const height = toastElement.offsetHeight;
 
   const toastItem = { element: toastElement, height };
-  activeToasts.push(toastItem);
+  activeToasts.unshift(toastItem);
 
   updateToastPositions();
 

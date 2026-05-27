@@ -1,12 +1,12 @@
-import { styled } from 'styled-components';
 import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { Card, Icons } from './modules/components';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
 import LoadingPage from './modules/loadingpage';
 import { useState, useEffect } from 'react';
+import './modules/css/homepage.scss';
 
-const VERSION = "0.7.0-pre.0";
+const VERSION = "0.7.0-pre.1";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -65,7 +65,13 @@ function HomepageContent() {
       title: t("index.card.randompicker.title"),
       content: t("index.card.randompicker.content"),
       filter: ["thissite", "sitetool"]
-    }
+    },
+    {
+      link: 'https://tools.liaoxyucm.top/unwasting',
+      title: "Unwasting",
+      content: t("index.card.unwasting.content"),
+      filter: ["thissite", "sitetool"]
+    },
   ]
 
   return (
@@ -131,46 +137,11 @@ function HomepageContent() {
   )
 }
 
-
-const HomepageStyles = {
-  BackImg: styled.div`
-    height: 100vh;
-    width: 100%;
-    background-image: url("https://assets.liaoxyucm.top/wallpaper.jpg");
-    position: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -9178;
-  `,
-  Overlay: styled.div`
-    height: 100vh;
-    width: 100%;
-    background-color: var(--overlay-bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    transition: .1s all ease-out;
-  `,
-  MainParent: styled.div`
-    background-color: var(--body-bg);
-    position: relative;
-    z-index: 0;
-  `,
-  Subtitle: styled.p`
-    color: var(--subtitle-text);
-    display: flex;
-    justify-content: center;
-  `
-}
-
 function Homepage() {
   const { t, i18n } = useTranslation();
-  const [loading, setLoading] = useState(true);
-  const [bgLoaded, setBgLoaded] = useState(false);
-  const [i18nReady, setI18nReady] = useState(false);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [bgLoaded, setBgLoaded] = useState<boolean>(false);
+  const [i18nReady, setI18nReady] = useState<boolean>(false);
 
   let greet: string = ""
   switch (new Date().getHours()) {
@@ -199,17 +170,6 @@ function Homepage() {
       greet = "night";
       break;
   }
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = "https://assets.liaoxyucm.top/wallpaper.jpg";
-    img.onload = () => {
-      setBgLoaded(true);
-    };
-    img.onerror = () => {
-      setBgLoaded(true);
-    };
-  }, []);
 
   useEffect(() => {
     if (i18n.isInitialized) {
@@ -247,23 +207,32 @@ function Homepage() {
       <LoadingPage
         isLoading={loading}
       />
+      <img
+        className="homepage back-img"
+        style={{ opacity: bgLoaded ? 1 : 0 }}
+        src="https://assets.liaoxyucm.top/wallpaper.jpg"
+        onLoad={() => setBgLoaded(true)}
+        onError={() => {
+          setBgLoaded(true);
+          showToast.nohook(t("index.bg_load_failed"), ToastOnclickAction.RemoveToast, ToastType.Error);
+        }}
+      />
       {!loading && (
         <>
           <Cursor />
           <NavBar advanced={true} />
-          <HomepageStyles.BackImg />
-          <HomepageStyles.Overlay>
+          <div className="homepage overlay">
             <h1>{t("index.welcome")}</h1>
-            <HomepageStyles.Subtitle>
+            <p className="homepage subtitle">
               /* LiaoxyuCM, Lclimir */
-            </HomepageStyles.Subtitle>
+            </p>
             <Icons.Scrolldown />
-          </HomepageStyles.Overlay>
-          <HomepageStyles.MainParent>
+          </div>
+          <div className="homepage main-parent">
             <main>
               <HomepageContent />
             </main>
-          </HomepageStyles.MainParent>
+          </div>
           <footer style={{ margin: 0 }}>
             <FooterBase advanced={true} />
           </footer>
