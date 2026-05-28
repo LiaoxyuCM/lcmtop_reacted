@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Icons } from "./components";
+import "./css/cursor.scss";
 
 export function NavBar({ advanced = false }: { advanced?: boolean }) {
   const { t, i18n } = useTranslation();
@@ -231,20 +232,9 @@ export function Cursor() {
   return (
     <div
       ref={cursorRef}
+      className={"cursor" + (closestInteractable ? " interactable" : "")}
       style={{
         display: hasMouse ? 'block' : 'none',
-        position: 'fixed',
-        pointerEvents: 'none',
-        zIndex: 9999,
-        transition: 'border-radius 0.2s ease, box-shadow 0.2s ease, width 0.2s ease, height 0.2s ease, transform 0.2s ease',
-        background: 'none',
-        width: closestInteractable ? '80px' : '40px',
-        height: closestInteractable ? '80px' : '40px',
-        borderRadius: '50%',
-        boxShadow: closestInteractable
-          ? '0 0 0 2px var(--nav-text, black)'
-          : '0 0 0 1px var(--nav-text, black)',
-        transform: closestInteractable ? 'translate(-20px, -20px)' : 'none',
       }}
     />
   );

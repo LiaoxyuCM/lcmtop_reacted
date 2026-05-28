@@ -16,7 +16,7 @@ class ActionRedirect2Url {
 }
 
 export const ToastType = {
-  Normal: "",
+  Normal: "normal",
   Info: "info",
   Success: "success",
   Warn: "warn",

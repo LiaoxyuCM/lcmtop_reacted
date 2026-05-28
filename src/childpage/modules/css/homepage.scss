@@ -1,7 +1,12 @@
+%fullscreen {
+  height: 100vh;
+  width: 100%;
+}
+
 .homepage {
   &.back-img {
-    height: 100vh;
-    width: 100%;
+    @extend %fullscreen;
+
     position: fixed;
     object-fit: cover;
     background-position: center;
@@ -10,8 +15,8 @@
     transition: opacity 0.3s ease-in;
   }
   &.overlay {
-    height: 100vh;
-    width: 100%;
+    @extend %fullscreen;
+
     background-color: var(--overlay-bg);
     display: flex;
     flex-direction: column;

@@ -6,7 +6,7 @@ import LoadingPage from './modules/loadingpage';
 import { useState, useEffect } from 'react';
 import './modules/css/homepage.scss';
 
-const VERSION = "0.7.0-pre.1";
+const VERSION = "0.7.0";
 
 function HomepageContent() {
   const { t } = useTranslation();

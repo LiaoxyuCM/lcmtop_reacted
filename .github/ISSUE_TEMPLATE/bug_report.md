@@ -30,4 +30,4 @@ A clear and concise description of what you expected to happen.
 ### Screenshots 截图
 
 If applicable, add screenshots to help explain your problem.
- 果可以，请添加截图以帮助解释您的问题
+如果可以，请添加截图以帮助解释您的问题

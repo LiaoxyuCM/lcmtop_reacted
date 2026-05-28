@@ -13,8 +13,8 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const [progress, setProgress] = useState(0);
-  const [shouldHide, setShouldHide] = useState(false);
+  const [progress, setProgress] = useState<number>(0);
+  const [shouldHide, setShouldHide] = useState<boolean>(false);
 
   useEffect(() => {
     if (!isLoading) return;
@@ -72,7 +72,9 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
         <div className="loading-page__tips">
           <span className="loading-page__tips-text">{t("index.loading")}</span>
           <span className="loading-page__tips-dots">
-            <span>.</span><span>.</span><span>.</span>
+            {["", "", ""].map((_, index: number) => (
+              <span key={index}>.</span>
+            ))}
           </span>
         </div>
       </div>

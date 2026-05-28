@@ -7,9 +7,8 @@ import Template from './App.tsx'
 import Homepage from './childpage/index.tsx'
 import FriendlyLinksContent from './childpage/friendlylinks.tsx'
 import FourZeroFour from './childpage/404.tsx'
-import Styletest from './childpage/styletest.tsx'
 import ToastPlayground from './childpage/toast_playground.tsx'
-import { ComponentsDoc } from './childpage/styletest.tsx'
+import { Styletest, ComponentsDoc } from './childpage/styletest.tsx'
 
 const router = createBrowserRouter([
   {

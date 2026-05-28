@@ -16,12 +16,9 @@ export default function ToastPlayground() {
           borderRadius: 0,
           borderTopLeftRadius: '8px',
         }}>
-          <option value={ToastType.Normal}>{t("teststyle.lvl.normal")}</option>
-          <option value={ToastType.Error}>{t("teststyle.lvl.error")}</option>
-          <option value={ToastType.Warn}>{t("teststyle.lvl.warn")}</option>
-          <option value={ToastType.Success}>{t("teststyle.lvl.success")}</option>
-          <option value={ToastType.Info}>{t("teststyle.lvl.info")}</option>
-          <option value={ToastType.Debug}>{t("teststyle.lvl.debug")}</option>
+          {["normal", "error", "warn", "success", "info", "debug"].map((value) => (
+            <option key={value} value={value}>{t(`teststyle.lvl.${value}`)}</option>
+          ))}
         </select>
         <input ref={durationRef} name="duration" type="number" style={{
           flex: "1",
