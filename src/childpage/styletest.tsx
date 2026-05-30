@@ -149,17 +149,17 @@ export function ComponentsDoc() {
   const te = (data: string) => (t("teststyle.element." + data))
 
   useEffect(() => {
-    let rawHash: string = window.location.hash;
+    const rawHash: string = window.location.hash;
     if (!(!rawHash || rawHash === '#')) {
 
-      let targetId: string = rawHash.substring(1);
+      const targetId: string = rawHash.substring(1);
 
       if (targetId) {
         const targetElement = document.getElementById("art:" + targetId);
         if (targetElement) {
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const currentScroll = window.pageYOffset;
-          const targetPosition = currentScroll + elementPosition - 50;
+          const elementPosition: number = targetElement.getBoundingClientRect().top;
+          const currentScroll: number = window.pageYOffset;
+          const targetPosition: number = currentScroll + elementPosition - 50;
           window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'

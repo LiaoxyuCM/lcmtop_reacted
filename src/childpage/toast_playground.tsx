@@ -39,9 +39,11 @@ export default function ToastPlayground() {
             const durationValue = durationRef.current?.value;
             showToast.nohook(
               inputRef.current?.value || t("teststyle.toast.default"),
-              new ToastOnclickAction.RemoveToast(),
-              selectRef.current?.value as ToastType,
-              durationValue ? Number(durationValue) : 2000
+              {
+                onClick: new ToastOnclickAction.RemoveToast(),
+                type: selectRef.current?.value as ToastType,
+                duration: durationValue ? Number(durationValue) : 2000
+              }
             )
           }}
           style={{
@@ -64,9 +66,11 @@ export default function ToastPlayground() {
             const durationValue = durationRef.current?.value;
             showToast.nohook(
               inputRef.current?.value || t("teststyle.toast.default"),
-              new ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://liaoxyucm.top"),
-              selectRef.current?.value as ToastType,
-              durationValue ? Number(durationValue) : 2000
+              {
+                onClick: new ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://liaoxyucm.top"),
+                type: selectRef.current?.value as ToastType,
+                duration: durationValue ? Number(durationValue) : 2000
+              }
             )
           }}
           style={{

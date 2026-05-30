@@ -19,13 +19,13 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
   useEffect(() => {
     if (!isLoading) return;
 
-    const startTime = Date.now();
-    const duration = 800;
+    const startTime: number = Date.now();
+    const duration: number = 800;
     let animationId: number;
 
     const animateProgress = () => {
-      const elapsed = Date.now() - startTime;
-      const newProgress = Math.min(100, (elapsed / duration) * 100);
+      const elapsed: number = Date.now() - startTime;
+      const newProgress: number = Math.min(100, (elapsed / duration) * 100);
       setProgress(newProgress);
 
       if (newProgress < 100) {

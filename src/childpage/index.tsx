@@ -13,8 +13,8 @@ function HomepageContent() {
   const [filter1, setFilter1] = useState<string>('@all');
   const [filter2, setFilter2] = useState<string>('@all');
   const isCardVisible = (cardClasses: string) => {
-    const match1 = filter1 === '@all' || cardClasses.includes(filter1);
-    const match2 = filter2 === '@all' || cardClasses.includes(filter2);
+    const match1: boolean = filter1 === '@all' || cardClasses.includes(filter1);
+    const match2: boolean = filter2 === '@all' || cardClasses.includes(filter2);
     return match1 && match2;
   }
 
@@ -189,9 +189,10 @@ function Homepage() {
       localStorage.setItem("version", VERSION);
       showToast.nohook(
         t("index.version.update").replace(/%ver/g, VERSION),
-        new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
-        ToastType.Normal,
-        5000
+        {
+          onClick: new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
+          duration: 5000
+        }
       );
     }
   }, [loading, t]);
@@ -214,7 +215,7 @@ function Homepage() {
         onLoad={() => setBgLoaded(true)}
         onError={() => {
           setBgLoaded(true);
-          showToast.nohook(t("index.bg_load_failed"), ToastOnclickAction.RemoveToast, ToastType.Error);
+          showToast.nohook(t("index.bg_load_failed"), { type: ToastType.Error });
         }}
       />
       {!loading && (

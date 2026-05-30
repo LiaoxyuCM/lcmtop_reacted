@@ -15,17 +15,16 @@
 
 body {
   &:not(.dark) {
-    --body-bg: #f8fafc;
+    --primary-bg: #f8fafc;
+    --secondary-bg: #{shadow-white(0.8)};
+    --primary-border: #e2e8f0;
+    --primary-text: #1e40af;
+    --secondary-text: #0f172a;
     --overlay-bg: #{shadow-white(0.45)};
-    --body-text: #0f172a;
     --subtitle-text: #121212;
     --body-link-border: #dde3ea;
     --body-link-shadow: #{shadow-black(0.1)};
     --body-link-hover-shadow: #2563eb80;
-    --body-link-bg: #{shadow-white(0.8)};
-    --nav-bg: #ffffff80;
-    --nav-border: #e2e8f0;
-    --nav-text: #1e40af;
     --nav-link: #212121;
     --nav-shadow: #{shadow-black(0.05)};
     --h1-gradient-left: #0f2b5e;
@@ -70,17 +69,16 @@ body {
     --toast-debug-highlighted: #6b7280;
   }
   &.dark {
-    --body-bg: #0f172a;
+    --primary-bg: #0f172a;
+    --secondary-bg: rgba(30, 41, 59, 0.8);
+    --primary-border: #334155;
+    --primary-text: #60a5fa;
+    --secondary-text: #e2e8f0;
     --overlay-bg: #{shadow-black(0.6)};
-    --body-text: #e2e8f0;
     --subtitle-text: #AAA;
     --body-link-border: #334155;
     --body-link-shadow: #{shadow-black(0.5)};
     --body-link-hover-shadow: #3b82f680;
-    --body-link-bg: rgba(30, 41, 59, 0.8);
-    --nav-bg: #1e293b80;
-    --nav-border: #334155;
-    --nav-text: #60a5fa;
     --nav-link: #cbd5e1;
     --nav-shadow: #{shadow-black(0.3)};
     --h1-gradient-left: #90caf9;
@@ -137,14 +135,14 @@ body {
 
 body {
   @extend %conffonts;
-  background-color: var(--body-bg);
-  color: var(--body-text);
+  background-color: var(--primary-bg);
+  color: var(--secondary-text);
   line-height: 1.5;
   padding: 0px;
 }
 
 a {
-  color: var(--body-text);
+  color: var(--secondary-text);
 }
 
 nav {
@@ -155,7 +153,7 @@ nav {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--nav-bg);
+  background-color: var(--secondary-bg);
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 
@@ -174,7 +172,7 @@ nav {
   &>a {
     font-weight: 600;
     font-size: 1.25rem;
-    color: var(--nav-text);
+    color: var(--primary-text);
     letter-spacing: -0.01em;
     margin-right: auto;
     text-decoration: none;
@@ -186,8 +184,8 @@ nav {
     padding: 0.4rem 0.2rem;
     transition: color 0.2s, border-color 0.2s;
     &:hover {
-      color: var(--nav-text);
-      border-bottom-color: var(--nav-text);
+      color: var(--primary-text);
+      border-bottom-color: var(--primary-text);
     }
   }
   div.pc a {
@@ -208,8 +206,8 @@ nav {
   right: -250px;
   width: 250px;
   height: 100vh;
-  color: var(--body-text);
-  background: var(--body-bg);
+  color: var(--secondary-text);
+  background: var(--primary-bg);
 //  transition: right 0.3s ease; 既然transition没用的话那别要了
   z-index: 1000;
   padding: 60px 20px 20px;
@@ -290,8 +288,8 @@ code {
 select {
   @extend %conffonts;
 
-  appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   padding: 8px 35px 8px 12px;
   border-radius: 8px;
   font-size: 14px;
@@ -300,9 +298,9 @@ select {
   transition: all 0.2s ease;
   outline: none;
     
-  background-color: var(--body-link-bg);
+  background-color: var(--secondary-bg);
   border: 1px solid var(--card-border);
-  color: var(--body-text);
+  color: var(--secondary-text);
   box-shadow: 0 1px 2px var(--card-shadow);
     
   background-image: url("#{gen-arrdown-img('dark')}");
@@ -315,12 +313,12 @@ select {
   background-size: 16px;
 
   &:hover, &:focus {
-    border-color: var(--nav-text);
+    border-color: var(--primary-text);
     box-shadow: 0 0 0 3px var(--body-link-hover-shadow);
   }
   option {
-    background: var(--body-link-bg);
-    color: var(--body-text);
+    background: var(--secondary-bg);
+    color: var(--secondary-text);
     padding: 8px;
   }
 }
@@ -343,7 +341,7 @@ footer {
   border-top: 2px solid var(--footer-bordertop);
   color: var(--footer-text);
   font-size: 1rem;
-  background: var(--body-bg);
+  background: var(--primary-bg);
 
   p {
     opacity: 0.85;
@@ -360,15 +358,15 @@ button {
 	padding: 8px 16px;
   border: 1px solid var(--card-border);
   border-radius: 8px;
-  background: var(--body-link-bg);
-  color: var(--body-text);
+  background: var(--secondary-bg);
+  color: var(--secondary-text);
   font-size: 14px;
   cursor: pointer;
   transition: all .3s ease-in-out;
   height: 40px;
 
   &:not(.ignore-button-default-style):not([disabled]):hover {
-    border-color: var(--nav-text);
+    border-color: var(--primary-text);
     box-shadow: 0 0 0 3px var(--body-link-hover-shadow);
   }
   &.selected {
@@ -451,89 +449,6 @@ $hint_toast-types: error, warn, success, info, debug;
 }
 
 
-.toast-notification {
-  position: fixed;
-  right: 20px;
-  line-height: 20px;
-  padding: 15px 20px;
-  background-color: var(--toast-bg);
-  color: var(--body-text);
-  border-radius: 8px;
-  font-size: 14px;
-  z-index: 9990;
-  white-space: normal;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-  transition: top 0.3s ease, opacity 0.3s ease;
-  opacity: 1;
-  overflow: hidden;
-
-  @each $value in $hint_toast-types {
-    &.#{$value} {
-      background-color: var(--toast-#{$value}-bg);
-      &::before {
-        background-color: var(--toast-#{$value}-highlighted);
-      }
-    }
-  }
-  
-  &.toast-enter {
-    animation: toastSlideInRight 0.3s ease forwards;
-  }
-  
-  &.toast-exit {
-    animation: toastFadeOutUp 0.3s ease forwards;
-    &::before {
-      width: 100%;
-    }
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background-color: var(--toast-bg-highlighted);
-    border-radius: 0 0 8px 8px;
-  }
-  
-  &:not(.toast-enter):not(.toast-exit)::before {
-    animation: toastHighlight var(--toast-duration, 1.7s) ease-in-out forwards;
-  }
-}
-
-
-@keyframes toastHighlight {
-  0% { width: 0%; }
-  100% { width: 100%; }
-}
-
-@keyframes toastSlideInRight {
-  from {
-    transform: translateX(calc(100% + 20px));
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes toastFadeOutUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-}
-
 
 .cards {
   display: grid;
@@ -553,8 +468,8 @@ $hint_toast-types: error, warn, success, info, debug;
       .card {
         border-color: var(--card-border);
         box-shadow: 0 20px 25px -5px var(--body-link-shadow), 0 8px 10px -6px var(--card-shadow);
-        background-color: var(--nav-bg);
-        background: linear-gradient(145deg, var(--nav-bg), var(--card-link-hover));
+        background-color: var(--secondary-bg);
+        background: linear-gradient(145deg, var(--secondary-bg), var(--card-link-hover));
         
         h3::after {
           width: 40px;
@@ -577,10 +492,10 @@ $hint_toast-types: error, warn, success, info, debug;
 }
 
 .card {
-  background-color: var(--nav-bg);
+  background-color: var(--secondary-bg);
   border-radius: 16px;
   padding: 1.5rem;
-  border: 1px solid var(--nav-border);
+  border: 1px solid var(--primary-border);
   box-shadow: 0 4px 12px var(--timer-shadow);
   transition: all 0.2s ease;
   height: 100%;
@@ -591,7 +506,7 @@ $hint_toast-types: error, warn, success, info, debug;
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--body-text);
+    color: var(--secondary-text);
     letter-spacing: -0.01em;
     position: relative;
     display: inline-block;
@@ -624,10 +539,10 @@ $hint_toast-types: error, warn, success, info, debug;
 
 %textarea-input {
   @extend %conffonts;
-  background-color: var(--body-bg);
-  color: var(--body-text);
+  background-color: var(--primary-bg);
+  color: var(--secondary-text);
   border-radius: 5px;
-  border: 1px solid var(--nav-border);
+  border: 1px solid var(--primary-border);
 }
 
 textarea {
@@ -679,7 +594,7 @@ input {
   &-date {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--body-text);
+    color: var(--secondary-text);
     margin-bottom: 0.5rem;
   }
 

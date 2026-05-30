@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 function FourZeroFour() {
-  let { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="404err">
       <h1>404</h1>

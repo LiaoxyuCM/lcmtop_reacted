@@ -19,7 +19,7 @@ export function Card({ title, iconAttach, content, link, visible = true, targetb
       href={link ? link : "#"}
       onClick={
         link ?
-          () => { } :
+          null :
           (e) => { e.preventDefault() }
       }
       target={targetblank ? "_blank" : ""}
@@ -81,7 +81,7 @@ export function Timeline({ datetime, content }: TimelineProps) {
 }
 
 export function SelectBar({ choices, selectedIdx = 0 }: { choices: string[], selectedIdx?: number }) {
-  let [selectedIndex, chgSelIdx] = useState<number>(selectedIdx);
+  const [selectedIndex, chgSelIdx] = useState<number>(selectedIdx);
 
   return (
     <div className="selectbar">

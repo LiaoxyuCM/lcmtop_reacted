@@ -1,0 +1,84 @@
+$hint_toast-types: error, warn, success, info, debug;
+
+.toast-notification {
+  position: fixed;
+  right: 20px;
+  line-height: 20px;
+  padding: 15px 20px;
+  background-color: var(--toast-bg);
+  color: var(--secondary-text);
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 9990;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  transition: top 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  overflow: hidden;
+
+  @each $value in $hint_toast-types {
+    &.#{$value} {
+      background-color: var(--toast-#{$value}-bg);
+      &::before {
+        background-color: var(--toast-#{$value}-highlighted);
+      }
+    }
+  }
+  
+  &.toast- {
+    &enter {
+      animation: toastSlideInRight 0.3s ease forwards;
+    }
+    &exit {
+      animation: toastFadeOutUp 0.3s ease forwards;
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--toast-bg-highlighted);
+    border-radius: 0 0 8px 8px;
+  }
+  
+  &:not(.toast-enter):not(.toast-exit)::before {
+    animation: toastHighlight var(--toast-duration, 1.7s) ease-in-out forwards;
+  }
+}
+
+@keyframes toastHighlight {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+@keyframes toastSlideInRight {
+  from {
+    transform: translateX(calc(100% + 20px));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastFadeOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}

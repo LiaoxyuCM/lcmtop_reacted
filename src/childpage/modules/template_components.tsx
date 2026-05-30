@@ -14,7 +14,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
   );
 
 
-  let NavBarBaseContent = ({ verbose = false }: { verbose?: boolean }) => (
+  const NavBarBaseContent = ({ verbose = false }: { verbose?: boolean }) => (
     <>
       <a href="#" onClick={
         (e) => {
@@ -60,7 +60,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
     </>
   )
 
-  let NavBarBase = () => (
+  const NavBarBase = () => (
     <>
       <a href="/">LiaoxyuCM</a>
       <div
@@ -140,9 +140,9 @@ export function FooterBase({ advanced = false }: { advanced?: boolean }) {
     )
   };
 
-  let siteTimer = useRef<HTMLParagraphElement>(null);
-  let { t } = useTranslation();
-  let timerContentTemplate: string = t("index.timer");
+  const siteTimer = useRef<HTMLParagraphElement>(null);
+  const { t } = useTranslation();
+  const timerContentTemplate: string = t("index.timer");
   useEffect(() => {
     const startTime: number = new Date('2026/01/04 22:25:00').getTime();
     function fmtDuration(ms: number): string {
