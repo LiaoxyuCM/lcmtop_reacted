@@ -63,8 +63,8 @@ const showToast_ = (
   {
     onClick = new ActionRemoveToast(),
     type = ToastType.Normal,
-    duration = 2000
-  } : ToastOptions = {}
+    duration = 2000,
+  }: ToastOptions = {}
 ) => {
   const toastElement = document.createElement('div');
   toastElement.className = 'toast-notification';
@@ -92,7 +92,7 @@ const showToast_ = (
   toastElement.style.opacity = '';
   toastElement.style.visibility = '';
   toastElement.classList.add('toast-enter');
-  if (type != ToastType.Normal) { // 又套了一层判断，烦
+  if (type != ToastType.Normal) {
     toastElement.classList.add(type);
   }
 
@@ -104,13 +104,24 @@ const showToast_ = (
     removeToast(toastElement);
   }, duration);
 
-  toastElement.addEventListener('click', () => {
+  toastElement.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('.toast-context-menu')) {
+      return;
+    }
+
     if (onClick instanceof ActionRedirect2Url) {
       window.open(onClick.url, '_blank');
     } else if (onClick instanceof ActionRemoveToast) {
       clearTimeout(timeoutId);
       removeToast(toastElement);
     }
+  });
+
+  toastElement.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+
+    clearTimeout(timeoutId);
+    removeToast(toastElement);
   });
 
   return {

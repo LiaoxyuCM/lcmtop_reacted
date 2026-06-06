@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import './css/components.scss';
 
 interface BaseCardProps {
   title: string;
@@ -19,7 +20,7 @@ export function Card({ title, iconAttach, content, link, visible = true, targetb
       href={link ? link : "#"}
       onClick={
         link ?
-          null :
+          void 0 :
           (e) => { e.preventDefault() }
       }
       target={targetblank ? "_blank" : ""}

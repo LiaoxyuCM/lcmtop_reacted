@@ -6,7 +6,7 @@ import LoadingPage from './modules/loadingpage';
 import { useState, useEffect } from 'react';
 import './modules/css/homepage.scss';
 
-const VERSION = "0.7.0";
+const VERSION = "0.7.1";
 
 function HomepageContent() {
   const { t } = useTranslation();
@@ -194,6 +194,13 @@ function Homepage() {
           duration: 5000
         }
       );
+
+      if (VERSION == "0.7.1") {
+        showToast.nohook(t("index.version.0.7.1.update"), {
+          onClick: new ToastOnclickAction.Redirect2Url("https://example.com"),
+          duration: 7000,
+        })
+      }
     }
   }, [loading, t]);
 

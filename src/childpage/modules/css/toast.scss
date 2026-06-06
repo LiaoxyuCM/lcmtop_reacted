@@ -1,4 +1,4 @@
-$hint_toast-types: error, warn, success, info, debug;
+@use "./public/global_vars.scss" as *;
 
 .toast-notification {
   position: fixed;
@@ -78,7 +78,7 @@ $hint_toast-types: error, warn, success, info, debug;
     opacity: 1;
   }
   to {
-    transform: translateY(-20px);
+    transform: translateY(20px);
     opacity: 0;
   }
 }

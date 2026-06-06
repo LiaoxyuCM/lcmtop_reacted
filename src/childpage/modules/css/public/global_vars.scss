@@ -1,0 +1,14 @@
+$hint_toast-types: error, warn, success, info, debug;
+
+%selectbar-and-ul {
+  padding: 0;
+  margin: 20px 0;
+}
+
+@mixin selectbar-choices-and-li($padding-bottom: 9px) {
+  position: relative;
+  padding: 7.5px 12px $padding-bottom 24px;
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}

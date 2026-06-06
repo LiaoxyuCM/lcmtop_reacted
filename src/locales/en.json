@@ -9,6 +9,7 @@
   "index.welcome": "Welcome",
   "index.bg_load_failed": "Cannot load wallpaper, refresh or check your network connection",
   "index.version.update": "Welcome back, this has been updated 2 v%ver, click here to see more details!",
+  "index.version.0.7.1.update": "Try to close this toast with your right mouse",
   "index.greeting.morning": "Good morning!",
   "index.greeting.forenoon": "Happy forenoon!",
   "index.greeting.noon": "Good noon!",

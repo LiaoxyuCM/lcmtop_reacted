@@ -9,6 +9,7 @@
   "index.welcome": "欢迎",
   "index.bg_load_failed": "无法加载壁纸，请刷新或检查网络连接",
   "index.version.update": "欢迎回来, 刚刚本站已经更新至%ver, 点击这里查看更多内容!",
+  "index.version.0.7.1.update": "尝试用鼠标右键来关闭这个信息框",
   "index.greeting.morning": "早上好!",
   "index.greeting.forenoon": "上午好!",
   "index.greeting.noon": "中午好!",
