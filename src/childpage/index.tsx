@@ -190,14 +190,14 @@ function Homepage() {
       showToast.nohook(
         t("index.version.update").replace(/%ver/g, VERSION),
         {
-          onClick: new ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
+          onClick: ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
           duration: 5000
         }
       );
 
       if (VERSION == "0.7.1") {
         showToast.nohook(t("index.version.0.7.1.update"), {
-          onClick: new ToastOnclickAction.Redirect2Url("https://example.com"),
+          onClick: ToastOnclickAction.Redirect2Url("https://example.com"),
           duration: 7000,
         })
       }

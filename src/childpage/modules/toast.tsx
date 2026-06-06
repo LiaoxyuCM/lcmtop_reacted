@@ -23,8 +23,8 @@ export const ToastType = {
 export type ToastType = typeof ToastType[keyof typeof ToastType];
 
 export const ToastOnclickAction = {
-  RemoveToast: ActionRemoveToast,
-  Redirect2Url: ActionRedirect2Url
+  RemoveToast: new ActionRemoveToast(),
+  Redirect2Url: (url: string) => (new ActionRedirect2Url(url))
 }
 
 const activeToasts: { element: HTMLElement; height: number }[] = [];
@@ -61,7 +61,7 @@ export interface ToastOptions {
 const showToast_ = (
   content: string,
   {
-    onClick = new ActionRemoveToast(),
+    onClick = ToastOnclickAction.RemoveToast,
     type = ToastType.Normal,
     duration = 2000,
   }: ToastOptions = {}

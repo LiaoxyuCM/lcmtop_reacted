@@ -40,7 +40,7 @@ export default function ToastPlayground() {
             showToast.nohook(
               inputRef.current?.value || t("teststyle.toast.default"),
               {
-                onClick: new ToastOnclickAction.RemoveToast(),
+                onClick: ToastOnclickAction.RemoveToast,
                 type: selectRef.current?.value as ToastType,
                 duration: durationValue ? Number(durationValue) : 2000
               }
@@ -67,7 +67,7 @@ export default function ToastPlayground() {
             showToast.nohook(
               inputRef.current?.value || t("teststyle.toast.default"),
               {
-                onClick: new ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://liaoxyucm.top"),
+                onClick: ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://liaoxyucm.top"),
                 type: selectRef.current?.value as ToastType,
                 duration: durationValue ? Number(durationValue) : 2000
               }
