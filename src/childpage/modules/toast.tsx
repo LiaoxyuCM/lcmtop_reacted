@@ -68,7 +68,7 @@ const showToast_ = (
 ) => {
   const toastElement = document.createElement('div');
   toastElement.className = 'toast-notification';
-  const parag = document.createElement("p")
+  const parag = document.createElement("p");
   parag.textContent = content;
   if (onClick instanceof ActionRedirect2Url) {
     parag.style.textDecoration = 'underline';

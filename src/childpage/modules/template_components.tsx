@@ -134,7 +134,7 @@ export function FooterBase({ advanced = false }: { advanced?: boolean }) {
     return (
       <p onClick={(e) => { // 因为你 linting，我TM多写两行代码 [哭]
         if (e.currentTarget.textContent) {
-          e.currentTarget.textContent = "Hello, QiChong Chlorine!"; // Don't translate it to other langs, keep it english.
+          e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Don't translate it to other langs, keep it english.
         }
       }}>&copy; LiaoxyuCM Lclimir × LcmTech 2024-{new Date().getFullYear()}</p> // It either (see above).
     )

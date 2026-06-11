@@ -7,7 +7,7 @@ function FriendlyLinksContent() {
     {
       link: "https://muah.top",
       title: t("frdlylnks.huayumomo"),
-      content: `2024 - 2026 ${t("frdlylnks.huayumomo.moking")} & ${t("frdlylnks.huayumomo.chenqingmua")}`,
+      content: `2024 - 2026 ${t("frdlylnks.huayumomo.nexacore")} & ${t("frdlylnks.huayumomo.chenqingmua")}`,
       imagesrc: "https://assets.liaoxyucm.top/muah.top/g.jpg"
     },
     {

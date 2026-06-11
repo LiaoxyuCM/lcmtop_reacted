@@ -11,10 +11,10 @@ function Template(elem: { element: ComponentType }) {
         <main>
           <elem.element />
         </main>
+        <footer>
+          <FooterBase />
+        </footer>
       </div>
-      <footer>
-        <FooterBase />
-      </footer>
     </>
   )
 }
