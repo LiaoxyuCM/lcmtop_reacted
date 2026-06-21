@@ -143,7 +143,7 @@ function Homepage() {
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
   const [i18nReady, setI18nReady] = useState<boolean>(false);
 
-  let greet: string = ""
+  let greet: string = "";
   switch (new Date().getHours()) {
     case 0: case 1: case 2: case 3: case 4: case 5:
       greet = "late_night";

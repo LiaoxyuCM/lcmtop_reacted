@@ -136,7 +136,7 @@ export function FooterBase({ advanced = false }: { advanced?: boolean }) {
         if (e.currentTarget.textContent) {
           e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Don't translate it to other langs, keep it english.
         }
-      }}>&copy; LiaoxyuCM Lclimir × LcmTech 2024-{new Date().getFullYear()}</p> // It either (see above).
+      }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
     )
   };
 
