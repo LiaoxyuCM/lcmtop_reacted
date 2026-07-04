@@ -4,8 +4,8 @@ Use ur favorite npm and have fun :\)
 使用你喜欢的 npm 包管理器，玩的开心吧 :\)
 
 ```sh
-git clone https://github.com/LiaoxyuCM/liaoxyucmTop_reacted.git
-cd liaoxyucmTop_reacted
+git clone https://github.com/LiaoxyuCM/lcmtop_reacted.git
+cd lcmtop_reacted
 npm install
 npm run dev # Preview 预览: http://localhost:5173
 npm run build # Build 构建 (Will be output to dist/ 将输出到 dist/)
