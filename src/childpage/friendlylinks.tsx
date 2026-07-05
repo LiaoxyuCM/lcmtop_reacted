@@ -21,6 +21,12 @@ function FriendlyLinksContent() {
       title: "ZI",
       content: t("frdlylnks.zi.content"),
       imagesrc: "https://assets.liaoxyucm.top/tunhs.mysxl.cn/icon.jpg"
+    },
+    {
+      link: "https://www.sgyyds.club",
+      title: "孙哥科技",
+      content: "孙哥科技是一个专注于 Web 开发、开源项目分享与技术写作 的个人技术品牌。",
+      imagesrc: "https://www.sgyyds.club/favicon.ico"
     }
   ]
   return (
