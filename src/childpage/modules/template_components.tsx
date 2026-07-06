@@ -132,7 +132,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
 export function FooterBase({ advanced = false }: { advanced?: boolean }) {
   if (!advanced) {
     return (
-      <p onClick={(e) => { // 因为你 linting，我TM多写两行代码 [哭]
+      <p onClick={(e) => {
         if (e.currentTarget.textContent) {
           e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Don't translate it to other langs, keep it english.
         }

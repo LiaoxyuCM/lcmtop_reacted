@@ -22,14 +22,14 @@ function HomepageContent() {
 
   const cardsData = [
     {
-      link: 'https://github.com/LiaoxyuCM/liaoxyucmTop_reacted',
+      link: 'https://github.com/LiaoxyuCM/lcmtop_reacted',
       title: t("index.card.siterepo.title"),
       content: t("index.card.siterepo.content"),
       filter: ["red2gh", "program"],
       targetblank: true
     },
     {
-      link: 'https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/issues',
+      link: 'https://github.com/LiaoxyuCM/lcmtop_reacted/issues',
       title: t("index.card.feedback.title"),
       content: t("index.card.feedback.content"),
       filter: ["red2gh", "sitesupport"],
