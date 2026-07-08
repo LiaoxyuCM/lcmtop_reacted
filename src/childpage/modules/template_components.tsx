@@ -170,72 +170,86 @@ export function FooterBase({ advanced = false }: { advanced?: boolean }) {
 
   return (
     <>
-      <FooterBase />
-      <p ref={siteTimer}></p>
+      <div className="footer footer-basic">
+        <FooterBase />
+        <p ref={siteTimer}></p>
+      </div>
     </>
   )
 }
 
 export function Cursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const [closestInteractable, setClosestInteractable] = useState<boolean>(false);
-  const [hasMouse, setHasMouse] = useState<boolean>(false);
+  const [msX, smsX] = useState<number>(0);
+  const [msY, smsY] = useState<number>(0);
+  const [cW, scW] = useState<string>("4.2rem");
+  const [cH, scH] = useState<string>("4.2rem");
+  const [cTgt, scTgt] = useState<HTMLElement | null>(null);
+  const targetRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const checkMouse = () => {
-      const hasMouseDevice = window.matchMedia('(pointer: fine)').matches;
-      setHasMouse(hasMouseDevice);
+    const handleMouseMove = (ev: MouseEvent) => {
+      let mcaX: number = ev.clientX;
+      let mcaY: number = ev.clientY;
+      
+      if (cTgt) {
+        const rect = cTgt.getBoundingClientRect();
+        const cttX: number = rect.left + rect.width / 2;
+        const cttY: number = rect.top + rect.height / 2;
+        mcaX = cttX + (mcaX - cttX) * 0.1;
+        mcaY = cttY + (mcaY - cttY) * 0.1;
+      }
+      smsX(mcaX);
+      smsY(mcaY);
     };
 
-    checkMouse();
-
-    const mediaQuery = window.matchMedia('(pointer: fine)');
-    const handler = (e: MediaQueryListEvent) => {
-      if (e.matches) { setHasMouse(e.matches) }
-    };
-
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
-  }, []);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [cTgt]);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
+    const elements = document.querySelectorAll(
+      "a, .card, input, select, textarea, button, .selectbar div"
+    ); // There aren't any toast-notifications matched, so I removed this selector.
 
-    const handleMouseMove = (event: MouseEvent) => {
-      cursor.style.left = `${event.clientX - 20}px`;
-      cursor.style.top = `${event.clientY - 20}px`;
+    const handleEnter = (el: HTMLElement) => {
+      return () => {
+        scTgt(el);
+        const rect = el.getBoundingClientRect();
+        scW(`${rect.width + window.innerWidth / 50}px`);
+        scH(`${rect.height + window.innerWidth / 50}px`);
+      };
     };
 
-    const selectors = 'a, button, select, .selectbar, nav div.pe svg';
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const isInteractable = (e.target as HTMLElement).closest(selectors);
-      setClosestInteractable(!!isInteractable);
-    };
-    const handleMouseOut = (e: MouseEvent) => {
-      const isInteractable = (e.target as HTMLElement).closest(selectors);
-      if (isInteractable) setClosestInteractable(false);
+    const handleLeave = () => {
+      scTgt(null);
+      scW("4.2rem");
+      scH("4.2rem");
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mouseout', handleMouseOut);
+    elements.forEach((el) => {
+      el.addEventListener("mouseenter", handleEnter(el as HTMLElement));
+      el.addEventListener("mouseleave", handleLeave);
+    });
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mouseout', handleMouseOut);
+      elements.forEach((el) => {
+        el.removeEventListener("mouseenter", handleEnter(el as HTMLElement));
+        el.removeEventListener("mouseleave", handleLeave);
+      });
     };
   }, []);
-
   return (
     <div
-      ref={cursorRef}
-      className={"cursor" + (closestInteractable ? " interactable" : "")}
+      className="cursor"
       style={{
-        display: hasMouse ? 'block' : 'none',
+        "--c-width": cW,
+        "--c-height": cH,
+        transform: `translate(${msX}px, ${msY}px)`
       }}
-    />
+    >
+      {["", "", "", ""].map((_, index) => (
+        <div key={index} />
+      ))}
+    </div>
   );
 }

@@ -1,23 +1,42 @@
-.cursor {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: border-radius 0.2s ease,
-              box-shadow 0.2s ease,
-              width 0.2s ease,
-              height 0.2s ease,
-              transform 0.2s ease;
-  background: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--primary-text, black);
-  transform: none;
+@use "sass:list";
 
-  &.interactable {
-    width: 80px;
-    height: 80px;
-    box-shadow: 0 0 0 2px var(--primary-text, black);
-    transform: translate(-20px, -20px);
+.cursor {
+  --c-width: 4.2rem;
+  --c-height: 4.2rem;
+  position: fixed;
+  width: var(--c-width);
+  height: var(--c-height);
+  z-index: 10010;
+  left: calc(var(--c-width) / -2);
+  top: calc(var(--c-height) / -2);
+  pointer-events: none;
+
+
+  transition: .2s ease-out;
+  transition-property: transform, width, height;
+  will-change: transform;
+
+  div {
+    position: absolute;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-width: .2rem;
+    border-color: var(--primary-text);
+    $borders: (top left)
+              (top right)
+              (bottom left)
+              (bottom right);
+
+    @for $i from 1 through 4 {
+      $vs: list.nth($borders, $i);
+      $v1: list.nth($vs, 1);
+      $v2: list.nth($vs, 2);
+      &:nth-child(#{$i}) {
+        #{$v1}: 0;
+        #{$v2}: 0;
+        border-#{$v1}-style: solid;
+        border-#{$v2}-style: solid;
+      }
+    }
   }
 }
