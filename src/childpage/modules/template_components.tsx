@@ -184,7 +184,7 @@ export function Cursor() {
   const [cW, scW] = useState<string>("4.2rem");
   const [cH, scH] = useState<string>("4.2rem");
   const [cTgt, scTgt] = useState<HTMLElement | null>(null);
-  const targetRef = useRef<HTMLElement | null>(null);
+  // const targetRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (ev: MouseEvent) => {
@@ -245,7 +245,7 @@ export function Cursor() {
         "--c-width": cW,
         "--c-height": cH,
         transform: `translate(${msX}px, ${msY}px)`
-      }}
+      } as React.CSSProperties }
     >
       {["", "", "", ""].map((_, index) => (
         <div key={index} />
