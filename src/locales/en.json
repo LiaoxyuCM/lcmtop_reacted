@@ -93,10 +93,10 @@
   "teststyle.toast.default": "Default Toast Content",
   "teststyle.toast.onclick_redirect.input": "Enter URL, eg. ",
   "frdlylnks.huayumomo": "HuaYuMoMo",
-  "frdlylnks.huayumomo.nexacore": "NexaCore Team",
-  "frdlylnks.huayumomo.chenqingmua": "ChenQingMua",
+  "frdlylnks.huayumomo.content": "NexaCore Team & ChenQingMua",
   "frdlylnks.gnjjws.content": "ZHTech-工农阶级万岁🅥",
   "frdlylnks.zi.content": "The Universal NHS",
+  "frdlylnks.sungge.content": "is a personal tech brand focused on web development, open-source project sharing, and technical writing",
   "err.404.message": "I don't know either! The page seems to have been eaten by that little cat from a secret site.",
   "err.404.goback": "Go Back"
 }

@@ -93,10 +93,10 @@
   "teststyle.toast.default": "默认信息框信息",
   "teststyle.toast.onclick_redirect.input": "输入链接, 例如 ",
   "frdlylnks.huayumomo": "花雨默默",
-  "frdlylnks.huayumomo.nexacore": "沫青工作室",
-  "frdlylnks.huayumomo.chenqingmua": "陈青陌",
+  "frdlylnks.huayumomo.content": "沫青工作室 & 沫青工作室",
   "frdlylnks.gnjjws.content": "众和-工农阶级万岁🅥",
   "frdlylnks.zi.content": "无人区 —— 非盈利组织",
+  "frdlylnks.sungge.content": "是一个专注于 Web 开发、开源项目分享与技术写作 的个人技术品牌",
   "err.404.message": "我也不知道啊，页面似乎被某个神秘网站的那只小猫吃掉了",
   "err.404.goback": "回去"
 }

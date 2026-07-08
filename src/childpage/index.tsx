@@ -223,7 +223,7 @@ function Homepage() {
           <Cursor />
           <NavBar advanced={true} />
           <div className="homepage overlay">
-            <h1>{t("index.welcome")}</h1>
+            <h1 className="cur-target">{t("index.welcome")}</h1>
             <p className="homepage subtitle">
               /* LiaoxyuCM, Lclimir */
             </p>

@@ -7,7 +7,7 @@ function FriendlyLinksContent() {
     {
       link: "https://muah.top",
       title: t("frdlylnks.huayumomo"),
-      content: `2024 - 2026 ${t("frdlylnks.huayumomo.nexacore")} & ${t("frdlylnks.huayumomo.chenqingmua")}`,
+      content: `2024 - 2026 ${t("frdlylnks.huayumomo.content")}`,
       imagesrc: "https://assets.liaoxyucm.top/muah.top/g.jpg"
     },
     {
@@ -25,7 +25,7 @@ function FriendlyLinksContent() {
     {
       link: "https://www.sgyyds.club",
       title: "孙哥科技",
-      content: "孙哥科技是一个专注于 Web 开发、开源项目分享与技术写作 的个人技术品牌。",
+      content: `孙哥科技${t("frdlylnks.sungge.content")}`,
       imagesrc: "https://www.sgyyds.club/favicon.ico"
     }
   ]
