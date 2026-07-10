@@ -17,7 +17,7 @@
 body {
   &:not(.dark) {
     --primary-bg: #f8fafc;
-    --secondary-bg: #{shadow-white(0.8)};
+    --secondary-bg: #{shadow-white(0.5)};
     --primary-border: #e2e8f0;
     --primary-text: #1e40af;
     --secondary-text: #0f172a;

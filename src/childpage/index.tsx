@@ -12,7 +12,6 @@ function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
-  // const [i18nReady, setI18nReady] = useState<boolean>(false);
 
   let greet: string = "";
   switch (new Date().getHours()) {
