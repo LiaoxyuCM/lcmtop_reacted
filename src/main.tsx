@@ -5,6 +5,7 @@ import './index.scss'
 import './i18n'
 import Template from './App.tsx'
 import Homepage from './childpage/index.tsx'
+import HomepageContent from './childpage/content.tsx'
 import FriendlyLinksContent from './childpage/friendlylinks.tsx'
 import FourZeroFour from './childpage/404.tsx'
 import ToastPlayground from './childpage/toast_playground.tsx'
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     "path": "/",
     "element": <Homepage />
+  },
+  {
+    "path": "/content",
+    "element": <Template element={HomepageContent} />
   },
   {
     "path": "/friendlylinks",

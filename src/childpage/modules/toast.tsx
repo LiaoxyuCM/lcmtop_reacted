@@ -58,7 +58,7 @@ export interface ToastOptions {
   duration?: number;
 }
 
-const showToast_ = (
+const showToast_ = ( // 竟让我手动操作DOM
   content: string,
   {
     onClick = ToastOnclickAction.RemoveToast,

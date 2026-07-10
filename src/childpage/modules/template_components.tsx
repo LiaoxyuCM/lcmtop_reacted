@@ -184,7 +184,9 @@ export function Cursor() {
   const [cW, scW] = useState<string>("4.2rem");
   const [cH, scH] = useState<string>("4.2rem");
   const [cTgt, scTgt] = useState<HTMLElement | null>(null);
-  // const targetRef = useRef<HTMLElement | null>(null);
+
+
+  const enabledSmoothTransition: boolean = window.location.hash == "#smooth-transition";
 
   useEffect(() => {
     const handleMouseMove = (ev: MouseEvent) => {
@@ -244,7 +246,9 @@ export function Cursor() {
       style={{
         "--c-width": cW,
         "--c-height": cH,
-        transform: `translate(${msX}px, ${msY}px)`
+        transform: `translate(${msX}px, ${msY}px)`,
+        transitionProperty: enabledSmoothTransition ? "transform, width, height" : "",
+        willChange: enabledSmoothTransition ? "transform" : ""
       } as React.CSSProperties }
     >
       {["", "", "", ""].map((_, index) => (

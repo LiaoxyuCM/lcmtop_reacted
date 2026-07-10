@@ -1,141 +1,12 @@
 import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
-import { Card, Icons } from './modules/components';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
+import { Icons } from './modules/components';
 import LoadingPage from './modules/loadingpage';
 import { useState, useEffect } from 'react';
 import './modules/css/homepage.scss';
 
-const VERSION = "0.8.0-pre.0";
-
-function HomepageContent() {
-  const { t } = useTranslation();
-  const [filter1, setFilter1] = useState<string>('@all');
-  const [filter2, setFilter2] = useState<string>('@all');
-  const isCardVisible = (cardClasses: string) => {
-    const match1: boolean = filter1 === '@all' || cardClasses.includes(filter1);
-    const match2: boolean = filter2 === '@all' || cardClasses.includes(filter2);
-    return match1 && match2;
-  }
-
-  const generateFilterOption = (key_: string) => (<option key={key_} value={key_}>{t("index.filter." + key_)}</option>)
-
-  const cardsData = [
-    {
-      link: 'https://github.com/LiaoxyuCM/lcmtop_reacted',
-      title: t("index.card.siterepo.title"),
-      content: t("index.card.siterepo.content"),
-      filter: ["red2gh", "program"],
-      targetblank: true
-    },
-    {
-      link: 'https://github.com/LiaoxyuCM/lcmtop_reacted/issues',
-      title: t("index.card.feedback.title"),
-      content: t("index.card.feedback.content"),
-      filter: ["red2gh", "sitesupport"],
-      targetblank: true
-    },
-    {
-      link: '/styletest',
-      title: t("index.card.teststyle.title"),
-      content: t("index.card.teststyle.content"),
-      filter: ["thissite", "sitetool"],
-      targetblank: false
-    },
-    {
-      link: 'https://about.liaoxyucm.top',
-      title: t("index.card.aboutme.title"),
-      content: t("index.card.aboutme.content"),
-      filter: ["thissite", "sitesupport"]
-    },
-    {
-      link: 'https://starter.liaoxyucm.top',
-      title: t("index.card.starter.title"),
-      content: t("index.card.starter.content"),
-      filter: ["thissite", "program"]
-    },
-    {
-      link: 'https://encode.liaoxyucm.top',
-      title: t("index.card.encoder.title"),
-      content: t("index.card.encoder.content"),
-      filter: ["thissite", "sitetool"]
-    },
-    {
-      link: 'https://tools.liaoxyucm.top/randompicker',
-      title: t("index.card.randompicker.title"),
-      content: t("index.card.randompicker.content"),
-      filter: ["thissite", "sitetool"]
-    },
-    {
-      link: 'https://tools.liaoxyucm.top/unwasting',
-      title: "Unwasting",
-      content: t("index.card.unwasting.content"),
-      filter: ["thissite", "sitetool"]
-    },
-  ]
-
-  return (
-    <>
-      <form method="get" action="https://cn.bing.com/search" style={{ display: "flex" }}>
-        <input name="q" placeholder={t("index.search_via_bing")} style={
-          {
-            flex: "1 1 0%",
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0
-          }
-        } />
-        <button type="submit" style={
-          {
-            borderTopLeftRadius: 0,
-            borderBottomLeftRadius: 0
-          }
-        }>=&gt;</button>
-      </form>
-      <div className="hint">
-        <p>{t("index.rewritten_using_react")}</p>
-      </div>
-      <select
-        id="filter-control-1"
-        value={filter1}
-        onChange={(e) => setFilter1(e.target.value)}
-      >
-        <option value="@all">--{t("index.filter")}--</option>
-        {
-          ['red2gh', 'thissite'].map(key => generateFilterOption(key))
-        }
-      </select>
-
-      <select
-        id="filter-control-2"
-        value={filter2}
-        onChange={(e) => setFilter2(e.target.value)}
-      >
-        <option value="@all">--{t("index.filter")}--</option>
-        {
-          ['program', 'sitetool', 'sitesupport'].map(key => generateFilterOption(key))
-        }
-      </select>
-
-      <div className="cards">
-        {cardsData.map((card, index) => {
-          const visible = isCardVisible(card.filter ? card.filter.join(" ") : "");
-
-          return (
-            <Card
-              link={card.link}
-              title={card.title}
-              content={card.content}
-              iconAttach={card.filter.includes("red2gh") ? <Icons.GitHub /> : <></>}
-              targetblank={card.targetblank}
-              visible={visible}
-              key={index}
-            />
-          );
-        })}
-      </div>
-    </>
-  )
-}
+const VERSION = "0.8.0-pre.1";
 
 function Homepage() {
   const { t, i18n } = useTranslation();
@@ -231,7 +102,18 @@ function Homepage() {
           </div>
           <div className="homepage main-parent">
             <main>
-              <HomepageContent />
+              <p>
+                {t("index.comingup")}
+                <a
+                  href="content/"
+                  style={{fontWeight: "bold"}}
+                >
+                  {t("index.comingup.here")}
+                </a>
+                <br />
+                {t("index.comingup.missing_smooth_transition")}
+                <code>#smooth-transition</code>
+              </p>
             </main>
             <footer style={{ margin: 0 }}>
               <FooterBase advanced={true} />

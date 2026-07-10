@@ -13,8 +13,9 @@
 
 
   transition: .2s ease-out;
-  transition-property: transform, width, height;
-  will-change: transform;
+  // transition-property: transform, width, height;
+  transition-property: width, height;
+  // will-change: transform;
 
   div {
     position: absolute;
