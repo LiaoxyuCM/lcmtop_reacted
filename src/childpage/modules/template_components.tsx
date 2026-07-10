@@ -272,7 +272,7 @@ export function Cursor() {
         "--c-width": cW,
         "--c-height": cH,
         transform: `translate(${msX}px, ${msY}px)`,
-        transitionProperty: enabledSmoothTransition ? "transform, width, height" : "",
+        transitionProperty: enabledSmoothTransition ? "transform, width, height, top, left" : "",
         willChange: enabledSmoothTransition ? "transform" : ""
       } as React.CSSProperties }
     >

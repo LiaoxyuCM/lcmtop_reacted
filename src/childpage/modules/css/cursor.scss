@@ -11,11 +11,8 @@
   top: calc(var(--c-height) / -2);
   pointer-events: none;
 
-
   transition: .2s ease-out;
-  // transition-property: transform, width, height;
-  transition-property: width, height;
-  // will-change: transform;
+  transition-property: width, height, top, left;
 
   div {
     position: absolute;
