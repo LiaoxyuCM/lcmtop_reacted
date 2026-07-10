@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Card, Icons } from './modules/components';
+import { Card } from './modules/components';
+import Icons from './modules/icons.tsx';
 
 export default function HomepageContent() {
   const { t } = useTranslation();
@@ -14,7 +15,13 @@ export default function HomepageContent() {
 
   const generateFilterOption = (key_: string) => (<option key={key_} value={key_}>{t("content.filter." + key_)}</option>)
 
-  const cardsData = [
+  const cardsData: {
+    link: string,
+    title: string,
+    content: string,
+    filter: string[],
+    targetblank?: boolean
+  }[] = [
     {
       link: 'https://github.com/LiaoxyuCM/lcmtop_reacted',
       title: t("content.card.siterepo.title"),

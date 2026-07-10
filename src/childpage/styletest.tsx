@@ -143,6 +143,18 @@ export function Styletest() {
   )
 }
 
+const ParamThead = () => {
+  const { t } = useTranslation();
+  return (
+    <thead>
+      <tr>
+        {["name", "type", "required", "default"].map((key) => (
+          <th key={key}>{t("teststyle.doc.components.param." + key)}</th>
+        ))}
+      </tr>
+    </thead>
+  )
+}
 
 export function ComponentsDoc() {
   const { t } = useTranslation();
@@ -170,15 +182,6 @@ export function ComponentsDoc() {
 
   }, []);
 
-  const ParamThead = () => (
-    <thead>
-      <tr>
-        {["name", "type", "required", "default"].map((key) => (
-          <th key={key}>{t("teststyle.doc.components.param." + key)}</th>
-        ))}
-      </tr>
-    </thead>
-  )
   return (
     <>
       <p>{t("teststyle.doc.components.intro")}</p>

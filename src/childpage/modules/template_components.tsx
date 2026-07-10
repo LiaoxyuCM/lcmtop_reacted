@@ -1,20 +1,15 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, type Dispatch, type SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
-import { Icons } from "./components";
+import Icons from "./icons";
 import "./css/cursor.scss";
 
-export function NavBar({ advanced = false }: { advanced?: boolean }) {
+
+const NavBarBaseContent = (
+  { darkmode, setDarkmode, verbose = false }:
+  { darkmode: boolean, setDarkmode: Dispatch<SetStateAction<boolean>>, verbose?: boolean }
+) => {
   const { t, i18n } = useTranslation();
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
-  // read color theme (light / dark) from localStorage and set it to the root element
-  const [darkmode, setDarkmode] = useState<boolean>(
-    Boolean(localStorage.getItem("darkmode") === "true")
-  );
-
-
-  const NavBarBaseContent = ({ verbose = false }: { verbose?: boolean }) => (
+  return (
     <>
       <a href="#" onClick={
         (e) => {
@@ -59,29 +54,49 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
       <a href="/friendlylinks">{t("index.nav.frdlylnks")}</a>
     </>
   )
+}
 
-  const NavBarBase = () => (
-    <>
-      <a href="/">LiaoxyuCM</a>
-      <div
-        className="pe" style={{ display: isMobile ? "" : "none" }}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <Icons.Menu />
+const NavBarBase = (
+  {isMenuOpen, setIsMenuOpen, isMobile, darkmode, setDarkmode}:
+  {
+    isMenuOpen: boolean,
+    setIsMenuOpen: Dispatch<SetStateAction<boolean>>,
+    isMobile?: boolean,
+    darkmode: boolean,
+    setDarkmode: Dispatch<SetStateAction<boolean>>
+  }
+) => (
+  <>
+    <a href="/">LiaoxyuCM</a>
+    <div
+      className="pe" style={{ display: isMobile ? "" : "none" }}
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+    >
+      <Icons.Menu />
+    </div>
+    <div className="pc" style={{ display: isMobile ? "none" : "" }}>
+      <NavBarBaseContent darkmode={darkmode} setDarkmode={setDarkmode} />
+    </div>
+
+    {isMobile && ( // 死磕deepseek的第n天
+      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+        <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
+        <NavBarBaseContent verbose={true} darkmode={darkmode} setDarkmode={setDarkmode} />
       </div>
-      <div className="pc" style={{ display: isMobile ? "none" : "" }}>
-        <NavBarBaseContent />
-      </div>
+    )}
+  </>
+)
 
-      {isMobile && ( // 死磕deepseek的第n天
-        <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-          <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
-          <NavBarBaseContent verbose={true} />
-        </div>
-      )}
+export function NavBar({ advanced = false }: { advanced?: boolean }) {
+  // const { t, i18n } = useTranslation();
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isUnscrolled, setIsUnscrolled] = useState<boolean>(advanced);
 
-    </>
-  )
+  // read color theme (light / dark) from localStorage and set it to the root element
+  const [darkmode, setDarkmode] = useState<boolean>(
+    Boolean(localStorage.getItem("darkmode") === "true")
+  );
 
   // Navbar on Mobile device
   useEffect(() => {
@@ -96,53 +111,52 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsUnscrolled(window.scrollY < 21);
+    };
 
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
 
-  if (advanced) {
-    const [isUnscrolled, setIsUnscrolled] = useState<boolean>(true);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [advanced]);
 
-    useEffect(() => {
-      const handleScroll = () => {
-        setIsUnscrolled(window.scrollY < 21);
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      handleScroll();
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
-
-
-    return (
-      <nav className={(isUnscrolled) ? 'unscrolled' : ''} style={{ position: "fixed" }}>
-        <NavBarBase />
-      </nav>
-    );
-  } else {
+  if (!advanced) {
     return (
       <nav>
-        <NavBarBase />
+        <NavBarBase
+          isMenuOpen={isMenuOpen}
+          setIsMenuOpen={setIsMenuOpen}
+          isMobile={isMobile}
+          darkmode={darkmode}
+          setDarkmode={setDarkmode}
+        />
       </nav>
     )
   }
+
+  return (
+    <nav className={(isUnscrolled) ? 'unscrolled' : ''} style={{ position: "fixed" }}>
+      <NavBarBase
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        isMobile={isMobile}
+        darkmode={darkmode}
+        setDarkmode={setDarkmode}
+      />
+    </nav>
+  );
 }
 
 export function FooterBase({ advanced = false }: { advanced?: boolean }) {
-  if (!advanced) {
-    return (
-      <p onClick={(e) => {
-        if (e.currentTarget.textContent) {
-          e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Don't translate it to other langs, keep it english.
-        }
-      }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
-    )
-  };
-
   const siteTimer = useRef<HTMLParagraphElement>(null);
   const { t } = useTranslation();
   const timerContentTemplate: string = t("index.timer");
+ 
   useEffect(() => {
     const startTime: number = new Date('2026/01/04 22:25:00').getTime();
     function fmtDuration(ms: number): string {
@@ -166,7 +180,18 @@ export function FooterBase({ advanced = false }: { advanced?: boolean }) {
     const interval: number = setInterval(update, 150);
 
     return () => clearInterval(interval);
-  }, [timerContentTemplate]);
+  }, [timerContentTemplate, advanced]);
+
+  if (!advanced) {
+    return (
+      <p onClick={(e) => {
+        if (e.currentTarget.textContent) {
+          e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Don't translate it to other langs, keep it english.
+        }
+      }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
+    )
+  };
+
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { NavBar, FooterBase, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
-import { Icons } from './modules/components';
+import Icons from './modules/icons';
 import LoadingPage from './modules/loadingpage';
 import { useState, useEffect } from 'react';
 import './modules/css/homepage.scss';
@@ -12,7 +12,7 @@ function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
-  const [i18nReady, setI18nReady] = useState<boolean>(false);
+  // const [i18nReady, setI18nReady] = useState<boolean>(false);
 
   let greet: string = "";
   switch (new Date().getHours()) {
@@ -42,18 +42,13 @@ function Homepage() {
       break;
   }
 
-  useEffect(() => {
-    if (i18n.isInitialized) {
-      setI18nReady(true);
-    }
-  }, [i18n]);
 
   useEffect(() => {
-    if (bgLoaded && i18nReady) {
+    if (bgLoaded && i18n.isInitialized) {
       const timer = setTimeout(() => setLoading(false), 300);
       return () => clearTimeout(timer);
     }
-  }, [bgLoaded, i18nReady]);
+  }, [bgLoaded, i18n.isInitialized]);
 
   useEffect(() => {
     if (!loading && localStorage.getItem("version") !== VERSION) {
@@ -72,7 +67,7 @@ function Homepage() {
     if (!loading) {
       showToast.nohook(t("index.greeting." + greet));
     }
-  }, [loading, greet]);
+  }, [loading, greet, t]);
 
   return (
     <>

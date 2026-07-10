@@ -41,16 +41,11 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
   }, [isLoading]);
 
   useEffect(() => {
-    if (!isLoading) {
-      const timer = setTimeout(() => {
-        setShouldHide(true);
-        onLoadingComplete?.();
-      }, 300);
-      return () => clearTimeout(timer);
-    } else {
-      setShouldHide(false);
-      setProgress(0);
-    }
+    const timer = setTimeout(() => {
+      setShouldHide(!isLoading);
+      onLoadingComplete?.();
+    }, 300);
+    return () => clearTimeout(timer);
   }, [isLoading, onLoadingComplete]);
 
   if (shouldHide) return null;
