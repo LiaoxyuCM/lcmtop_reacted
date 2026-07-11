@@ -125,22 +125,13 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
     };
   }, [advanced]);
 
-  if (!advanced) {
-    return (
-      <nav>
-        <NavBarBase
-          isMenuOpen={isMenuOpen}
-          setIsMenuOpen={setIsMenuOpen}
-          isMobile={isMobile}
-          darkmode={darkmode}
-          setDarkmode={setDarkmode}
-        />
-      </nav>
-    )
-  }
-
   return (
-    <nav className={(isUnscrolled) ? 'unscrolled' : ''} style={{ position: "fixed" }}>
+    <nav
+      className={
+        (isUnscrolled && advanced) ? 'unscrolled' : ''
+      }
+      style={advanced ? { position: "fixed" } : {}}
+    >
       <NavBarBase
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
@@ -209,6 +200,18 @@ export function Cursor() {
   const [cW, scW] = useState<string>("4.2rem");
   const [cH, scH] = useState<string>("4.2rem");
   const [cTgt, scTgt] = useState<HTMLElement | null>(null);
+  const [isFinePointer, setIsFinePointer] = useState(
+    window.matchMedia("(pointer: fine)").matches
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+    
+    const handler = (e: MediaQueryListEvent) => setIsFinePointer(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
 
   const enabledSmoothTransition: boolean = window.location.hash == "#smooth-transition";
@@ -273,7 +276,8 @@ export function Cursor() {
         "--c-height": cH,
         transform: `translate(${msX}px, ${msY}px)`,
         transitionProperty: enabledSmoothTransition ? "transform, width, height, top, left" : "",
-        willChange: enabledSmoothTransition ? "transform" : ""
+        willChange: enabledSmoothTransition ? "transform" : "",
+        display: isFinePointer ? "block" : "none"
       } as React.CSSProperties }
     >
       {["", "", "", ""].map((_, index) => (

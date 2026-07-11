@@ -7,7 +7,7 @@ export default function HomepageContent() {
   const { t } = useTranslation();
   const [filter1, setFilter1] = useState<string>('@all');
   const [filter2, setFilter2] = useState<string>('@all');
-  const isCardVisible = (cardClasses: string) => {
+  const isCardVisible: (cardClasses: string) => boolean = (cardClasses: string) => {
     const match1: boolean = filter1 === '@all' || cardClasses.includes(filter1);
     const match2: boolean = filter2 === '@all' || cardClasses.includes(filter2);
     return match1 && match2;
