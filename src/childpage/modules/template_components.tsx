@@ -143,7 +143,14 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
   );
 }
 
-export function FooterBase({ advanced = false }: { advanced?: boolean }) {
+export const FooterBase = () => (
+  <p onClick={(e) => {
+    if (e.currentTarget.textContent) {
+      e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Dont translate it 2 other langs, keep it english.
+    }
+  }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
+)
+export function FooterBaseAdvanced() {
   const siteTimer = useRef<HTMLParagraphElement>(null);
   const { t } = useTranslation();
   const timerContentTemplate: string = t("index.timer");
@@ -171,18 +178,7 @@ export function FooterBase({ advanced = false }: { advanced?: boolean }) {
     const interval: number = setInterval(update, 150);
 
     return () => clearInterval(interval);
-  }, [timerContentTemplate, advanced]);
-
-  if (!advanced) {
-    return (
-      <p onClick={(e) => {
-        if (e.currentTarget.textContent) {
-          e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Don't translate it to other langs, keep it english.
-        }
-      }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
-    )
-  };
-
+  }, [timerContentTemplate]);
 
   return (
     <>

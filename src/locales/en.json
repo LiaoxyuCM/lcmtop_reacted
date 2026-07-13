@@ -17,7 +17,7 @@
   "index.greeting.evening": "Good evening!",
   "index.greeting.night": "Good night!",
   "index.greeting.late_night": "It's late at night, take care of your health!",
-  "index.comingup": "The new version of the homepage is under construction (expected to be completed in pre3 or greater), and the original content has been moved to ",
+  "index.comingup": "The new version of the homepage is under construction (expected to be completed in pre4 or greater), and the original content has been moved to ",
   "index.comingup.here": "here",
   "index.comingup.missing_smooth_transition": "If you missed the smooth transition of the cursor in pre0, please add the below content to this URL.",
   "index.nav.frdlylnks": "FriendlyLinks",
