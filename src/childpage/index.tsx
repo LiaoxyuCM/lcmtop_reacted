@@ -1,17 +1,21 @@
 import { NavBar, FooterBaseAdvanced, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
+import { motion, AnimatePresence } from 'motion/react';
 import Icons from './modules/icons';
 import LoadingPage from './modules/loadingpage';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type JSX } from 'react';
 import './modules/css/homepage.scss';
 
-const VERSION = "0.8.0-pre.3";
+const VERSION = "0.8.0-pre.4";
 
 function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
+  const [mynindex, sMynIndex] = useState(0);
+
+  const myn: string[] = ["iaoxyuCM", "climir", "vqichongNB"];
 
   let greet: string = "";
   switch (new Date().getHours()) {
@@ -68,6 +72,13 @@ function Homepage() {
     }
   }, [loading, greet, t]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      sMynIndex((prev) => (prev + 1) % myn.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [myn.length]);
+
   return (
     <>
       <LoadingPage
@@ -96,28 +107,75 @@ function Homepage() {
           </div>
           <div className="homepage main-parent">
             <main>
-              <div className="homepage article about">
-                <p>
-                  {t("index.comingup")}
-                  <a
-                    href="content/"
-                    style={{fontWeight: "bold"}}
+              {
+                [
+                  {
+                    name: "comingup",
+                    el: <p>
+                      {t("index.comingup")}
+                      <a
+                        href="content/"
+                        style={{fontWeight: "bold"}}
+                      >
+                        {t("index.comingup.here")}
+                      </a>
+                      <br />
+                      {t("index.comingup.missing_smooth_transition")}
+                      <code>#smooth-transition</code>
+                    </p>
+                  },
+                  {
+                    name: "about",
+                    el: <p style={{ position: "relative" }}>
+                          L
+                          <AnimatePresence mode="wait">
+                            <motion.span
+                              key={myn[mynindex]}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -20 }}
+                              transition={{
+                                duration: .6,
+                                ease: [0.25, 0.1, 0.25, 1],
+                              }}
+                              style={{ position: "absolute" }}
+                            >
+                              {myn[mynindex]}
+                            </motion.span>
+                          </AnimatePresence>
+                        </p>
+                  },
+                  {
+                    name: "portfolio",
+                    el: <>
+                      <p>portfolio</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin imperdiet consectetur. Nam eu egestas ipsum, eget faucibus tellus. In consectetur dapibus ultricies. In bibendum condimentum purus, vel venenatis urna vestibulum vitae. Vivamus et tortor cursus, fermentum libero sit amet, luctus felis. Nunc eleifend ultrices ligula, ut gravida elit interdum nec. Ut eu justo id turpis gravida tristique nec nec risus.</p>
+                    </>
+                  },
+                  {
+                    name: "contact",
+                    el: <>
+                      <p>contact</p>
+                      <p>me@liaoxyucm.top</p>
+                    </>
+                  }
+                ].map(({name, el}: {name: string, el: JSX.Element}, index: number) => (
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      transform: "translateY(10px)"
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      transform: "translateY(0)"
+                    }}
+                    key={ index }
+                    className={ `homepage article ${name}` }
                   >
-                    {t("index.comingup.here")}
-                  </a>
-                  <br />
-                  {t("index.comingup.missing_smooth_transition")}
-                  <code>#smooth-transition</code>
-                </p>
-              </div>
-              <div className="homepage article portfolio">
-                <p>portfolio</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin imperdiet consectetur. Nam eu egestas ipsum, eget faucibus tellus. In consectetur dapibus ultricies. In bibendum condimentum purus, vel venenatis urna vestibulum vitae. Vivamus et tortor cursus, fermentum libero sit amet, luctus felis. Nunc eleifend ultrices ligula, ut gravida elit interdum nec. Ut eu justo id turpis gravida tristique nec nec risus.</p>
-              </div>
-              <div className="homepage article contact">
-                <p>contact</p>
-                <p>Cras enim purus, bibendum id euismod id, ornare vitae turpis. Curabitur eu ultrices enim. Proin pretium condimentum sapien sed suscipit. Maecenas non massa et nisl egestas vestibulum. Donec volutpat feugiat urna eu lobortis. Maecenas finibus quam in mauris tempus, et malesuada felis ullamcorper. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non ligula augue. Nunc quis ipsum tellus. Fusce efficitur eros dapibus enim imperdiet, et pellentesque mauris ultricies.</p>
-              </div>
+                    { el }
+                  </motion.div>
+                ))
+              }
             </main>
             <footer style={{ margin: 0 }}>
               <FooterBaseAdvanced />

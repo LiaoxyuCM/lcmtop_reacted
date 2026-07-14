@@ -67,7 +67,7 @@ const NavBarBase = (
   }
 ) => (
   <>
-    <a href="/">LiaoxyuCM</a>
+    <a href="/">llcm.top</a>
     <div
       className="pe" style={{ display: isMobile ? "" : "none" }}
       onClick={() => setIsMenuOpen(!isMenuOpen)}
