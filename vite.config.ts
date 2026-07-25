@@ -8,9 +8,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('motion')) {
-            return 'motion';
-          }
           if (id.includes('i18next')) {
             return 'i18next';
           }

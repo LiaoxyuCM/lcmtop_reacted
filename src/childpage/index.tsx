@@ -1,7 +1,6 @@
 import { NavBar, FooterBaseAdvanced, Cursor } from './modules/template_components';
 import { useTranslation } from 'react-i18next';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
-import { motion, AnimatePresence } from 'motion/react';
 import Icons from './modules/icons';
 import LoadingPage from './modules/loadingpage';
 import { useState, useEffect, type JSX } from 'react';
@@ -126,24 +125,7 @@ function Homepage() {
                   },
                   {
                     name: "about",
-                    el: <p style={{ position: "relative" }}>
-                          L
-                          <AnimatePresence mode="wait">
-                            <motion.span
-                              key={myn[mynindex]}
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              exit={{ opacity: 0, y: -20 }}
-                              transition={{
-                                duration: .6,
-                                ease: [0.25, 0.1, 0.25, 1],
-                              }}
-                              style={{ position: "absolute" }}
-                            >
-                              {myn[mynindex]}
-                            </motion.span>
-                          </AnimatePresence>
-                        </p>
+                    el: <p>你好, 我叫LiaoxyuCM(Lclimir), ... (其实也不知道写啥), 反正就是你好啊.</p>
                   },
                   {
                     name: "portfolio",
@@ -156,24 +138,13 @@ function Homepage() {
                     name: "contact",
                     el: <>
                       <p>contact</p>
-                      <p>me@liaoxyucm.top</p>
+                      <a href="mailto:me@liaoxyucm.top">me@liaoxyucm.top</a>
                     </>
                   }
                 ].map(({name, el}: {name: string, el: JSX.Element}, index: number) => (
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      transform: "translateY(10px)"
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      transform: "translateY(0)"
-                    }}
-                    key={ index }
-                    className={ `homepage article ${name}` }
-                  >
+                  <div className={ `homepage article ${name}` }>
                     { el }
-                  </motion.div>
+                  </div>
                 ))
               }
             </main>
