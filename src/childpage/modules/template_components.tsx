@@ -92,6 +92,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isUnscrolled, setIsUnscrolled] = useState<boolean>(advanced);
+  const [progress, setProgress] = useState<number>(0);
 
   // read color theme (light / dark) from localStorage and set it to the root element
   const [darkmode, setDarkmode] = useState<boolean>(
@@ -115,6 +116,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
   useEffect(() => {
     const handleScroll = () => {
       setIsUnscrolled(window.scrollY < 21);
+      setProgress(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -132,6 +134,9 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
       }
       style={advanced ? { position: "fixed" } : {}}
     >
+      <div className="navbar-progress" style={advanced ? {
+        width: `${progress}%`
+      } : {}}/>
       <NavBarBase
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}

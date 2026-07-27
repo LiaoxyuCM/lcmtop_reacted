@@ -12,9 +12,6 @@ function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
-  const [mynindex, sMynIndex] = useState(0);
-
-  const myn: string[] = ["iaoxyuCM", "climir", "vqichongNB"];
 
   let greet: string = "";
   switch (new Date().getHours()) {
@@ -71,13 +68,6 @@ function Homepage() {
     }
   }, [loading, greet, t]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      sMynIndex((prev) => (prev + 1) % myn.length);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, [myn.length]);
-
   return (
     <>
       <LoadingPage
@@ -125,7 +115,10 @@ function Homepage() {
                   },
                   {
                     name: "about",
-                    el: <p>你好, 我叫LiaoxyuCM(Lclimir), ... (其实也不知道写啥), 反正就是你好啊.</p>
+                    el: <p>
+                      {t("index.about.p1")}
+                      <br />{t("index.about.p2")}
+                    </p>
                   },
                   {
                     name: "portfolio",
@@ -142,7 +135,7 @@ function Homepage() {
                     </>
                   }
                 ].map(({name, el}: {name: string, el: JSX.Element}, index: number) => (
-                  <div className={ `homepage article ${name}` }>
+                  <div className={ `homepage article ${name}` } key={index}>
                     { el }
                   </div>
                 ))

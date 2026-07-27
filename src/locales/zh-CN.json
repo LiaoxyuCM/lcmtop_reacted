@@ -23,6 +23,8 @@
   "index.comingup": "新版主页正在建设中(预计pre4或以后完成), 原内容已移动到",
   "index.comingup.here": "这里",
   "index.comingup.missing_smooth_transition": "若想念pre0的光标缓动请在URL后面加上",
+  "index.about.p1": "你好, 我叫LiaoxyuCM(Lclimir), ... (其实也不知道写啥), 反正就是你好啊.",
+  "index.about.p2": "对, 就是那个经常说氯气冲NB的那个",
   "content.search_via_bing": "在必应搜索",
   "content.card.siterepo.title": "本站仓库",
   "content.card.siterepo.content": "查看本站的源代码",

@@ -199,6 +199,16 @@ nav {
     @extend %global-navbar;
     padding: 0;
   }
+
+  .navbar-progress {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-text);
+  }
 }
 
 .mobile-menu {
@@ -236,7 +246,7 @@ nav {
   }
 
   a {
-    text-decoration: none
+    text-decoration: none;
   }
 }
 
