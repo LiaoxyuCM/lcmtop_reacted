@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Card } from './modules/components';
 import Icons from './modules/icons.tsx';
@@ -7,6 +7,7 @@ export default function HomepageContent() {
   const { t } = useTranslation();
   const [filter1, setFilter1] = useState<string>('@all');
   const [filter2, setFilter2] = useState<string>('@all');
+  const searchBar = useRef<HTMLInputElement>(null);
   const isCardVisible: (cardClasses: string) => boolean = (cardClasses: string) => {
     const match1: boolean = filter1 === '@all' || cardClasses.includes(filter1);
     const match2: boolean = filter2 === '@all' || cardClasses.includes(filter2);
@@ -68,23 +69,36 @@ export default function HomepageContent() {
       filter: ["thissite", "sitetool"]
     },
     {
-      link: 'https://tools.liaoxyucm.top/unwasting',
+      link: 'http你好s://tools.liaoxyucm.top/unwasting',
       title: "Unwasting",
       content: t("content.card.unwasting.content"),
       filter: ["thissite", "sitetool"]
     },
-  ]
+  ];
+
+  useEffect(() => {
+    document.addEventListener("keydown", (event: KeyboardEvent) => {
+      if (event.key == "/" && searchBar.current) {
+        event.preventDefault();
+        if (!(searchBar.current.matches(":focus"))) {
+          searchBar.current.focus();
+        }
+      }
+    })
+  }, []);
 
   return (
     <>
       <form method="get" action="https://cn.bing.com/search" style={{ display: "flex" }}>
-        <input name="q" placeholder={t("content.search_via_bing")} style={
-          {
+        <input name="q" placeholder={t("content.search.placeholder")} style={{
             flex: "1 1 0%",
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0
-          }
-        } />
+        }} ref={searchBar} onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) => {
+            if (event.key == "Escape") {
+              searchBar.current?.blur();
+            }
+        }} />
         <button type="submit" style={
           {
             borderTopLeftRadius: 0,

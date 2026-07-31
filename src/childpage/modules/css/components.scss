@@ -189,3 +189,50 @@
     border: 1px solid var(--card-border);
   }
 }
+
+.codefield {
+  display: block;
+  background-color: var(--code-bg);
+  padding: 12px 15px;
+  border-radius: 8px;
+  position: relative;
+
+  .code {
+    color: var(--code-text);
+    font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .copybtn {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%) translate(-2px, 2px);
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--code-bg);
+    border: 2px solid var(--card-border);
+    opacity: 0;
+    transition: .2s opacity ease-out, .2s border-color ease-out;
+
+    &:hover {
+      border-color: var(--primary-text);
+      cursor: pointer;
+    }
+
+    &.copied {
+      border-color: var(--hint-success-fg);
+      opacity: 1;
+      pointer-events: none;
+    }
+  }
+
+  &:hover .copybtn {
+    opacity: 1;
+  }
+}

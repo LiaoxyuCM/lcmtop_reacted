@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Card, Timeline, SelectBar } from "./modules/components"
+import { Card, Timeline, SelectBar, CodeField } from "./modules/components"
 import { useTranslation } from 'react-i18next'
 
 export function Styletest() {
@@ -23,13 +23,16 @@ export function Styletest() {
         <a href="#" onClick={(e) => { e.preventDefault() }}>
           {te("a")} [p&gt;]a
         </a>
-        <br />
-        <code>
-          # {te("code.comment")} p&gt;code<br />
-          from django.http import HttpResponse, HttpRequest<br /><br />
-          def helloView(request: HttpRequest):<br />
-          &nbsp;&nbsp;return HttpResponse(f"Hello from {"{request.GET.get('name', 'React.ts')}"}!")
-        </code>
+      </p>
+      <CodeField code={`# ${te("code.comment")} CodeField
+from django.http import HttpResponse, HttpRequest
+def helloView(request: HttpRequest):
+return HttpResponse(f"Hello, from {request.GET.get('name', 'React.ts')}!")`} />
+      <p>
+        <a href="/styletest/doc/components#codefield">{
+          t("teststyle.doc.components.learn")
+            .replace(/%el/g, te("codefield"))}
+        </a>
       </p>
       <button>{te("button")} button</button>
       <div className="buttongroup">
@@ -187,6 +190,23 @@ export function ComponentsDoc() {
       <p>{t("teststyle.doc.components.intro")}</p>
       <br />
 
+      <h2 id="art:codefield">{te("codefield")} &lt;CodeField /&gt;</h2>
+      <h3>{t("teststyle.doc.components.param")}</h3>
+      <table>
+        <ParamThead />
+        <tbody>
+          <tr>
+            <td>code</td>
+            <td>string</td>
+            <td>{t("global.yes")}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>{t("teststyle.doc.components.returns")}</h3>
+      <p>JSX.Element</p>
+      <br />
+      
       <h2 id="art:selectbar">{te("selectbar")} &lt;SelectBar /&gt;</h2>
       <h3>{t("teststyle.doc.components.param")}</h3>
       <table>

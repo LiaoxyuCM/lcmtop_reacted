@@ -151,7 +151,7 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
 export const FooterBase = () => (
   <p onClick={(e) => {
     if (e.currentTarget.textContent) {
-      e.currentTarget.textContent = "Hello, QiChong & QiJun Chlorine!"; // Dont translate it 2 other langs, keep it english.
+      e.currentTarget.textContent = "Hello, QiChlorine!"; // Dont translate it 2 other langs, keep it english.
     }
   }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
 )

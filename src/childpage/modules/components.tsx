@@ -101,5 +101,25 @@ export function SelectBar({ choices, selectedIdx = 0 }: { choices: string[], sel
   )
 }
 
+export function CodeField({ code }: { code: string }) {
+  const [isCopied, setIsCopied] = useState<boolean>(false);
 
+  return (
+    <div className="codefield">
+      <p className="code">{ code }</p>
+      <div className={`copybtn ${isCopied ? 'copied' : ''}`} onClick={async () => {
+        try {
+          await navigator.clipboard.writeText(code);
+
+          setIsCopied(true);
+          setTimeout(() => {
+            setIsCopied(false);
+          }, 1000);
+        } catch {
+          // Fallback not impl'ed
+        }
+      }}></div>
+    </div>
+  )
+}
 

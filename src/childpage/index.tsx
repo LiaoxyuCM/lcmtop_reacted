@@ -1,4 +1,5 @@
 import { NavBar, FooterBaseAdvanced, Cursor } from './modules/template_components';
+import { CodeField } from './modules/components';
 import { useTranslation } from 'react-i18next';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
 import Icons from './modules/icons';
@@ -100,7 +101,8 @@ function Homepage() {
                 [
                   {
                     name: "comingup",
-                    el: <p>
+                    el: <>
+                    <p>
                       {t("index.comingup")}
                       <a
                         href="content/"
@@ -110,8 +112,10 @@ function Homepage() {
                       </a>
                       <br />
                       {t("index.comingup.missing_smooth_transition")}
-                      <code>#smooth-transition</code>
                     </p>
+
+                    <CodeField code="#smooth-transition" />
+                    </>
                   },
                   {
                     name: "about",
