@@ -111,7 +111,7 @@ export default function HomepageContent() {
         value={filter1}
         onChange={(e) => setFilter1(e.target.value)}
       >
-        <option value="@all">--{t("content.filter")}--</option>
+        <option value="@all">--{t("content.filter.main")}--</option>
         {
           ['red2gh', 'thissite'].map(key => generateFilterOption(key))
         }
@@ -122,7 +122,7 @@ export default function HomepageContent() {
         value={filter2}
         onChange={(e) => setFilter2(e.target.value)}
       >
-        <option value="@all">--{t("content.filter")}--</option>
+        <option value="@all">--{t("content.filter.main")}--</option>
         {
           ['program', 'sitetool', 'sitesupport'].map(key => generateFilterOption(key))
         }

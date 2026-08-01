@@ -30,7 +30,7 @@ export default function ToastPlayground() {
         width: "100%",
         borderTopLeftRadius: 0,
         borderTopRightRadius: 0
-      }} type="text" placeholder={t("teststyle.toast.input")} />
+      }} type="text" placeholder={t("teststyle.toast.input.content")} />
 
       <h3>onclick=remove</h3>
       <div style={{ display: "flex" }}>

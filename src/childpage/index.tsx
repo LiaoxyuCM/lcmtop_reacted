@@ -54,7 +54,7 @@ function Homepage() {
     if (!loading && localStorage.getItem("version") !== VERSION) {
       localStorage.setItem("version", VERSION);
       showToast.nohook(
-        t("index.version.update").replace(/%ver/g, VERSION),
+        t("index.version.update", {ver: VERSION}),
         {
           onClick: ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
           duration: 5000
@@ -103,7 +103,7 @@ function Homepage() {
                     name: "comingup",
                     el: <>
                     <p>
-                      {t("index.comingup")}
+                      {t("index.comingup.main")}
                       <a
                         href="content/"
                         style={{fontWeight: "bold"}}

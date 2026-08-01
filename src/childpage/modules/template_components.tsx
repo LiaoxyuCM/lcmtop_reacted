@@ -20,7 +20,7 @@ const NavBarBaseContent = (
             i18n.changeLanguage('zh-CN');
           }
         }
-      }>{t("translate.anotherlang" + (verbose ? ".verbose" : ""))}</a>
+      }>{t("translate.anotherlang." + (verbose ? "verbose" : "simple"))}</a>
       <a href="https://github.com/LiaoxyuCM" target="_blank">
         {verbose ?
           <>GitHub</> :
@@ -158,7 +158,6 @@ export const FooterBase = () => (
 export function FooterBaseAdvanced() {
   const siteTimer = useRef<HTMLParagraphElement>(null);
   const { t } = useTranslation();
-  const timerContentTemplate: string = t("index.timer");
  
   useEffect(() => {
     const startTime: number = new Date('2026/01/04 22:25:00').getTime();
@@ -167,11 +166,12 @@ export function FooterBaseAdvanced() {
       const hour: number = Math.floor(ms % 86400000 / 3600000);
       const min: number = Math.floor(ms % 3600000 / 60000);
       const sec: number = Math.floor(ms % 60000 / 1000);
-      return timerContentTemplate
-        .replace(/%d/g, day.toString())
-        .replace(/%h/g, hour.toString())
-        .replace(/%m/g, min.toString())
-        .replace(/%s/g, sec.toString());
+      return t("index.timer", {
+        d: day.toString(),
+        h: hour.toString(),
+        m: min.toString(),
+        s: sec.toString()
+      });
     }
     function update() {
       if (siteTimer.current) {
@@ -183,7 +183,7 @@ export function FooterBaseAdvanced() {
     const interval: number = setInterval(update, 150);
 
     return () => clearInterval(interval);
-  }, [timerContentTemplate]);
+  }, [t]);
 
   return (
     <>

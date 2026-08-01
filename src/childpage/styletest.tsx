@@ -1,18 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, type JSX } from "react";
 import { Card, Timeline, SelectBar, CodeField } from "./modules/components"
 import { useTranslation } from 'react-i18next'
 
 export function Styletest() {
   const { t } = useTranslation();
-  const te = (data: string) => (t("teststyle.element." + data))
+  const te = (data: string, params?: Record<string, string>) => (t("teststyle.element." + data, params))
   return (
     <>
-      <h1>{te("h1")} h1</h1>
-      <h2>{te("h2")} h2</h2>
-      <h3>{te("h3")} h3</h3>
-      <h4>{te("h4")} h4</h4>
-      <h5>{te("h5")} h5</h5>
-      <h6>{te("h6")} h6</h6>
+      {[1, 2, 3, 4, 5, 6].map((level: number) => {
+        const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+        return (
+          <Tag key={level}>
+            {te("header", { lvl: String(level) })} h{level}
+          </Tag>
+        );
+      })}
       <p>
         {te("p")} p&nbsp;
         <strong>{te("strong")} p&gt;strong</strong>&nbsp;
@@ -30,14 +32,13 @@ def helloView(request: HttpRequest):
     return HttpResponse(f"Hello, from {request.GET.get('name', 'React.ts')}!")`} />
       <p>
         <a href="/styletest/doc/components#codefield">{
-          t("teststyle.doc.components.learn")
-            .replace(/%el/g, te("codefield"))}
-        </a>
+          t("teststyle.doc.components.learn", {el: te("codefield")})
+        }</a>
       </p>
-      <button>{te("button")} button</button>
+      <button>{te("button.default")} button</button>
       <div className="buttongroup">
-        <button>{te("button")} 1 .buttongroup&gt;button+</button>
-        <button>{te("button")} 2</button>
+        <button>{te("button.default")} 1 .buttongroup&gt;button+</button>
+        <button>{te("button.default")} 2</button>
         <button className="selected">
           {te("button.highlighted")} button.selected
         </button>
@@ -65,20 +66,19 @@ def helloView(request: HttpRequest):
         ]}
       />
       <a href="/styletest/doc/components#selectbar">{
-        t("teststyle.doc.components.learn")
-          .replace(/%el/g, te("selectbar"))}
-      </a>
+        t("teststyle.doc.components.learn", {el: te("selectbar")})
+      }</a>
       <br />
 
       <div className="hint">
-        {t('teststyle.element.hint.single')} .hint
+        {te('hint.single')} .hint
       </div>
       <br />
-      <p>{t('teststyle.element.hintgroup')} .hintgroup&gt;.hint</p>
+      <p>{te('hintgroup')} .hintgroup&gt;.hint</p>
       <div className="hintgroup">
         {['error', 'warn', 'success', 'info', 'debug'].map((type) => (
           <div className={`hint ${type}`} key={type}>
-            {t(`teststyle.lvl.${type}`) + t('teststyle.element.hint')} div.hint.{type}
+            {t(`teststyle.lvl.${type}`) + te('hint.default')} div.hint.{type}
           </div>
         ))}
       </div>
@@ -89,20 +89,19 @@ def helloView(request: HttpRequest):
       </ul>
       <div className="cards">
         <Card
-          title={te("card")}
+          title={te("card.normal")}
           content="div.cards&gt;a+&gt;div.card&gt;{h3, p.description}"
           link=""
         />
         <Card
           title="React"
           content={
-            t("teststyle.doc.components.learn")
-              .replace(/%el/g, te("card"))
+            t("teststyle.doc.components.learn", {el: te("card.normal")})
           }
           link="/styletest/doc/components#card"
         />
         <Card
-          title={te("card")}
+          title={te("card.normal")}
           content="Lorem ipsum dolor sit amet"
           link=""
         />
@@ -136,8 +135,7 @@ def helloView(request: HttpRequest):
         />
       </div>
       <a href="/styletest/doc/components#timeline">
-        {t("teststyle.doc.components.learn")
-          .replace(/%el/g, te("timeline"))}
+        {t("teststyle.doc.components.learn", {el: te("timeline")})}
       </a><br />
       <a href="/styletest/play/toast">
         {t("teststyle.toast.enter")}
@@ -191,7 +189,7 @@ export function ComponentsDoc() {
       <br />
 
       <h2 id="art:codefield">{te("codefield")} &lt;CodeField /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param")}</h3>
+      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -208,7 +206,7 @@ export function ComponentsDoc() {
       <br />
       
       <h2 id="art:selectbar">{te("selectbar")} &lt;SelectBar /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param")}</h3>
+      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -231,8 +229,8 @@ export function ComponentsDoc() {
       <br />
       <br />
 
-      <h2 id="art:card">{te("card")} &lt;Card /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param")}</h3>
+      <h2 id="art:card">{te("card.normal")} &lt;Card /&gt;</h2>
+      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -280,7 +278,7 @@ export function ComponentsDoc() {
       <br />
 
       <h2 id="art:card-frdlylnk">{te("card.frdlylnk")} &lt;CardFriendlyLink /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param")}</h3>
+      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -322,7 +320,7 @@ export function ComponentsDoc() {
       <br />
 
       <h2 id="art:timeline">{te("timeline")} &lt;Timeline /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param")}</h3>
+      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>

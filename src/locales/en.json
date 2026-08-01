@@ -1,106 +1,163 @@
 {
-  "translate.anotherlang": "中",
-  "translate.anotherlang.verbose": "简体中文",
-  "global.yes": "Yes",
-  "global.no": "No",
-  "global.submit": "Submit",
-  "global.global": "Global",
-  "index.loading": "Loading Resources",
-  "index.welcome": "Welcome",
-  "index.bg_load_failed": "Cannot load wallpaper, refresh or check your network connection",
-  "index.version.update": "Welcome back, this has been updated 2 v%ver, click here to see more details!",
-  "index.greeting.morning": "Good morning!",
-  "index.greeting.forenoon": "Happy forenoon!",
-  "index.greeting.noon": "Good noon!",
-  "index.greeting.afternoon_early": "Good afternoon!",
-  "index.greeting.afternoon": "Good afternoon!",
-  "index.greeting.evening": "Good evening!",
-  "index.greeting.night": "Good night!",
-  "index.greeting.late_night": "It's late at night, take care of your health!",
-  "index.comingup": "The new version of the homepage is under construction (expected to be completed in pre4 or greater), and the original content has been moved to ",
-  "index.comingup.here": "here",
-  "index.comingup.missing_smooth_transition": "If you missed the smooth transition of the cursor in pre0, please add the below content to this URL.",
-  "index.about.p1": "Hi, I'm LiaoxyuCM(Lclimir), ... (Actually I didn't know what to write), anyway, here is the hello.",
-  "index.about.p2": "Yeah right, I'm that person who usually say Qichlorine NB",
-  "index.nav.frdlylnks": "FriendlyLinks",
-  "index.nav.theme.light": "Light",
-  "index.nav.theme.dark": "Dark",
-  "content.search.placeholder": "Hit \"/\" to search via Bing",
-  "content.card.siterepo.title": "Site Repo",
-  "content.card.siterepo.content": "Read the source code of this site",
-  "content.card.feedback.title": "Feedback us",
-  "content.card.feedback.content": "Found bug(s)? Or any feature(s) you wanted?",
-  "content.card.teststyle.title": "Test styles",
-  "content.card.teststyle.content": "Test display of HTML elements",
-  "content.card.aboutme.title": "About me",
-  "content.card.aboutme.content": "Self Intro",
-  "content.card.starter.title": "Starter",
-  "content.card.starter.content": "Simple and no ads",
-  "content.card.encoder.title": "Encoder",
-  "content.card.encoder.content": "You can encode something need to be private",
-  "content.card.randompicker.title": "Random Picker",
-  "content.card.randompicker.content": "Generate random number(s)",
-  "content.card.unwasting.content": "For Wastelang Professional, you can reverse-engineer the Waste source code based on the output results",
-  "index.timer": "This site has been safely running for %dd %hh %mmin %ss.",
-  "content.filter": "Filter",
-  "content.filter.red2gh": "Redirect to GitHub",
-  "content.filter.thissite": "Current site",
-  "content.filter.program": "Programs",
-  "content.filter.sitetool": "Tools in this site",
-  "content.filter.sitesupport": "Website support",
-  "teststyle.lvl.normal": "Normal",
-  "teststyle.lvl.error": "Error",
-  "teststyle.lvl.warn": "Warning",
-  "teststyle.lvl.success": "Success",
-  "teststyle.lvl.info": "Info",
-  "teststyle.lvl.debug": "Debug",
-  "teststyle.element.h1": "Header1",
-  "teststyle.element.h2": "Header2",
-  "teststyle.element.h3": "Header3",
-  "teststyle.element.h4": "Header4",
-  "teststyle.element.h5": "Header5",
-  "teststyle.element.h6": "Header6",
-  "teststyle.element.p": "TextParagraph",
-  "teststyle.element.strong": "Bold",
-  "teststyle.element.em": "Italic",
-  "teststyle.element.u": "Underlined",
-  "teststyle.element.del": "Deleted",
-  "teststyle.element.a": "Link",
-  "teststyle.element.code.comment": "A piece of code",
-  "teststyle.element.button": "Button",
-  "teststyle.element.button.highlighted": "HighlightedButton",
-  "teststyle.element.button.disabled": "DisabledButton",
-  "teststyle.element.codefield": "CodeField",
-  "teststyle.element.input": "Input",
-  "teststyle.element.textarea": "Textarea",
-  "teststyle.element.choice": "Choice",
-  "teststyle.element.hint": "Hint",
-  "teststyle.element.hint.single": "SingleHint",
-  "teststyle.element.hintgroup": "Hint",
-  "teststyle.element.list": "List",
-  "teststyle.element.card": "Card",
-  "teststyle.element.card.frdlylnk": "Card FriendlyLink",
-  "teststyle.element.table.col": "TableColumn",
-  "teststyle.element.table.value": "TableValue",
-  "teststyle.element.timeline": "Timeline",
-  "teststyle.element.selectbar": "Select Bar",
-  "teststyle.doc.components.learn": "Learn about how to add a(n) %el using React components",
-  "teststyle.doc.components.intro": "Introduction: The structure of some elements is too complex, so we encapsulated them into components",
-  "teststyle.doc.components.param": "Parameters",
-  "teststyle.doc.components.param.name": "Name",
-  "teststyle.doc.components.param.type": "Type",
-  "teststyle.doc.components.param.required": "Required?",
-  "teststyle.doc.components.param.default": "Default",
-  "teststyle.doc.components.returns": "Returns",
-  "teststyle.toast.enter": "Toast Playground",
-  "teststyle.toast.input": "Enter toast content",
-  "teststyle.toast.input.duration": "Enter duration (ms), default: 2000",
-  "teststyle.toast.default": "Default Toast Content",
-  "teststyle.toast.onclick_redirect.input": "Enter URL, eg. ",
-  "frdlylnks.nexacore.content": "NexaCore Team Reported All Rights",
-  "frdlylnks.gnjjws.content": "ZHTech-工农阶级万岁🅥",
-  "frdlylnks.zi.content": "The Universal NHS",
-  "frdlylnks.sungge.content": "is a personal tech brand focused on web development, open-source project sharing, and technical writing",
-  "err.404.message": "I don't know either! The page seems to have been eaten by that little cat from a secret site.",
-  "err.404.goback": "Go Back"
+  "translate.anotherlang": {
+    "simple": "中",
+    "verbose": "简体中文"
+  },
+  "global": {
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "global": "Global"
+  },
+  "index": {
+    "loading": "Loading Resources",
+    "welcome": "Welcome",
+    "bg_load_failed": "Cannot load wallpaper, refresh or check your network connection",
+    "version.update": "Welcome back, this has been updated 2 v{{ver}}, click here to see more details!",
+    "greeting": {
+      "morning": "Good morning!",
+      "forenoon": "Happy forenoon!",
+      "noon": "Good noon!",
+      "afternoon_early": "Good afternoon!",
+      "afternoon": "Good afternoon!",
+      "evening": "Good evening!",
+      "night": "Good night!",
+      "late_night": "It's late at night, take care of your health!"
+    },
+    "comingup": {
+      "main": "The new version of the homepage is under construction (expected to be completed in pre4 or greater), and the original content has been moved to ",
+      "here": "here",
+      "missing_smooth_transition": "If you missed the smooth transition of the cursor in pre0, please add the below content to this URL."
+    },
+    "about": {
+      "p1": "Hi, I'm LiaoxyuCM(Lclimir), ... (Actually I didn't know what to write), anyway, here is the hello.",
+      "p2": "Yeah right, I'm that person who usually say Qichlorine NB"
+    },
+    "nav": {
+      "frdlylnks": "FriendlyLinks",
+      "theme": {
+        "light": "Light",
+        "dark": "Dark"
+      }
+    },
+    "timer": "This site has been safely running for {{d}}d {{h}}h {{m}}min {{s}}s."
+  },
+  "content": {
+    "search.placeholder": "Hit \"/\" to search via Bing",
+    "card": {
+      "siterepo": {
+        "title": "Site Repo",
+        "content": "Read the source code of thie site"
+      },
+      "feedback": {
+        "title": "Feedback us",
+        "content": "Found bug(s)? Or which feature(s) you wanted?"
+      },
+      "teststyle": {
+        "title": "Test styles",
+        "content": "Test display of HTML elements"
+      },
+      "aboutme": {
+        "title": "About me",
+        "content": "Self Intro"
+      },
+      "starter": {
+        "title": "Starter",
+        "content": "Simple and no ads"
+      },
+      "encoder": {
+        "title": "Encoder",
+        "content": "You can encode something need to be private"
+      },
+      "randompicker": {
+        "title": "Random Picker",
+        "content": "Generate random number(s)"
+      },
+      "unwasting.content": "For Wastelang Professional, you can reverse-engineer the Waste source code based on the output results"
+    },
+    "filter": {
+      "main": "Filter",
+      "red2gh": "Redirect to GitHub",
+      "thissite": "Stay on this site",
+      "program": "Programs",
+      "sitetool": "Tools in this site",
+      "sitesupport": "Website support"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "Normal",
+      "error": "Error",
+      "warn": "Warning",
+      "success": "Success",
+      "info": "Info",
+      "debug": "Debug"
+    },
+    "element": {
+      "header": "Header{{lvl}}",
+      "p": "TextParagraph",
+      "strong": "Bold",
+      "em": "Italic",
+      "u": "Underlined",
+      "del": "Deleted",
+      "a": "Link",
+      "code.comment": "A piece of code",
+      "button": {
+        "default": "Button",
+        "highlighted": "HighlightedButton",
+        "disabled": "DisabledButton"
+      },
+      "codefield": "CodeField",
+      "input": "Input",
+      "textarea": "Textarea",
+      "choice": "Choice",
+      "hint": {
+        "default": "Hint",
+        "single": "SingleHint"
+      },
+      "hintgroup": "HintGroup",
+      "list": "List",
+      "card": {
+        "normal": "Card",
+        "frdlylnk": "Card FriendlyLink"
+      },
+      "table": {
+        "col": "TableColumn",
+        "value": "TableValue"
+      },
+      "timeline": "Timeline",
+      "selectbar": "Select Bar"
+    },
+    "doc.components": {
+      "learn": "Learn about how to add a(n) {{el}} using React components",
+      "intro": "Introduction: The structure of some elements is too complex, so we encapsulated them into components",
+      "param": {
+        "main": "Parameters",
+        "name": "Name",
+        "type": "Type",
+        "required": "Required?",
+        "default": "Default"
+      },
+      "returns": "Returns"
+    },
+    "toast": {
+      "enter": "Toast Playground",
+      "input": {
+        "content": "Enter toast content",
+        "duration": "Enter duration (ms), default: 2000"
+      },
+      "default": "Default Toast Content",
+      "onclick_redirect.input": "Enter URL, eg. "
+    }
+  },
+  "frdlylnks": {
+    "nexacore.content": "NexaCore Team Reported All Rights",
+    "gnjjws.content": "ZHTech-工农阶级万岁🅥",
+    "zi.content": "The Universal NHS",
+    "sungge.content": "is a personal tech brand focused on web development, open-source project sharing, and technical writing"
+  },
+  "err.404": {
+    "message": "I don't know either! The page seems to have been eaten by that little cat from a secret site.",
+    "goback": "Go Back"
+  }
 }
