@@ -24,10 +24,10 @@ export function Styletest() {
           {te("a")} [p&gt;]a
         </a>
       </p>
-      <CodeField code={`# ${te("code.comment")} CodeField
+      <CodeField code={`# ${te("code.comment")} CodeField({code: string}) => JSX.Element
 from django.http import HttpResponse, HttpRequest
 def helloView(request: HttpRequest):
-return HttpResponse(f"Hello, from {request.GET.get('name', 'React.ts')}!")`} />
+    return HttpResponse(f"Hello, from {request.GET.get('name', 'React.ts')}!")`} />
       <p>
         <a href="/styletest/doc/components#codefield">{
           t("teststyle.doc.components.learn")

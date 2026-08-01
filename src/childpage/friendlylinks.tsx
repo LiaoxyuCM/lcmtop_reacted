@@ -6,8 +6,8 @@ function FriendlyLinksContent() {
   const frdlylnksData = [
     {
       link: "https://muah.top",
-      title: t("frdlylnks.huayumomo"),
-      content: `2024 - 2026 ${t("frdlylnks.huayumomo.content")}`,
+      title: "NexaCore",
+      content: `2024 - 2026 ${t("frdlylnks.nexacore.content")}`,
       imagesrc: "https://assets.liaoxyucm.top/muah.top/g.jpg"
     },
     {
