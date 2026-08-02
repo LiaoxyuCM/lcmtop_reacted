@@ -211,6 +211,7 @@ nav {
   }
 }
 
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -221,18 +222,22 @@ nav {
   background: var(--primary-bg);
   z-index: 1000;
   padding: 60px 20px 20px;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 20px;
+
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease;
+
+  box-shadow: none;
 
   @media(min-width: 601px) {
     display: none;
   }
   
   &.open {
-    display: flex;
     right: 0;
-    box-shadow: 0 0 20px #{shadow-black(0.5)};
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   }
   
   .close-btn {
@@ -243,10 +248,12 @@ nav {
     border: none;
     font-size: 24px;
     cursor: pointer;
+    color: inherit;
   }
 
   a {
     text-decoration: none;
+    color: inherit;
   }
 }
 

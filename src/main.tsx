@@ -13,32 +13,32 @@ import { Styletest, ComponentsDoc } from './childpage/styletest.tsx'
 
 const router = createBrowserRouter([
   {
-    "path": "/",
-    "element": <Homepage />
+    path: "/",
+    element: <Homepage />
   },
   {
-    "path": "/content",
-    "element": <Template element={HomepageContent} />
+    path: "/content",
+    element: <Template element={HomepageContent} />
   },
   {
-    "path": "/friendlylinks",
-    "element": <Template element={FriendlyLinksContent} />
+    path: "/friendlylinks",
+    element: <Template element={FriendlyLinksContent} />
   },
   {
-    "path": "/styletest",
-    "element": <Template element={Styletest} />
+    path: "/styletest",
+    element: <Template element={Styletest} />
   },
   {
-    "path": "/styletest/doc/components",
-    "element": <Template element={ComponentsDoc} />
+    path: "/styletest/doc/components",
+    element: <Template element={ComponentsDoc} />
   },
   {
-    "path": "/styletest/play/toast",
-    "element": <Template element={ToastPlayground} />
+    path: "/styletest/play/toast",
+    element: <Template element={ToastPlayground} />
   },
   {
-    "path": "*",
-    "element": <Template element={FourZeroFour} />
+    path: "*",
+    element: <Template element={FourZeroFour} />
   }
 ])
 

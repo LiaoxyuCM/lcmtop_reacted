@@ -79,10 +79,12 @@ const NavBarBase = (
     </div>
 
     {isMobile && ( // 死磕deepseek的第n天
-      <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-        <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
-        <NavBarBaseContent verbose={true} darkmode={darkmode} setDarkmode={setDarkmode} />
-      </div>
+      <>
+        <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+          <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
+          <NavBarBaseContent verbose={true} darkmode={darkmode} setDarkmode={setDarkmode} />
+        </div>
+      </>
     )}
   </>
 )

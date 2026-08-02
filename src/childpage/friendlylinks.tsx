@@ -12,7 +12,7 @@ function FriendlyLinksContent() {
     },
     {
       link: "https://zh2026.cn",
-      title: "工农阶级万岁🅥", // He has no english name so don't translate it to english, if u wanna do it, ask him 1st.
+      title: "工农阶级万岁🅥",
       content: "© 2025 " + t("frdlylnks.gnjjws.content"),
       imagesrc: "https://zh2026.cn/tx.jpg"
     },
@@ -28,7 +28,7 @@ function FriendlyLinksContent() {
       content: `孙哥科技${t("frdlylnks.sungge.content")}`,
       imagesrc: "https://www.sgyyds.club/favicon.ico"
     }
-  ]
+  ];
   return (
     <>
       <div className="cards frdlylnks">

@@ -31,7 +31,7 @@ const activeToasts: { element: HTMLElement; height: number }[] = [];
 
 const updateToastPositions = () => {
   let accumulatedHeight = 60;
-  activeToasts.forEach((toast) => {
+  activeToasts.forEach((toast: { element: HTMLElement; height: number }) => {
     const topPosition = accumulatedHeight;
     toast.element.style.top = `${topPosition}px`;
     accumulatedHeight += toast.height + 10;
@@ -133,8 +133,11 @@ const showToast_ = ( // 竟让我手动操作DOM
 };
 
 export const showToast = {
+  // showToast调用方法:
+  // --- 组件顶层请使用Hook
+  // --- 否则使用nohook
   nohook: showToast_,
-  Hook: ( // 我也不是故意要capfirst的
+  Hook: ( // React项目标准: 所有的hooks要么use开头, 要么首字母大写
     content: string,
     options: ToastOptions = {}
   ) => {
