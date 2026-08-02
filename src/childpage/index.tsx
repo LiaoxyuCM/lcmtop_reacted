@@ -6,8 +6,9 @@ import Icons from './modules/icons';
 import LoadingPage from './modules/loadingpage';
 import { useState, useEffect, type JSX } from 'react';
 import './modules/css/homepage.scss';
+import { version } from "../../package.json";
 
-const VERSION = "0.8.0-pre.5";
+const VERSION = version;
 
 function Homepage() {
   const { t, i18n } = useTranslation();
