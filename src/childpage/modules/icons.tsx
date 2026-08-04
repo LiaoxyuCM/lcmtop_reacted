@@ -57,6 +57,27 @@ const Icons = {
         d="M21 13.5A9 9 0 1 1 10.5 3A7.5 7.5 0 0 0 21 13.5z"
       />
     </svg>
+  ),
+  CopyBtn: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path
+        d="M336 64h32a48 48 0 0 1 48 48v320a48 48 0 0 1-48 48H144a48 48 0 0 1-48-48V112a48 48 0 0 1 48-48h32"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="32px"
+      />
+      <rect
+        width="160"
+        height="64"
+        x="176" y="32"
+        rx="26.13" ry="26.13"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="32px"
+      />
+    </svg>
   )
 }
 

@@ -29,7 +29,7 @@ export function Styletest() {
       <CodeField code={`# ${te("code.comment")} CodeField({code: string}) => JSX.Element
 from django.http import HttpResponse, HttpRequest
 def helloView(request: HttpRequest):
-    return HttpResponse(f"Hello, from {request.GET.get('name', 'React.ts')}!")`} />
+    return HttpResponse(f"Hello from {request.GET.get('name', 'React.ts')}!")`} />
       <p>
         <a href="/styletest/doc/components#codefield">{
           t("teststyle.doc.components.learn", {el: te("codefield")})
@@ -221,6 +221,12 @@ export function ComponentsDoc() {
             <td>number</td>
             <td>{t("global.no")}</td>
             <td>0</td>
+          </tr>
+          <tr>
+            <td>onChange</td>
+            <td>(index: number) =&gt; void</td>
+            <td>{t("global.no")}</td>
+            <td></td>
           </tr>
         </tbody>
       </table>

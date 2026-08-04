@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import Icons from './icons';
 import { useState } from 'react';
 import './css/components.scss';
 
@@ -81,7 +82,17 @@ export function Timeline({ datetime, content }: TimelineProps) {
   )
 }
 
-export function SelectBar({ choices, selectedIdx = 0 }: { choices: string[], selectedIdx?: number }) {
+export function SelectBar(
+  {
+    choices,
+    selectedIdx = 0,
+    onChange
+  }: {
+    choices: string[],
+    selectedIdx?: number,
+    onChange?: (index: number) => void
+  }
+) {
   const [selectedIndex, chgSelIdx] = useState<number>(selectedIdx);
 
   return (
@@ -92,6 +103,7 @@ export function SelectBar({ choices, selectedIdx = 0 }: { choices: string[], sel
           key={index}
           onClick={() => {
             chgSelIdx(index);
+            onChange?.(index);
           }}
         >
           {choice}
@@ -106,7 +118,13 @@ export function CodeField({ code }: { code: string }) {
 
   return (
     <div className="codefield">
-      <p className="code">{ code }</p>
+      {code.split("\n").map((ln: string, index: number) => (
+        <div className="codeline" key={index}>
+          <p className="codelnnumber">{ index+1 }&nbsp;</p>
+          <p className="code">{ ln }</p>
+        </div>
+      ))}
+      { /* <p className="code">{ code }</p> */ }
       <div className={`copybtn ${isCopied ? 'copied' : ''}`} onClick={async () => {
         try {
           await navigator.clipboard.writeText(code);
@@ -118,7 +136,9 @@ export function CodeField({ code }: { code: string }) {
         } catch {
           // Fallback not impl'ed
         }
-      }}></div>
+      }}>
+        <Icons.CopyBtn/>
+      </div>
     </div>
   )
 }
