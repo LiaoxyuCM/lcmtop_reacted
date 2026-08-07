@@ -1,5 +1,12 @@
 $hint_toast-types: error, warn, success, info, debug;
 
+@function shadow-black($alpha: 0) {
+  @return rgba(0,0,0,$alpha);
+};
+@function shadow-white($alpha: 0) {
+  @return rgba(255,255,255,$alpha);
+};
+
 %selectbar-and-ul {
   padding: 0;
   margin: 20px 0;

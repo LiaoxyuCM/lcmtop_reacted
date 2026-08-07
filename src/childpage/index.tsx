@@ -8,8 +8,6 @@ import { useState, useEffect, type JSX } from 'react';
 import './modules/css/homepage.scss';
 import { version } from "../../package.json";
 
-const VERSION = version;
-
 function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
@@ -52,10 +50,10 @@ function Homepage() {
   }, [bgLoaded, i18n.isInitialized]);
 
   useEffect(() => {
-    if (!loading && localStorage.getItem("version") !== VERSION) {
-      localStorage.setItem("version", VERSION);
+    if (!loading && localStorage.getItem("version") !== version) {
+      localStorage.setItem("version", version);
       showToast.nohook(
-        t("index.version.update", {ver: VERSION}),
+        t("index.version.update", {ver: version}),
         {
           onClick: ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
           duration: 5000

@@ -69,7 +69,7 @@ export default function HomepageContent() {
       filter: ["thissite", "sitetool"]
     },
     {
-      link: 'http你好s://tools.liaoxyucm.top/unwasting',
+      link: 'https://tools.liaoxyucm.top/unwasting',
       title: "Unwasting",
       content: t("content.card.unwasting.content"),
       filter: ["thissite", "sitetool"]
@@ -91,13 +91,13 @@ export default function HomepageContent() {
     <>
       <form method="get" action="https://cn.bing.com/search" style={{ display: "flex" }}>
         <input name="q" placeholder={t("content.search.placeholder")} style={{
-            flex: "1 1 0%",
-            borderTopRightRadius: 0,
-            borderBottomRightRadius: 0
+          flex: "1 1 0%",
+          borderTopRightRadius: 0,
+          borderBottomRightRadius: 0
         }} ref={searchBar} onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) => {
-            if (event.key == "Escape") {
-              searchBar.current?.blur();
-            }
+          if (event.key == "Escape") {
+            searchBar.current?.blur();
+          }
         }} />
         <button type="submit" style={
           {
