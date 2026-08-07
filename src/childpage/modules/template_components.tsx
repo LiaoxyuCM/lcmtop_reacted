@@ -14,11 +14,7 @@ const NavBarBaseContent = (
       <a href="#" onClick={
         (e) => {
           e.preventDefault();
-          if (i18n.language === 'zh-CN') {
-            i18n.changeLanguage('en');
-          } else {
-            i18n.changeLanguage('zh-CN');
-          }
+          i18n.changeLanguage(i18n.language === 'en' ? 'zh-CN' : 'en');
         }
       }>{t("translate.anotherlang." + (verbose ? "verbose" : "simple"))}</a>
       <a href="https://github.com/LiaoxyuCM" target="_blank">

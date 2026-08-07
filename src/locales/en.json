@@ -14,6 +14,8 @@
     "welcome": "Welcome",
     "bg_load_failed": "Cannot load wallpaper, refresh or check your network connection",
     "version.update": "Welcome back, this has been updated 2 v{{ver}}, click here to see more details!",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
     "greeting": {
       "morning": "Good morning!",
       "forenoon": "Happy forenoon!",
@@ -104,6 +106,7 @@
       "code.comment": "A piece of code",
       "button": {
         "default": "Button",
+        "toggle": "Toggle Me",
         "highlighted": "HighlightedButton",
         "disabled": "DisabledButton"
       },

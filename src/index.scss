@@ -355,7 +355,7 @@ button {
   color: var(--secondary-text);
   font-size: 14px;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-out;
   height: 40px;
 
   &:not(.ignore-button-default-style):not([disabled]):hover {

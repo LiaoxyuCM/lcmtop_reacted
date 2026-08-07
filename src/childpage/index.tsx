@@ -126,14 +126,14 @@ function Homepage() {
                   {
                     name: "portfolio",
                     el: <>
-                      <p>portfolio</p>
+                      <p>{t("index.portfolio")}</p>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin imperdiet consectetur. Nam eu egestas ipsum, eget faucibus tellus. In consectetur dapibus ultricies. In bibendum condimentum purus, vel venenatis urna vestibulum vitae. Vivamus et tortor cursus, fermentum libero sit amet, luctus felis. Nunc eleifend ultrices ligula, ut gravida elit interdum nec. Ut eu justo id turpis gravida tristique nec nec risus.</p>
                     </>
                   },
                   {
                     name: "contact",
                     el: <>
-                      <p>contact</p>
+                      <p>{t("index.contact")}</p>
                       <a href="mailto:me@liaoxyucm.top">me@liaoxyucm.top</a>
                     </>
                   }

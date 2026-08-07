@@ -1,9 +1,10 @@
-import { useEffect, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { Card, Timeline, SelectBar, CodeField } from "./modules/components"
 import { useTranslation } from 'react-i18next'
 
 export function Styletest() {
   const { t } = useTranslation();
+  const [isToggleButtonActive, sistba] = useState<boolean>(false);
   const te = (data: string, params?: Record<string, string>) => (t("teststyle.element." + data, params))
   return (
     <>
@@ -36,6 +37,12 @@ def helloView(request: HttpRequest):
         }</a>
       </p>
       <button>{te("button.default")} button</button>
+      <button
+        className={isToggleButtonActive ? "selected" : ""}
+        onClick={()=>{
+          sistba(!isToggleButtonActive);
+        }}
+      >{te("button.toggle")}</button>
       <div className="buttongroup">
         <button>{te("button.default")} 1 .buttongroup&gt;button+</button>
         <button>{te("button.default")} 2</button>

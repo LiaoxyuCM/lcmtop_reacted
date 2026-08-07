@@ -14,6 +14,8 @@
     "welcome": "欢迎",
     "bg_load_failed": "无法加载壁纸，请刷新或检查网络连接",
     "version.update": "欢迎回来, 刚刚本站已经更新至v{{ver}}, 点击这里查看更多内容!",
+    "portfolio": "作品集",
+    "contact": "联系",
     "greeting": {
       "morning": "早上好!",
       "forenoon": "上午好!",
@@ -104,6 +106,7 @@
       "code.comment": "一段代码",
       "button": {
         "default": "按钮",
+        "toggle": "切换状态",
         "highlighted": "高亮的按钮",
         "disabled": "被禁用的按钮"
       },
