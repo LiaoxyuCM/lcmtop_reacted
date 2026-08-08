@@ -210,6 +210,11 @@
     flex-direction: row;
 
     .codelnnumber {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
       color: var(--code-lnnumber);
     }
   }

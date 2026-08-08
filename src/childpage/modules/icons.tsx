@@ -78,6 +78,18 @@ const Icons = {
         strokeWidth="32px"
       />
     </svg>
+  ),
+  Tick: () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path
+        d="M416 128 192 384l-96-96"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32px"
+      />
+    </svg>
   )
 }
 

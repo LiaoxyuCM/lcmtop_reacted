@@ -14,6 +14,8 @@ body {
     --toast-warn-highlighted: #f59e0b;
     --toast-error-highlighted: #ef4444;
     --toast-debug-highlighted: #6b7280;
+
+    --toast-shadow: #{shadow-black(0.15)};
   }
   &.dark {
     --toast-bg: #{shadow-black(0.4)};
@@ -28,6 +30,8 @@ body {
     --toast-warn-highlighted: #fbbf24;
     --toast-error-highlighted: #f87171;
     --toast-debug-highlighted: #9ca3af;
+    
+    --toast-shadow: #{shadow-white(0.15)};
   }
 }
 
@@ -42,7 +46,7 @@ body {
   font-size: 14px;
   z-index: 9990;
   white-space: normal;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px var(--toast-shadow);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   cursor: pointer;

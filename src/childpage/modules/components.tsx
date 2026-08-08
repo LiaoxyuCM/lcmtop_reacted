@@ -124,7 +124,6 @@ export function CodeField({ code }: { code: string }) {
           <p className="code">{ ln }</p>
         </div>
       ))}
-      { /* <p className="code">{ code }</p> */ }
       <div className={`copybtn ${isCopied ? 'copied' : ''}`} onClick={async () => {
         try {
           await navigator.clipboard.writeText(code);
@@ -137,7 +136,7 @@ export function CodeField({ code }: { code: string }) {
           // Fallback not impl'ed
         }
       }}>
-        <Icons.CopyBtn/>
+        {isCopied ? <Icons.Tick/> : <Icons.CopyBtn/>}
       </div>
     </div>
   )
