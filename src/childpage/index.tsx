@@ -1,5 +1,5 @@
 import { NavBar, FooterBaseAdvanced, Cursor } from './modules/template_components';
-import { CodeField } from './modules/components';
+import { CodeField, Card } from './modules/components';
 import { useTranslation } from 'react-i18next';
 import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
 import Icons from './modules/icons';
@@ -127,14 +127,23 @@ function Homepage() {
                     name: "portfolio",
                     el: <>
                       <p>{t("index.portfolio")}</p>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin imperdiet consectetur. Nam eu egestas ipsum, eget faucibus tellus. In consectetur dapibus ultricies. In bibendum condimentum purus, vel venenatis urna vestibulum vitae. Vivamus et tortor cursus, fermentum libero sit amet, luctus felis. Nunc eleifend ultrices ligula, ut gravida elit interdum nec. Ut eu justo id turpis gravida tristique nec nec risus.</p>
+                      <div className="cards">
+                        <Card
+                          title="lcmtop_reacted"
+                          content="Lorem ipsum dolor sit amet."
+                          link="#"
+                        />
+                      </div>
                     </>
                   },
                   {
                     name: "contact",
                     el: <>
                       <p>{t("index.contact")}</p>
-                      <a href="mailto:me@liaoxyucm.top">me@liaoxyucm.top</a>
+                      <ul>
+                        <li><a href="mailto:me@liaoxyucm.top">me@liaoxyucm.top</a></li>
+                        <li><a href="https://github.com/LiaoxyuCM">GitHub</a></li>
+                      </ul>
                     </>
                   }
                 ].map(({name, el}: {name: string, el: JSX.Element}, index: number) => (

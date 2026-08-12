@@ -27,7 +27,7 @@ export function Styletest() {
           {te("a")} [p&gt;]a
         </a>
       </p>
-      <CodeField code={`# ${te("code.comment")} CodeField({code: string}) => JSX.Element
+      <CodeField code={`# ${te("code.comment")} CodeField(...)
 from django.http import HttpResponse, HttpRequest
 def helloView(request: HttpRequest):
     return HttpResponse(f"Hello from {request.GET.get('name', 'React.ts')}!")`} />
@@ -67,7 +67,7 @@ def helloView(request: HttpRequest):
       </select>
       <SelectBar
         choices={[
-          te("selectbar") + " SelectBar({choices: string[], selected?: number}) => JSX.Element",
+          te("selectbar") + " SelectBar(...)",
           te("selectbar"),
           te("selectbar")
         ]}
@@ -97,7 +97,7 @@ def helloView(request: HttpRequest):
       <div className="cards">
         <Card
           title={te("card.normal")}
-          content="div.cards&gt;a+&gt;div.card&gt;{h3, p.description}"
+          content="div.cards&gt;Card(...)"
           link=""
         />
         <Card
@@ -138,7 +138,7 @@ def helloView(request: HttpRequest):
         />
         <Timeline
           datetime={te("timeline")}
-          content="Timeline({datetime: string, content: string}) => JSX.Element"
+          content="Timeline(...)"
         />
       </div>
       <a href="/styletest/doc/components#timeline">

@@ -27,7 +27,7 @@
       "late_night": "It's late at night, take care of your health!"
     },
     "comingup": {
-      "main": "The new version of the homepage is under construction (expected to be completed in pre4 or greater), and the original content has been moved to ",
+      "main": "The new version of the homepage is under construction, and the original content has been moved to ",
       "here": "here",
       "missing_smooth_transition": "If you missed the smooth transition of the cursor in pre0, please add the below content to this URL."
     },
@@ -67,9 +67,9 @@
         "title": "Starter",
         "content": "Simple and no ads"
       },
-      "encoder": {
-        "title": "Encoder",
-        "content": "You can encode something need to be private"
+      "texttool": {
+        "title": "Text tools",
+        "content": "The tool set of processing text."
       },
       "randompicker": {
         "title": "Random Picker",
@@ -132,7 +132,7 @@
       "selectbar": "Select Bar"
     },
     "doc.components": {
-      "learn": "Learn about how to add a(n) {{el}} using React components",
+      "learn": "Way to add a(n) {{el}} using React components",
       "intro": "Introduction: The structure of some elements is too complex, so we encapsulated them into components",
       "param": {
         "main": "Parameters",

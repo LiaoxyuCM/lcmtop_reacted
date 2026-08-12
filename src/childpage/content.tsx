@@ -57,9 +57,9 @@ export default function HomepageContent() {
       filter: ["thissite", "program"]
     },
     {
-      link: 'https://encode.liaoxyucm.top',
-      title: t("content.card.encoder.title"),
-      content: t("content.card.encoder.content"),
+      link: 'https://tools.liaoxyucm.top',
+      title: t("content.card.texttool.title"),
+      content: t("content.card.texttool.content"),
       filter: ["thissite", "sitetool"]
     },
     {

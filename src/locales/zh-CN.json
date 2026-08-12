@@ -27,7 +27,7 @@
       "late_night": "已经三更半夜了, 当心下身体哦!"
     },
     "comingup": {
-      "main": "新版主页正在建设中(预计pre4或以后完成), 原内容已移动到",
+      "main": "新版主页正在建设中, 原内容已移动到",
       "here": "这里",
       "missing_smooth_transition": "若想念pre0的光标缓动请在URL后面加上"
     },
@@ -67,9 +67,9 @@
         "title": "起始页",
         "content": "简洁, 没有广告"
       },
-      "encoder": {
-        "title": "编码器",
-        "content": "你可以编码一些需要保密的东西"
+      "texttool": {
+        "title": "文本处理",
+        "content": "处理文本的工具集"
       },
       "randompicker": {
         "title": "随机数生成器",
@@ -132,7 +132,7 @@
       "selectbar": "选择栏"
     },
     "doc.components": {
-      "learn": "学习如何使用React组件添加 {{el}}",
+      "learn": "使用React组件添加 {{el}} 的方法",
       "intro": "引入: 一些元素的结构太复杂了, 所以我们就封装成了组件",
       "param": {
         "main": "参数",
