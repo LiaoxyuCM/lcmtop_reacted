@@ -74,8 +74,7 @@
       "randompicker": {
         "title": "Random Picker",
         "content": "Generate random number(s)"
-      },
-      "unwasting.content": "For Wastelang Professional, you can reverse-engineer the Waste source code based on the output results"
+      }
     },
     "filter": {
       "main": "Filter",

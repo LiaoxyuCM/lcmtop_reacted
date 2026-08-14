@@ -74,8 +74,7 @@
       "randompicker": {
         "title": "随机数生成器",
         "content": "生成随机数"
-      },
-      "unwasting.content": "针对WasteLang professional, 你可以根据输出结果反推出Waste源代码"
+      }
     },
     "filter": {
       "main": "过滤",

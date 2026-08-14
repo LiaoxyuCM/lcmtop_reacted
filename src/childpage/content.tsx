@@ -67,13 +67,7 @@ export default function HomepageContent() {
       title: t("content.card.randompicker.title"),
       content: t("content.card.randompicker.content"),
       filter: ["thissite", "sitetool"]
-    },
-    {
-      link: 'https://tools.liaoxyucm.top/unwasting',
-      title: "Unwasting",
-      content: t("content.card.unwasting.content"),
-      filter: ["thissite", "sitetool"]
-    },
+    }
   ];
 
   useEffect(() => {
