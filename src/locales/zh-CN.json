@@ -36,7 +36,7 @@
       "p2": "对, 就是那个经常说氯气冲NB的那个"
     },
     "nav": {
-      "frdlylnks": "友链",
+      "friendlinks": "友链",
       "theme": {
         "light": "亮色",
         "dark": "暗色"
@@ -121,7 +121,7 @@
       "list": "列表",
       "card": {
         "normal": "卡片",
-        "frdlylnk": "友链卡片"
+        "friendlink": "友链卡片"
       },
       "table": {
         "col": "表格列",
@@ -131,16 +131,13 @@
       "selectbar": "选择栏"
     },
     "doc.components": {
-      "learn": "使用React组件添加 {{el}} 的方法",
-      "intro": "引入: 一些元素的结构太复杂了, 所以我们就封装成了组件",
+      "learn": "组件 {{el}} 的参数",
       "param": {
-        "main": "参数",
-        "name": "名称",
+        "name": "参数",
         "type": "类型",
         "required": "是否必传",
         "default": "默认值"
-      },
-      "returns": "返回"
+      }
     },
     "toast": {
       "enter": "测试信息框",
@@ -152,7 +149,7 @@
       "onclick_redirect.input": "输入链接, 例如 "
     }
   },
-  "frdlylnks": {
+  "friendlinks": {
     "nexacore.content": "NexaCore Team报告所有权利",
     "gnjjws.content": "众和-工农阶级万岁🅥",
     "zi.content": "无人区 —— 非盈利组织",

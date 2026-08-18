@@ -83,7 +83,7 @@ export default function HomepageContent() {
 
   return (
     <>
-      <form method="get" action="https://cn.bing.com/search" style={{ display: "flex" }}>
+      <form method="get" action="https://cn.bing.com/search" style={{ display: "flex" }} target="_blank">
         <input name="q" placeholder={t("content.search.placeholder")} style={{
           flex: "1 1 0%",
           borderTopRightRadius: 0,

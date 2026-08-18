@@ -192,11 +192,7 @@ export function ComponentsDoc() {
 
   return (
     <>
-      <p>{t("teststyle.doc.components.intro")}</p>
-      <br />
-
       <h2 id="art:codefield">{te("codefield")} &lt;CodeField /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -208,12 +204,8 @@ export function ComponentsDoc() {
           </tr>
         </tbody>
       </table>
-      <h3>{t("teststyle.doc.components.returns")}</h3>
-      <p>JSX.Element</p>
-      <br />
       
       <h2 id="art:selectbar">{te("selectbar")} &lt;SelectBar /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -237,13 +229,8 @@ export function ComponentsDoc() {
           </tr>
         </tbody>
       </table>
-      <h3>{t("teststyle.doc.components.returns")}</h3>
-      <p>JSX.Element</p>
-      <br />
-      <br />
 
       <h2 id="art:card">{te("card.normal")} &lt;Card /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -285,13 +272,8 @@ export function ComponentsDoc() {
           </tr>
         </tbody>
       </table>
-      <h3>{t("teststyle.doc.components.returns")}</h3>
-      <p>JSX.Element</p>
-      <br />
-      <br />
 
-      <h2 id="art:card-frdlylnk">{te("card.frdlylnk")} &lt;CardFriendlyLink /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param.main")}</h3>
+      <h2 id="art:card-friendlink">{te("card.friendlink")} &lt;CardFriendLink /&gt;</h2>
       <table>
         <ParamThead />
         <tbody>
@@ -327,13 +309,8 @@ export function ComponentsDoc() {
           </tr>
         </tbody>
       </table>
-      <h3>{t("teststyle.doc.components.returns")}</h3>
-      <p>JSX.Element</p>
-      <br />
-      <br />
 
       <h2 id="art:timeline">{te("timeline")} &lt;Timeline /&gt;</h2>
-      <h3>{t("teststyle.doc.components.param.main")}</h3>
       <table>
         <ParamThead />
         <tbody>
@@ -351,10 +328,6 @@ export function ComponentsDoc() {
           </tr>
         </tbody>
       </table>
-      <h3>{t("teststyle.doc.components.returns")}</h3>
-      <p>JSX.Element</p>
-      <br />
-      <br />
     </>
   )
 }

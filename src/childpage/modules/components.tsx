@@ -37,11 +37,11 @@ export function Card({ title, iconAttach, content, link, visible = true, targetb
   )
 }
 
-interface CardFriendlyLinkProps extends BaseCardProps {
+interface CardFriendLinkProps extends BaseCardProps {
   imagesrc: string
 }
 
-export function CardFriendlyLink({ title, content, link, imagesrc, targetblank = true }: CardFriendlyLinkProps) {
+export function CardFriendLink({ title, content, link, imagesrc, targetblank = true }: CardFriendLinkProps) {
   return (
     <a
       href={link ? link : "#"}

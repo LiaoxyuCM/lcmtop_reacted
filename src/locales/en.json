@@ -36,7 +36,7 @@
       "p2": "Yeah right, I'm that person who usually say Qichlorine NB"
     },
     "nav": {
-      "frdlylnks": "FriendlyLinks",
+      "friendlinks": "FriendLinks",
       "theme": {
         "light": "Light",
         "dark": "Dark"
@@ -121,7 +121,7 @@
       "list": "List",
       "card": {
         "normal": "Card",
-        "frdlylnk": "Card FriendlyLink"
+        "friendlink": "Card FriendLink"
       },
       "table": {
         "col": "TableColumn",
@@ -131,16 +131,13 @@
       "selectbar": "Select Bar"
     },
     "doc.components": {
-      "learn": "Way to add a(n) {{el}} using React components",
-      "intro": "Introduction: The structure of some elements is too complex, so we encapsulated them into components",
+      "learn": "Parameters of component {{el}}",
       "param": {
-        "main": "Parameters",
-        "name": "Name",
+        "name": "Parameter",
         "type": "Type",
         "required": "Required?",
         "default": "Default"
-      },
-      "returns": "Returns"
+      }
     },
     "toast": {
       "enter": "Toast Playground",
@@ -152,7 +149,7 @@
       "onclick_redirect.input": "Enter URL, eg. "
     }
   },
-  "frdlylnks": {
+  "friendlinks": {
     "nexacore.content": "NexaCore Team Reported All Rights",
     "gnjjws.content": "ZHTech-工农阶级万岁🅥",
     "zi.content": "The Universal NHS",

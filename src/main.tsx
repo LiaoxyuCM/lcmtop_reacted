@@ -6,7 +6,7 @@ import './i18n'
 import Template from './App.tsx'
 import Homepage from './childpage/index.tsx'
 import HomepageContent from './childpage/content.tsx'
-import FriendlyLinksContent from './childpage/friendlylinks.tsx'
+import FriendLinksContent from './childpage/friendlinks.tsx'
 import FourZeroFour from './childpage/404.tsx'
 import ToastPlayground from './childpage/toast_playground.tsx'
 import { Styletest, ComponentsDoc } from './childpage/styletest.tsx'
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
     element: <Template element={HomepageContent} />
   },
   {
-    path: "/friendlylinks",
-    element: <Template element={FriendlyLinksContent} />
+    path: "/friendlinks",
+    element: <Template element={FriendLinksContent} />
   },
   {
     path: "/styletest",

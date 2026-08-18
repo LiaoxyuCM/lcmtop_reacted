@@ -47,7 +47,7 @@ const NavBarBaseContent = (
           )
         }
       </a>
-      <a href="/friendlylinks">{t("index.nav.frdlylnks")}</a>
+      <a href="/friendlinks">{t("index.nav.friendlinks")}</a>
     </>
   )
 }
@@ -151,7 +151,7 @@ export const FooterBase = () => (
     if (e.currentTarget.textContent) {
       e.currentTarget.textContent = "Hello, QiChlorine!"; // Dont translate it 2 other langs, keep it english.
     }
-  }}>&copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
+  }}>GPLv3 - &copy; LiaoxyuCM Lclimir × FrontMeteor 2024-{new Date().getFullYear()}</p> // It either (see above).
 )
 export function FooterBaseAdvanced() {
   const siteTimer = useRef<HTMLParagraphElement>(null);
