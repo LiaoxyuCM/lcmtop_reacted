@@ -63,7 +63,7 @@ body {
     --subtitle-text: #AAA;
     --body-link-border: #334155;
     --body-link-shadow: #{shadow-black(0.5)};
-    --body-link-hover-shadow: #3b82f680;
+    --body-link-hover-shadow: #3b82f6a0;
     --nav-link: #cbd5e1;
     --nav-shadow: #{shadow-black(0.3)};
     --h1-gradient-left: #90caf9;
@@ -435,6 +435,7 @@ button {
   color: var(--secondary-text);
   border-radius: 5px;
   border: 1px solid var(--primary-border);
+  padding: 6px;
 }
 
 textarea {
