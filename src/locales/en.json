@@ -101,7 +101,7 @@
       "em": "Italic",
       "u": "Underlined",
       "del": "Deleted",
-      "a": "Link",
+      "a": "Anchor",
       "code.comment": "A piece of code",
       "button": {
         "default": "Button",
@@ -146,7 +146,7 @@
         "duration": "Enter duration (ms), default: 2000"
       },
       "default": "Default Toast Content",
-      "onclick_redirect.input": "Enter URL, eg. "
+      "onclick_redirect.input": "Enter URL, eg. URL refers 2 "
     }
   },
   "friendlinks": {

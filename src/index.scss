@@ -8,15 +8,13 @@
 };
 
 body {
-  --custom-ease-out: cubic-bezier(0, .9, 1, 1);
-
   &:not(.dark) {
-    --primary-bg: #f8fafc;
+    --primary-bg: #f8fbff;
     --secondary-bg: #{shadow-white(0.2)};
     --primary-border: #e2e8f0;
     --primary-text: #1e40af;
     --secondary-text: #0f172a;
-    --overlay-bg: #{shadow-white(0.45)};
+    --overlay-bg: #{shadow-white(0.35)};
     --subtitle-text: #121212;
     --body-link-border: #dde3ea;
     --body-link-shadow: #{shadow-black(0.1)};
@@ -25,26 +23,26 @@ body {
     --nav-shadow: #{shadow-black(0.05)};
     --h1-gradient-left: #0f2b5e;
     --h1-gradient-right: #2563eb;
-    --code-bg: #e2e8ed;
+    --code-bg: #eaf0f5;
     --code-text: #24292e;
     --code-lnnumber: #adbac9;
     --footer-bordertop: #d1dff0;
     --footer-text: #4b5b6c;
     --button-bg: #d9e2ef;
-    --button-selected: #a4c1ff;
-    --hint-error-bg: #f5b9b9;
-    --hint-error-fg: #c02d2d;
-    --hint-warn-bg: #f5efb9;
-    --hint-warn-fg: #888a1f;
-    --hint-success-bg: #c0f5b9;
-    --hint-success-fg: #1f8a31;
-    --hint-info-bg: #b9d9f5;
-    --hint-info-fg: #1f5f8a;
-    --hint-debug-bg: #e0e4e8;
-    --hint-debug-fg: #4a5058;
+    --button-selected: #acc7ff;
+    --hint-error-bg: #ffdcdc;
+    --hint-error-fg: #b32020;
+    --hint-warn-bg: #f7f4d5;
+    --hint-warn-fg: #7d6a0d;
+    --hint-success-bg: #d3f3ce;
+    --hint-success-fg: #10530b;
+    --hint-info-bg: #cfe4f5;
+    --hint-info-fg: #0e367f;
+    --hint-debug-bg: #e3e4e5;
+    --hint-debug-fg: #212325;
     --card-border: #cbd5e1;
     --card-shadow: #{shadow-black(0.02)};
-    --card-title-bg-gradient-left: #94a3b8;
+    --card-title-bg-gradient-left: #345a8f;
     --card-description: #475569;
     --card-link-hover: #fafcfc;
     --timeline-line: #cbd5e1;
@@ -55,10 +53,10 @@ body {
   }
   &.dark {
     --primary-bg: #070c18;
-    --secondary-bg: #111a2930;
+    --secondary-bg: #121e335c;
     --primary-border: #334155;
-    --primary-text: #60a5fa;
-    --secondary-text: #e2e8f0;
+    --primary-text: #529ffd;
+    --secondary-text: #e4e9ef;
     --overlay-bg: #{shadow-black(0.6)};
     --subtitle-text: #AAA;
     --body-link-border: #334155;
@@ -68,31 +66,31 @@ body {
     --nav-shadow: #{shadow-black(0.3)};
     --h1-gradient-left: #90caf9;
     --h1-gradient-right: #bbd7fb;
-    --code-bg: #262928;
+    --code-bg: #1a212b;
     --code-text: #d4d4d4;
-    --code-lnnumber: #6b84a7;
+    --code-lnnumber: #76869d;
     --footer-bordertop: #334155;
-    --footer-text: #94a3b8;
-    --button-bg: #2d3b4f;
-    --button-selected: #3b82f6;
-    --hint-error-bg: #442326;
-    --hint-error-fg: #f87171;
-    --hint-warn-bg: #444123;
-    --hint-warn-fg: #f8ef71;
-    --hint-success-bg: #264423;
-    --hint-success-fg: #71f878;
-    --hint-info-bg: #2a4a5c;
-    --hint-info-fg: #8abae0;
-    --hint-debug-bg: #2e343a;
-    --hint-debug-fg: #a8b4c0;
+    --footer-text: #97a5b9;
+    --button-bg: #283343;
+    --button-selected: #2b70e1;
+    --hint-error-bg: #291315;
+    --hint-error-fg: #df6d6d;
+    --hint-warn-bg: #353214;
+    --hint-warn-fg: #d7ce4b;
+    --hint-success-bg: #132b11;
+    --hint-success-fg: #5acf60;
+    --hint-info-bg: #11263b;
+    --hint-info-fg: #9bbddf;
+    --hint-debug-bg: #121416;
+    --hint-debug-fg: #9eacb9;
     --card-border: #2d3b4f;
     --card-shadow: #{shadow-black(0.5)};
-    --card-title-bg-gradient-left: #475569;
+    --card-title-bg-gradient-left: #4169a1;
     --card-description: #cbd5e1;
-    --card-link-hover: #1a2634;
+    --card-link-hover: #141e2b;
     --timeline-line: #475569;
-    --timeline-point: #60a5fa;
-    --timeline-card: #1e293b;
+    --timeline-point: #335da1;
+    --timeline-card: #{shadow-white(0.05)};
     --list-border: #{shadow-white(0.2)};
     --list-border-highlighted: #{shadow-white(0.4)};
     
@@ -204,7 +202,7 @@ nav {
   pointer-events: none;
 
   transition: .3s opacity cubic-bezier(0.4, 0, 0.2, 1),
-              .15s background-color var(--custom-ease-out);
+              .15s background-color ease;
 
   box-shadow: none;
 
@@ -299,7 +297,7 @@ select {
     box-shadow: 0 0 0 3px var(--body-link-hover-shadow);
   }
   option {
-    background: var(--secondary-bg);
+    background: var(--primary-bg);
     color: var(--secondary-text);
     padding: 8px;
   }
@@ -325,8 +323,8 @@ footer {
   font-size: 1rem;
 
   p {
-    opacity: 0.85;
-	  transition: opacity 0.2s;
+    opacity: 0.8;
+    transition: opacity 0.2s;
 
     &:hover {
       opacity: 1;
@@ -343,7 +341,7 @@ button {
   color: var(--secondary-text);
   font-size: 14px;
   cursor: pointer;
-  transition: all .2s var(--custom-ease-out);
+  transition: all .15s ease;
   height: 40px;
 
   &:not(.ignore-button-default-style):not([disabled]):hover {
@@ -411,7 +409,7 @@ button {
   align-items: center;
   padding: 10px;
   border-radius: 5px;
-  transition: .3s all var(--custom-ease-out);
+  transition: .3s all ease;
   @include process-hints(
     var(--hint-info-fg),
     var(--hint-info-bg)
@@ -435,7 +433,7 @@ button {
   color: var(--secondary-text);
   border-radius: 5px;
   border: 1px solid var(--primary-border);
-  padding: 6px;
+  padding: 4px;
 }
 
 textarea {
@@ -447,7 +445,8 @@ textarea {
 
 input {
   @extend %textarea-input;
-  padding: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   border: 1px solid var(--card-border);
 }
 

@@ -146,7 +146,7 @@
         "duration": "输入持续时间 (ms), 默认: 2000"
       },
       "default": "默认信息框信息",
-      "onclick_redirect.input": "输入链接, 例如 "
+      "onclick_redirect.input": "输入链接, 例如这个链接指向 "
     }
   },
   "friendlinks": {
