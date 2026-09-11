@@ -1,5 +1,5 @@
 import { useEffect, useState, type JSX } from "react";
-import { Card, Timeline, SelectBar, CodeField } from "./modules/components"
+import { Card, TimelineItem, SelectBar, CodeField } from "./modules/components"
 import { useTranslation } from 'react-i18next'
 
 export function Styletest() {
@@ -132,13 +132,13 @@ def helloView(request: HttpRequest):
         </tbody>
       </table>
       <div className="timeline">
-        <Timeline
+        <TimelineItem
           datetime={te("timeline")}
           content=".timeline&gt;.timeline-item+&gt;{.timeline-dot, .timeline-date, .timeline-content&gt;p}"
         />
-        <Timeline
+        <TimelineItem
           datetime={te("timeline")}
-          content="Timeline(...)"
+          content=".timeline&gt;TimelineItem(...)"
         />
       </div>
       <a href="/styletest/doc/components#timeline">
@@ -310,7 +310,7 @@ export function ComponentsDoc() {
         </tbody>
       </table>
 
-      <h2 id="art:timeline">{te("timeline")} &lt;Timeline /&gt;</h2>
+      <h2 id="art:timeline">{te("timeline")} &lt;TimelineItem /&gt;</h2>
       <table>
         <ParamThead />
         <tbody>

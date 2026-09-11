@@ -70,7 +70,7 @@ interface TimelineProps {
   content: string
 }
 
-export function Timeline({ datetime, content }: TimelineProps) {
+export function TimelineItem({ datetime, content }: TimelineProps) {
   return (
     <div className="timeline-item">
       <div className="timeline-dot"></div>
@@ -97,7 +97,7 @@ export function SelectBar(
 
   return (
     <div className="selectbar">
-      {choices.map((choice, index) => (
+      {choices.map((choice: string, index) => (
         <div
           className={"choice" + (selectedIndex == index ? " selected" : "")}
           key={index}
