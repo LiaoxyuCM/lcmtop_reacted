@@ -113,12 +113,13 @@ export function SelectBar(
   )
 }
 
-export function CodeField({ code }: { code: string }) {
+export function CodeField({ children }: { children: JSX.Element }) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
+  const items = Array.isArray(children) ? children : [children];
 
   return (
     <div className="codefield">
-      {code.split("\n").map((ln: string, index: number) => (
+      {items.map((ln: JSX.Element, index: number) => (
         <div className="codeline" key={index}>
           <p className="codelnnumber">{ index+1 }&nbsp;</p>
           <p className="code">{ ln }</p>

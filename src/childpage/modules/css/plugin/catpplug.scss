@@ -1,0 +1,25 @@
+@use "../public/catppuccin.scss";
+
+$map: (
+  string: green,
+  keyword: mauve,
+  function: blue,
+  variable: red,
+  comment: overlay2,
+
+  literal: maroon,
+  constant: peach,      // 常量（numeric、language 等）
+  type: sapphire,         // 数据类型（class、struct、interface）
+  class: yellow,        // 类名（可与 type 合并）
+  operator: teal,       // 操作符（+、-、= 等）
+  punctuation: subtext0,// 标点符号
+  property: rosewater,        // 对象属性 / 字段
+  builtin: flamingo,         // 内置函数 / 语言常量
+  escape: pink,         // 字符串转义字符
+);
+
+@each $name, $token in $map {
+  .code-#{$name} {
+    color: var(--catp-#{$token});
+  }
+}

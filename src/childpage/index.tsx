@@ -84,32 +84,34 @@ function Homepage() {
                 [
                   {
                     name: "comingup",
-                    el: <>
-                    <p>
-                      {t("index.comingup.main")}
-                      <a
-                        href="content/"
-                        style={{fontWeight: "bold"}}
-                      >
-                        {t("index.comingup.here")}
-                      </a>
-                      <br />
-                      {t("index.comingup.smooth_transition")}
-                    </p>
+                    el: (<>
+                      <p>
+                        {t("index.comingup.main")}
+                        <a
+                          href="content/"
+                          style={{fontWeight: "bold"}}
+                        >
+                          {t("index.comingup.here")}
+                        </a>
+                        <br />
+                        {t("index.comingup.smooth_transition")}
+                      </p>
 
-                    <CodeField code="#smooth-transition" />
-                    </>
+                      <CodeField>
+                        <div>#smooth-transition</div>
+                      </CodeField>
+                    </>)
                   },
                   {
                     name: "about",
-                    el: <p>
+                    el: (<p>
                       {t("index.about.p1")}
                       <br />{t("index.about.p2")}
-                    </p>
+                    </p>)
                   },
                   {
                     name: "portfolio",
-                    el: <>
+                    el: (<>
                       <h3>{t("index.portfolio")}</h3>
                       <div className="cards">
                         <Card
@@ -118,17 +120,17 @@ function Homepage() {
                           link="#"
                         />
                       </div>
-                    </>
+                    </>)
                   },
                   {
                     name: "contact",
-                    el: <>
+                    el: (<>
                       <h3>{t("index.contact")}</h3>
                       <ul>
                         <li><a href="mailto:me@liaoxyucm.top">me@liaoxyucm.top</a></li>
                         <li><a href="https://github.com/LiaoxyuCM">GitHub</a></li>
                       </ul>
-                    </>
+                    </>)
                   }
                 ].map(({name, el}: {name: string, el: JSX.Element}, index: number) => (
                   <div className={ `homepage article ${name}` } key={index}>

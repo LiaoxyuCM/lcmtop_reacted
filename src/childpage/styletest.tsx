@@ -27,10 +27,57 @@ export function Styletest() {
           {te("a")} [p&gt;]a
         </a>
       </p>
-      <CodeField code={`# ${te("code.comment")} CodeField(...)
-from django.http import HttpResponse, HttpRequest
-def helloView(request: HttpRequest):
-    return HttpResponse(f"Hello from {request.GET.get('name', 'React.ts')}!")`} />
+      <CodeField>
+        {[
+          [["comment", `# ${te("code.comment")} CodeField(...)`]],
+          [
+            ["keyword", "from"],
+            ["namespace", " django.http "],
+            ["keyword", "import"],
+            ["type", " HttpResponse"],
+            ["punctuation", ","],
+            ["type", " HttpRequest"],
+          ],
+          [
+            ["keyword", "def"],
+            ["function", " helloView"],
+            ["punctuation", "("],
+            ["variable", "request"],
+            ["punctuation", ":"],
+            ["type", " HttpRequest"],
+            ["punctuation", ")"],
+            ["punctuation", ":"],
+          ],
+          [
+            ["keyword", "    return"],
+            ["type", " HttpResponse"],
+            ["punctuation", "("],
+            ["string", 'f"Hello from '],
+            ["punctuation", "{"],
+            ["variable", "request"],
+            ["punctuation", "."],
+            ["property", "GET"],
+            ["punctuation", "."],
+            ["function", "get"],
+            ["punctuation", "("],
+            ["string", "'name'"],
+            ["punctuation", ","],
+            ["string", " 'React.ts'"],
+            ["punctuation", ")"],
+            ["punctuation", "}"],
+            ["string", '!"'],
+            ["punctuation", ")"],
+          ],
+        ].map((line: [string, string][], i: number) => (
+          <div key={i}>
+            {line.map(([cls, text]: [string, string], j: number) => (
+              <span key={j} className={`code-${cls}`}>
+                {text}
+              </span>
+            ))}
+          </div>
+        ))}
+      </CodeField>
       <p>
         <a href="/styletest/doc/components#codefield">{
           t("teststyle.doc.components.learn", {el: te("codefield")})
@@ -197,8 +244,8 @@ export function ComponentsDoc() {
         <ParamThead />
         <tbody>
           <tr>
-            <td>code</td>
-            <td>string</td>
+            <td>children</td>
+            <td>JSX.Element</td>
             <td>{t("global.yes")}</td>
             <td></td>
           </tr>
