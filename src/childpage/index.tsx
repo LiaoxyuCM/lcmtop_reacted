@@ -39,7 +39,7 @@ function Homepage() {
       showToast.nohook(
         t("index.version.update", {ver: version}),
         {
-          onClick: ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/liaoxyucmTop_reacted/releases/latest"),
+          onClick: ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/lcmtop_reacted/releases/latest"),
           duration: 5000
         }
       );
