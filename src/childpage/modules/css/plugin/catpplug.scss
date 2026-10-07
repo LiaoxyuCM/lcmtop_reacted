@@ -14,8 +14,8 @@ $map: (
   operator: teal,       // 操作符（+、-、= 等）
   punctuation: subtext0,// 标点符号
   property: rosewater,        // 对象属性 / 字段
-  builtin: flamingo,         // 内置函数 / 语言常量
-  escape: pink,         // 字符串转义字符
+  builtin: lavender,         // 内置函数 / 语言常量
+  namespace: pink,         // 字符串转义字符
 );
 
 @each $name, $token in $map {

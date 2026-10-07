@@ -60,7 +60,7 @@ export default function ToastPlayground() {
           flex: "1 1 0%",
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
-        }} type="text" placeholder={t("teststyle.toast.onclick_redirect.input") + "Never Gonna Give You Up MV"} name="toast_url_input" />
+        }} type="text" placeholder={t("teststyle.toast.onclick_redirect.input")} name="toast_url_input" />
         <button
           onClick={() => {
             const durationValue = durationRef.current?.value;

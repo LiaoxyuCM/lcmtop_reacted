@@ -80,7 +80,7 @@ body {
     --hint-success-bg: #132b11;
     --hint-success-fg: #5acf60;
     --hint-info-bg: #11263b;
-    --hint-info-fg: #9bbddf;
+    --hint-info-fg: #91c8ff,
     --hint-debug-bg: #121416;
     --hint-debug-fg: #9eacb9;
     --card-border: #2d3b4f;
@@ -201,7 +201,7 @@ nav {
   opacity: 0;
   pointer-events: none;
 
-  transition: .3s opacity cubic-bezier(0.4, 0, 0.2, 1),
+  transition: .3s opacity cubic-bezier(0, .3, .2, 1),
               .15s background-color ease;
 
   box-shadow: none;
@@ -334,7 +334,7 @@ footer {
 
 button {
   @extend %conffonts;
-	padding: 8px 16px;
+  padding: 8px 16px;
   border: 1px solid var(--card-border);
   border-radius: 8px;
   background: var(--secondary-bg);
@@ -342,7 +342,6 @@ button {
   font-size: 14px;
   cursor: pointer;
   transition: all .15s ease;
-  height: 40px;
 
   &:not(.ignore-button-default-style):not([disabled]):hover {
     border-color: var(--primary-text);
@@ -433,7 +432,7 @@ button {
   color: var(--secondary-text);
   border-radius: 5px;
   border: 1px solid var(--primary-border);
-  padding: 4px;
+  padding: 5px;
 }
 
 textarea {
@@ -445,17 +444,12 @@ textarea {
 
 input {
   @extend %textarea-input;
-  padding-top: 6px;
-  padding-bottom: 6px;
   border: 1px solid var(--card-border);
 }
-
 
 @mixin base-borderbottom($weight: 2px) {
   border-bottom: $weight solid var(--list-border);
 }
-
-
 
 ul {
   list-style: none;

@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from "react";
 import { Card, TimelineItem, SelectBar, CodeField } from "./modules/components"
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 export function Styletest() {
   const { t } = useTranslation();
@@ -45,8 +45,14 @@ export function Styletest() {
             ["variable", "request"],
             ["punctuation", ":"],
             ["type", " HttpRequest"],
+            ["punctuation", "):"],
+          ],
+          [
+            ["builtin", "    print"],
+            ["punctuation", "("],
+            ["string", '"Test"'],
             ["punctuation", ")"],
-            ["punctuation", ":"],
+
           ],
           [
             ["keyword", "    return"],
@@ -63,8 +69,7 @@ export function Styletest() {
             ["string", "'name'"],
             ["punctuation", ","],
             ["string", " 'React.ts'"],
-            ["punctuation", ")"],
-            ["punctuation", "}"],
+            ["punctuation", ")}"],
             ["string", '!"'],
             ["punctuation", ")"],
           ],

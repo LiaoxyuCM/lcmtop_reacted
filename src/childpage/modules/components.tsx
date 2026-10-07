@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Icons from './icons';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './css/components.scss';
 
 interface BaseCardProps {
@@ -116,30 +116,37 @@ export function SelectBar(
 export function CodeField({ children }: { children: JSX.Element }) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const items = Array.isArray(children) ? children : [children];
+  const codeRef = useRef<HTMLDivElement>(null);
+
+  const handleCopy = async () => {
+    try {
+      const lines = codeRef.current?.querySelectorAll<HTMLElement>(".code") ?? [];
+      const code = Array.from(lines)
+        .map((el) => el.textContent ?? "")
+        .join("\n");
+
+      await navigator.clipboard.writeText(code);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 1000);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <div className="codefield">
-      {items.map((ln: JSX.Element, index: number) => (
-        <div className="codeline" key={index}>
-          <p className="codelnnumber">{ index+1 }&nbsp;</p>
-          <p className="code">{ ln }</p>
-        </div>
-      ))}
-      <div className={`copybtn ${isCopied ? 'copied' : ''}`} onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(code);
-
-          setIsCopied(true);
-          setTimeout(() => {
-            setIsCopied(false);
-          }, 1000);
-        } catch {
-          // Fallback not impl'ed
-        }
-      }}>
-        {isCopied ? <Icons.Tick/> : <Icons.CopyBtn/>}
+      <div ref={codeRef}>
+        {items.map((ln: JSX.Element, index: number) => (
+          <div className="codeline" key={index}>
+            <p className="codelnnumber">{index + 1}&nbsp;</p>
+            <div className="code">{ln}</div>
+          </div>
+        ))}
+      </div>
+      <div className={`copybtn ${isCopied ? "copied" : ""}`} onClick={handleCopy}>
+        {isCopied ? <Icons.Tick /> : <Icons.CopyBtn />}
       </div>
     </div>
-  )
+  );
 }
 

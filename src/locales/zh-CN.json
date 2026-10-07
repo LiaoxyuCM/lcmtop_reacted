@@ -38,11 +38,11 @@
     "nav": {
       "friendlinks": "友链",
       "theme": {
-        "light": "亮色",
-        "dark": "暗色"
+        "light": "亮色模式",
+        "dark": "暗色模式"
       }
     },
-    "timer": "本站已经安全地活过 {{d}}天 {{h}}时 {{m}}分 {{s}}秒"
+    "timer": "本站已活过 {{d}}天 {{h}}时 {{m}}分 {{s}}秒"
   },
   "content": {
     "search.placeholder": "按下 \"/\" 使用Bing搜索",
@@ -150,7 +150,7 @@
         "redirect": "点击时跳转 (链接)"
       },
       "default": "默认信息框信息",
-      "onclick_redirect.input": "输入链接, 例如这个链接指向 "
+      "onclick_redirect.input": "输入链接, 例如指向某豪俊金曲的链接"
     }
   },
   "friendlinks": {

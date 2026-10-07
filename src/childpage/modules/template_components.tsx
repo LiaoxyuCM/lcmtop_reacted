@@ -17,12 +17,6 @@ const NavBarBaseContent = (
           i18n.changeLanguage(i18n.language === 'en' ? 'zh-CN' : 'en');
         }
       }>{t("translate.anotherlang." + (verbose ? "verbose" : "simple"))}</a>
-      <a href="https://github.com/LiaoxyuCM" target="_blank">
-        {verbose ?
-          <>GitHub</> :
-          <Icons.GitHub />
-        }
-      </a>
       <a href="#" onClick={(e) => {
         e.preventDefault();
         const newDarkmode = !darkmode;
@@ -45,6 +39,12 @@ const NavBarBaseContent = (
               t("index.nav.theme.dark") :
               <Icons.DarkMode />
           )
+        }
+      </a>
+      <a href="https://github.com/LiaoxyuCM" target="_blank">
+        {verbose ?
+          <>GitHub</> :
+          <Icons.GitHub />
         }
       </a>
       <a href="/friendlinks">{t("index.nav.friendlinks")}</a>

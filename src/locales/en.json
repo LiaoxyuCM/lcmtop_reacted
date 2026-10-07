@@ -38,11 +38,11 @@
     "nav": {
       "friendlinks": "FriendLinks",
       "theme": {
-        "light": "Light",
-        "dark": "Dark"
+        "light": "Light mode",
+        "dark": "Dark mode"
       }
     },
-    "timer": "This site has been safely running for {{d}}d {{h}}h {{m}}min {{s}}s."
+    "timer": "This site has been running for {{d}}d {{h}}h {{m}}min {{s}}s."
   },
   "content": {
     "search.placeholder": "Hit \"/\" to search via Bing",
@@ -150,7 +150,7 @@
         "redirect": "Redirect (2 an url) onclick"
       },
       "default": "Default Toast Content",
-      "onclick_redirect.input": "Enter URL, eg. URL refers 2 "
+      "onclick_redirect.input": "Enter URL, eg. URL refers 2 some great music"
     }
   },
   "friendlinks": {
