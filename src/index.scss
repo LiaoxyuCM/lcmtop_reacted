@@ -21,6 +21,7 @@ body {
     --body-link-hover-shadow: #2563eb80;
     --nav-link: #212121;
     --nav-shadow: #{shadow-black(0.05)};
+    --nav-mobmenu-highlight: #{shadow-black(0.3)};
     --h1-gradient-left: #0f2b5e;
     --h1-gradient-right: #2563eb;
     --code-bg: #eaf0f5;
@@ -50,6 +51,7 @@ body {
     --timeline-card: #ffffff;
     --list-border: #{shadow-black(0.2)};
     --list-border-highlighted: #{shadow-black(0.4)};
+    --placeholder-fg: #aac3e5;
   }
   &.dark {
     --primary-bg: #070c18;
@@ -64,6 +66,7 @@ body {
     --body-link-hover-shadow: #3b82f6a0;
     --nav-link: #cbd5e1;
     --nav-shadow: #{shadow-black(0.3)};
+    --nav-mobmenu-highlight: #{shadow-white(0.3)};
     --h1-gradient-left: #90caf9;
     --h1-gradient-right: #bbd7fb;
     --code-bg: #1a212b;
@@ -80,7 +83,7 @@ body {
     --hint-success-bg: #132b11;
     --hint-success-fg: #5acf60;
     --hint-info-bg: #11263b;
-    --hint-info-fg: #91c8ff,
+    --hint-info-fg: #91c8ff;
     --hint-debug-bg: #121416;
     --hint-debug-fg: #9eacb9;
     --card-border: #2d3b4f;
@@ -93,6 +96,7 @@ body {
     --timeline-card: #{shadow-white(0.05)};
     --list-border: #{shadow-white(0.2)};
     --list-border-highlighted: #{shadow-white(0.4)};
+    --placeholder-fg: #3b506e;
     
     nav div.pe img {
       filter: invert(1);
@@ -193,10 +197,9 @@ nav {
   color: var(--secondary-text);
   background: var(--primary-bg);
   z-index: 1000;
-  padding: 60px 20px 20px;
+  padding: 60px 0 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 
   opacity: 0;
   pointer-events: none;
@@ -229,8 +232,22 @@ nav {
   }
 
   a {
+    position: relative;
     text-decoration: none;
-    color: inherit;
+    padding: 10px 20px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--nav-mobmenu-highlight);
+      transition: .2s width ease-out;
+    }
+    &:hover::after {
+      width: 100%;
+    }
   }
 }
 
@@ -433,6 +450,10 @@ button {
   border-radius: 5px;
   border: 1px solid var(--primary-border);
   padding: 5px;
+
+  &::placeholder {
+    color: var(--placeholder-fg);
+  }
 }
 
 textarea {
