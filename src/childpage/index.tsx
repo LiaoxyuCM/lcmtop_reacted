@@ -60,7 +60,7 @@ function Homepage() {
       <img
         className="homepage back-img"
         style={{ opacity: bgLoaded ? 1 : 0 }}
-        src="https://assets.liaoxyucm.top/wallpaper.jpg"
+        src="https://t.alcy.cc/fj"
         onLoad={() => setBgLoaded(true)}
         onError={() => {
           setBgLoaded(true);
@@ -70,7 +70,7 @@ function Homepage() {
       {!loading && (
         <>
           <Cursor />
-          <NavBar advanced={true} />
+          <NavBar fixpos={true} />
           <div className="homepage overlay">
             <h1 className="cur-target">{t("index.welcome")}</h1>
             <p className="homepage subtitle">

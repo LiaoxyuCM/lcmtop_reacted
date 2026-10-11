@@ -52,7 +52,6 @@ export function Styletest() {
             ["punctuation", "("],
             ["string", '"Test"'],
             ["punctuation", ")"],
-
           ],
           [
             ["keyword", "    return"],

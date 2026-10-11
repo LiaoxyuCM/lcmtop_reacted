@@ -52,43 +52,10 @@ const NavBarBaseContent = (
   )
 }
 
-const NavBarBase = (
-  {isMenuOpen, setIsMenuOpen, isMobile, darkmode, setDarkmode}:
-  {
-    isMenuOpen: boolean,
-    setIsMenuOpen: Dispatch<SetStateAction<boolean>>,
-    isMobile?: boolean,
-    darkmode: boolean,
-    setDarkmode: Dispatch<SetStateAction<boolean>>
-  }
-) => (
-  <>
-    <a href="/">llcm.top</a>
-    <div
-      className="pe" style={{ display: isMobile ? "" : "none" }}
-      onClick={() => setIsMenuOpen(!isMenuOpen)}
-    >
-      <Icons.Menu />
-    </div>
-    <div className="pc" style={{ display: isMobile ? "none" : "" }}>
-      <NavBarBaseContent darkmode={darkmode} setDarkmode={setDarkmode} />
-    </div>
-
-    {isMobile && ( // 死磕deepseek的第n天
-      <>
-        <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-          <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
-          <NavBarBaseContent verbose={true} darkmode={darkmode} setDarkmode={setDarkmode} />
-        </div>
-      </>
-    )}
-  </>
-)
-
-export function NavBar({ advanced = false }: { advanced?: boolean }) {
+export function NavBar({fixpos = false}: {fixpos?: boolean}) {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isUnscrolled, setIsUnscrolled] = useState<boolean>(advanced);
+  const [isUnscrolled, setIsUnscrolled] = useState<boolean>(true);
   const [progress, setProgress] = useState<number>(0);
 
   // read color theme (light / dark) from localStorage and set it to the root element
@@ -122,25 +89,35 @@ export function NavBar({ advanced = false }: { advanced?: boolean }) {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [advanced]);
+  }, []);
 
   return (
     <nav
       className={
-        (isUnscrolled && advanced) ? 'unscrolled' : ''
+        isUnscrolled ? 'unscrolled' : ''
       }
-      style={advanced ? { position: "fixed" } : {}}
+      style={fixpos ? {position: 'fixed'} : {}}
     >
-      <div className="navbar-progress" style={advanced ? {
-        width: `${progress}%`
-      } : {}}/>
-      <NavBarBase
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-        isMobile={isMobile}
-        darkmode={darkmode}
-        setDarkmode={setDarkmode}
-      />
+      <div className="navbar-progress" style={{ width: `${progress}%` }}/>
+      <a href="/">llcm.top</a>
+      <div
+        className="pe" style={{ display: isMobile ? "" : "none" }}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <Icons.Menu />
+      </div>
+      <div className="pc" style={{ display: isMobile ? "none" : "" }}>
+        <NavBarBaseContent darkmode={darkmode} setDarkmode={setDarkmode} />
+      </div>
+
+      {isMobile && ( // 死磕deepseek的第n天
+        <>
+          <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+            <button className="close-btn ignore-button-default-style" onClick={() => setIsMenuOpen(false)}>✕</button>
+            <NavBarBaseContent verbose={true} darkmode={darkmode} setDarkmode={setDarkmode} />
+          </div>
+        </>
+      )}
     </nav>
   );
 }
