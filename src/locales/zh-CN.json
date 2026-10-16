@@ -58,22 +58,6 @@
       "teststyle": {
         "title": "样式测试",
         "content": "测试各种HTML元素的样式展示"
-      },
-      "aboutme": {
-        "title": "关于我",
-        "content": "自我介绍"
-      },
-      "starter": {
-        "title": "起始页",
-        "content": "简洁, 没有广告"
-      },
-      "texttool": {
-        "title": "文本处理",
-        "content": "处理文本的工具集"
-      },
-      "earlyproj": {
-        "title": "早期作品",
-        "content": "由于很早, 技术量很少"
       }
     },
     "filter": {
@@ -154,13 +138,13 @@
     }
   },
   "friendlinks": {
-    "nexacore.content": "NexaCore Team报告所有权利",
-    "gnjjws.content": "众和-工农阶级万岁🅥",
-    "zi.content": "无人区 —— 非盈利组织",
-    "sungge.content": "是一个专注于 Web 开发、开源项目分享与技术写作 的个人技术品牌"
+    "muahax": "NexaCore Team报告所有权利",
+    "zhtech": "众和-工农阶级万岁🅥",
+    "zi": "无人区 —— 非盈利组织",
+    "sungge": "是一个专注于 Web 开发、开源项目分享与技术写作 的个人技术品牌"
   },
   "err.404": {
-    "message": "我也不知道啊, 页面似乎被某个神秘网站的那只小猫吃掉了",
-    "goback": "回去"
+    "message": "布豪, 网页被某个神秘小猫干没了",
+    "goback": "退一步海阔天空"
   }
 }

@@ -47,6 +47,7 @@ const NavBarBaseContent = (
           <Icons.GitHub />
         }
       </a>
+      <a href="https://liaoxyucm.top" target="_blank">liaoxyucm.top</a>
       <a href="/friendlinks">{t("index.nav.friendlinks")}</a>
     </>
   )
@@ -98,7 +99,10 @@ export function NavBar({fixpos = false}: {fixpos?: boolean}) {
       }
       style={fixpos ? {position: 'fixed'} : {}}
     >
-      <div className="navbar-progress" style={{ width: `${progress}%` }}/>
+      <div className="navbar-progress" style={{
+        width: `${progress}%`,
+        backgroundColor: (darkmode ? `hsl(${progress*2.1298}deg 97.71% 65.69%)` : `hsl(${progress*2.2593}deg 70.73% 40.2%)`)
+      }}/>
       <a href="/">llcm.top</a>
       <div
         className="pe" style={{ display: isMobile ? "" : "none" }}

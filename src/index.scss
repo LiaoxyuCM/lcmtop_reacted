@@ -161,7 +161,7 @@ nav {
     transition: color 0.2s, border-color 0.2s;
     &:hover {
       color: var(--primary-text);
-      border-bottom-color: var(--primary-text);
+      // border-bottom-color: var(--primary-text);
     }
   }
   div.pc a {
@@ -169,6 +169,7 @@ nav {
     font-size: 1rem;
     font-weight: 500;
     border-bottom: 2px solid transparent;
+    align-self: center;
   }
   div.pe svg {
     @extend %global-navbar;

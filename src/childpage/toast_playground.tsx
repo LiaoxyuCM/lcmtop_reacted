@@ -1,4 +1,4 @@
-import { showToast, ToastOnclickAction, ToastType } from "./modules/toast";
+import { showToast, ToastType } from "./modules/toast";
 import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 
@@ -40,7 +40,6 @@ export default function ToastPlayground() {
             showToast.nohook(
               inputRef.current?.value || t("teststyle.toast.default"),
               {
-                onClick: ToastOnclickAction.RemoveToast,
                 type: selectRef.current?.value as ToastType,
                 duration: durationValue ? Number(durationValue) : 2000
               }
@@ -67,7 +66,11 @@ export default function ToastPlayground() {
             showToast.nohook(
               inputRef.current?.value || t("teststyle.toast.default"),
               {
-                onClick: ToastOnclickAction.Redirect2Url(urlInputRef.current?.value || "https://www.bilibili.com/video/BV1GJ411x7h7/"),
+                onClick: () => {
+                  window.open(
+                    urlInputRef.current?.value || "https://www.bilibili.com/video/BV1GJ411x7h7/", "_blank"
+                  )
+                },
                 type: selectRef.current?.value as ToastType,
                 duration: durationValue ? Number(durationValue) : 2000
               }

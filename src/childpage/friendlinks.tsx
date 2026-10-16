@@ -11,26 +11,26 @@ function FriendLinksContent() {
   }[] = [
     {
       link: "https://muah.top",
-      title: "NexaCore",
-      content: `2024 - 2026 ${t("friendlinks.nexacore.content")}`,
+      title: "MuaHax",
+      content: `2024 - 2026 ${t("friendlinks.muahax.content")}`,
       imagesrc: "https://assets.liaoxyucm.top/muah.top/g.jpg"
     },
     {
       link: "https://zh2026.cn",
       title: "工农阶级万岁🅥",
-      content: "© 2025 " + t("friendlinks.gnjjws.content"),
+      content: "© 2025 " + t("friendlinks.zhtech"),
       imagesrc: "https://zh2026.cn/tx.jpg"
     },
     {
       link: "https://tunhs.mysxl.cn",
       title: "ZI",
-      content: t("friendlinks.zi.content"),
+      content: t("friendlinks.zi"),
       imagesrc: "https://assets.liaoxyucm.top/tunhs.mysxl.cn/favicon.ico"
     },
     {
       link: "https://www.sgyyds.club",
       title: "孙哥科技",
-      content: `孙哥科技${t("friendlinks.sungge.content")}`,
+      content: `孙哥科技${t("friendlinks.sungge")}`,
       imagesrc: "https://www.sgyyds.club/favicon.ico"
     }
   ];
