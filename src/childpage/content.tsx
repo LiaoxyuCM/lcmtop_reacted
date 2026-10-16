@@ -43,30 +43,6 @@ export default function HomepageContent() {
       content: t("content.card.teststyle.content"),
       filter: ["thissite", "sitetool"],
       targetblank: false
-    },
-    {
-      link: 'https://about.liaoxyucm.top',
-      title: t("content.card.aboutme.title"),
-      content: t("content.card.aboutme.content"),
-      filter: ["thissite", "sitesupport"]
-    },
-    {
-      link: 'https://starter.liaoxyucm.top',
-      title: t("content.card.starter.title"),
-      content: t("content.card.starter.content"),
-      filter: ["thissite", "program"]
-    },
-    {
-      link: 'https://tools.liaoxyucm.top',
-      title: t("content.card.texttool.title"),
-      content: t("content.card.texttool.content"),
-      filter: ["thissite", "sitetool"]
-    },
-    {
-      link: 'https://liaoxyucm.top/demo',
-      title: t("content.card.earlyproj.title"),
-      content: t("content.card.earlyproj.content"),
-      filter: ["thissite", "program"]
     }
   ];
 

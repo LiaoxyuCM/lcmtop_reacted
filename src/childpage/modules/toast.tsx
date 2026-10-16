@@ -22,6 +22,9 @@ export const ToastType = {
 
 export type ToastType = typeof ToastType[keyof typeof ToastType];
 
+/*
+ * @deprecated 现在 onClick 要求的是一个函数, 因为更灵活
+ */
 export const ToastOnclickAction = {
   RemoveToast: new ActionRemoveToast(),
   Redirect2Url: (url: string) => (new ActionRedirect2Url(url))
@@ -53,7 +56,8 @@ const removeToast = (toastElement: HTMLElement) => {
 
 
 export interface ToastOptions {
-  onClick?: ActionRedirect2Url | ActionRemoveToast;
+  onClick?: undefined | (() => void);
+  removeAfterClick?: boolean;
   type?: ToastType;
   duration?: number;
 }
@@ -61,7 +65,8 @@ export interface ToastOptions {
 const showToast_ = ( // 竟让我手动操作DOM
   content: string,
   {
-    onClick = ToastOnclickAction.RemoveToast,
+    onClick = undefined,
+    removeAfterClick = true,
     type = ToastType.Normal,
     duration = 2000,
   }: ToastOptions = {}
@@ -70,7 +75,7 @@ const showToast_ = ( // 竟让我手动操作DOM
   toastElement.className = 'toast-notification';
   const parag = document.createElement("p");
   parag.textContent = content;
-  if (onClick instanceof ActionRedirect2Url) {
+  if (onClick) {
     parag.style.textDecoration = 'underline';
     parag.style.textDecorationStyle = 'dotted';
     parag.style.textUnderlineOffset = '4px';
@@ -108,10 +113,17 @@ const showToast_ = ( // 竟让我手动操作DOM
     if ((e.target as HTMLElement).closest('.toast-context-menu')) {
       return;
     }
-
-    if (onClick instanceof ActionRedirect2Url) {
-      window.open(onClick.url, '_blank');
-    } else if (onClick instanceof ActionRemoveToast) {
+    
+    if (onClick) {
+      onClick();
+    }
+    // if (onClick instanceof ActionRedirect2Url) {
+    //   window.open(onClick.url, '_blank');
+    // } else if (onClick instanceof ActionRemoveToast) {
+    //   clearTimeout(timeoutId);
+    //   removeToast(toastElement);
+    // }
+    if (removeAfterClick) {
       clearTimeout(timeoutId);
       removeToast(toastElement);
     }

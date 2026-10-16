@@ -11,7 +11,7 @@
   top: calc(var(--c-height) / -2);
   pointer-events: none;
 
-  transition: .2s ease-out;
+  transition: .2s cubic-bezier(0, 0, .3, 1);
   transition-property: width, height, top, left;
 
   div {

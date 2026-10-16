@@ -38,11 +38,11 @@
     "nav": {
       "friendlinks": "FriendLinks",
       "theme": {
-        "light": "Light",
-        "dark": "Dark"
+        "light": "Light mode",
+        "dark": "Dark mode"
       }
     },
-    "timer": "This site has been safely running for {{d}}d {{h}}h {{m}}min {{s}}s."
+    "timer": "This site has been running for {{d}}d {{h}}h {{m}}min {{s}}s."
   },
   "content": {
     "search.placeholder": "Hit \"/\" to search via Bing",
@@ -58,22 +58,6 @@
       "teststyle": {
         "title": "Test styles",
         "content": "Test display of HTML elements"
-      },
-      "aboutme": {
-        "title": "About me",
-        "content": "Self Intro"
-      },
-      "starter": {
-        "title": "Starter",
-        "content": "Simple and no ads"
-      },
-      "texttool": {
-        "title": "Text tools",
-        "content": "The tool set of processing text."
-      },
-      "earlyproj": {
-        "title": "Early Projects",
-        "content": "Projects with less coding skills."
       }
     },
     "filter": {
@@ -150,17 +134,17 @@
         "redirect": "Redirect (2 an url) onclick"
       },
       "default": "Default Toast Content",
-      "onclick_redirect.input": "Enter URL, eg. URL refers 2 "
+      "onclick_redirect.input": "Enter URL, eg. URL refers 2 some great music"
     }
   },
   "friendlinks": {
-    "nexacore.content": "NexaCore Team Reported All Rights",
-    "gnjjws.content": "ZHTech-工农阶级万岁🅥",
-    "zi.content": "The Universal NHS",
-    "sungge.content": "is a personal tech brand focused on web development, open-source project sharing, and technical writing"
+    "muahax": "MuaHax Team Reported All Rights",
+    "zhtech": "ZHTech-工农阶级万岁🅥",
+    "zi": "The Universal NHS",
+    "sungge": "is a personal tech brand focused on web development, open-source project sharing, and technical writing"
   },
   "err.404": {
-    "message": "I don't know either! The page seems to have been eaten by that little cat from a secret site.",
+    "message": "Oh my goodness bro, this page is gone!!!",
     "goback": "Go Back"
   }
 }
