@@ -28,7 +28,7 @@ export function Styletest() {
         </a>
       </p>
       <CodeField>
-        {[
+        {([
           [["comment", `# ${te("code.comment")} CodeField(...)`]],
           [
             ["keyword", "from"],
@@ -72,7 +72,7 @@ export function Styletest() {
             ["string", '!"'],
             ["punctuation", ")"],
           ],
-        ].map((line: [string, string][], i: number) => (
+        ] as [string, string][][]).map((line: [string, string][], i: number) => (
           <div key={i}>
             {line.map(([cls, text]: [string, string], j: number) => (
               <span key={j} className={`code-${cls}`}>

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, JSX } from 'react';
 import Icons from './icons';
 import { useState, useRef } from 'react';
 import './css/components.scss';
@@ -113,7 +113,7 @@ export function SelectBar(
   )
 }
 
-export function CodeField({ children }: { children: JSX.Element }) {
+export function CodeField({ children }: { children: ReactNode }) {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const items = Array.isArray(children) ? children : [children];
   const codeRef = useRef<HTMLDivElement>(null);

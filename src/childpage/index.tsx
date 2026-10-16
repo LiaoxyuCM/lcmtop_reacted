@@ -1,7 +1,7 @@
 import { NavBar, FooterBaseAdvanced, Cursor } from './modules/template_components';
 import { CodeField, Card } from './modules/components';
 import { useTranslation } from 'react-i18next';
-import { showToast, ToastOnclickAction, ToastType } from './modules/toast';
+import { showToast, ToastType } from './modules/toast';
 import Icons from './modules/icons';
 import LoadingPage from './modules/loadingpage';
 import { useState, useEffect, type JSX } from 'react';
@@ -39,7 +39,7 @@ function Homepage() {
       showToast.nohook(
         t("index.version.update", {ver: version}),
         {
-          onClick: ToastOnclickAction.Redirect2Url("https://github.com/LiaoxyuCM/lcmtop_reacted/releases/latest"),
+          onClick: () => {window.open("https://github.com/LiaoxyuCM/lcmtop_reacted/releases/latest", "_blank")},
           duration: 5000
         }
       );
