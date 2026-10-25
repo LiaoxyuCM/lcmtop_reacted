@@ -12,6 +12,8 @@ function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
+  const [subtitleVisible, setSubtitleVisible] = useState<boolean>(false);
+  const [subtitle, setSubtitle] = useState<string>("/* LiaoxyuCM, Lclimir */");
 
   const timeRanges: {max: number, value: string}[] = [
     { max: 5, value: 'late_night' },
@@ -52,6 +54,17 @@ function Homepage() {
     }
   }, [loading, greet, t]);
 
+  useEffect(() => {
+    if (!loading) {
+      fetch("https://api.liaoxyucm.top/fun/tip.php").then(resp => resp.text()).then((text: string) => {
+        setSubtitle(text);
+        setSubtitleVisible(true);
+      }).catch(() => {
+        setSubtitleVisible(true);
+      });
+    }
+  }, [loading]);
+
   return (
     <>
       <LoadingPage
@@ -60,7 +73,7 @@ function Homepage() {
       <img
         className="homepage back-img"
         style={{ opacity: bgLoaded ? 1 : 0 }}
-        src="https://t.alcy.cc/fj"
+        src="https://t.alcy.cc/pic/fj/119.webp"
         onLoad={() => setBgLoaded(true)}
         onError={() => {
           setBgLoaded(true);
@@ -73,8 +86,8 @@ function Homepage() {
           <NavBar fixpos={true} />
           <div className="homepage overlay">
             <h1 className="cur-target">{t("index.welcome")}</h1>
-            <p className="homepage subtitle">
-              /* LiaoxyuCM, Lclimir */
+            <p className={"homepage subtitle" + (subtitleVisible?"":" hidden")}>
+              {subtitle}
             </p>
             <Icons.Scrolldown />
           </div>

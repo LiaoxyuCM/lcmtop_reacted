@@ -62,8 +62,6 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
           </div>
         </div>
 
-        <div className="loading-page__percentage">{Math.floor(progress)}%</div>
-
         <div className="loading-page__tips">
           <span className="loading-page__tips-text">{t("index.loading")}</span>
           <span className="loading-page__tips-dots">
