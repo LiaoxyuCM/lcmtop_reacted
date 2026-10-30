@@ -5,10 +5,16 @@ import './css/loadingpage.scss';
 interface LoadingPageProps {
   isLoading?: boolean;
   onLoadingComplete?: () => void;
+  l_bg?: boolean;
+  l_subt?: boolean;
+  l_i18n?: boolean;
 }
 
 const LoadingPage: React.FC<LoadingPageProps> = ({
   isLoading = true,
+  l_bg = true,
+  l_subt = true,
+  l_i18n = true,
   onLoadingComplete,
 }) => {
   const { t } = useTranslation();
@@ -69,6 +75,16 @@ const LoadingPage: React.FC<LoadingPageProps> = ({
               <span key={index}>.</span>
             ))}
           </span>
+        </div>
+        <div className="loading-page__tips loaditem">
+          {([[l_bg, "background"], [l_subt, "subtitle"], [l_i18n, "i18n"]] as [boolean, string][]).map(
+            (item: [boolean, string], index: number) => (
+              <span
+                key={index}
+                className="loading-page__tips-text loaditem"
+                style={{opacity: item[0] ? "20%" : ""}}>{item[1]}{item[0] ? " OK" : ""}</span>
+            )
+          )}
         </div>
       </div>
     </div>

@@ -12,7 +12,10 @@
   "index": {
     "loading": "Loading Resources",
     "welcome": "Welcome",
-    "bg_load_failed": "Cannot load wallpaper, refresh or check your network connection",
+    "load_failed": {
+      "bg": "Cannot load wallpaper",
+      "subt": "Cannot load subtitle"
+    },
     "version.update": "Welcome back, this has been updated 2 v{{ver}}, click here to see more details!",
     "portfolio": "Portfolio",
     "contact": "Contact",

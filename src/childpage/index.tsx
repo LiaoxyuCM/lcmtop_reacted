@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { showToast, ToastType } from './modules/toast';
 import Icons from './modules/icons';
 import LoadingPage from './modules/loadingpage';
-import { useState, useEffect, type JSX } from 'react';
+import { useState, useEffect, useRef, type JSX } from 'react';
 import './modules/css/homepage.scss';
 import { version } from "../../package.json";
 
@@ -12,8 +12,10 @@ function Homepage() {
   const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState<boolean>(true);
   const [bgLoaded, setBgLoaded] = useState<boolean>(false);
-  const [subtitleVisible, setSubtitleVisible] = useState<boolean>(false);
+  const [subtitleLoaded, setSubtitleLoaded] = useState<boolean>(false);
+  const subtitleFetchedRef = useRef<boolean>(false);
   const [subtitle, setSubtitle] = useState<string>("/* LiaoxyuCM, Lclimir */");
+  const [subtitleDsp, setSubtitleDsp] = useState<string>("");
 
   const timeRanges: {max: number, value: string}[] = [
     { max: 5, value: 'late_night' },
@@ -29,11 +31,11 @@ function Homepage() {
   const greet: string = timeRanges.find(range => (new Date().getHours()) <= range.max)?.value || '';
 
   useEffect(() => {
-    if (bgLoaded && i18n.isInitialized) {
+    if (bgLoaded && i18n.isInitialized && subtitleLoaded) {
       const timer = setTimeout(() => setLoading(false), 300);
       return () => clearTimeout(timer);
     }
-  }, [bgLoaded, i18n.isInitialized]);
+  }, [bgLoaded, i18n.isInitialized, subtitleLoaded]);
 
   useEffect(() => {
     if (!loading && localStorage.getItem("version") !== version) {
@@ -55,29 +57,61 @@ function Homepage() {
   }, [loading, greet, t]);
 
   useEffect(() => {
-    if (!loading) {
+    if (subtitleFetchedRef.current) return;
+    subtitleFetchedRef.current = true;
+    if (!subtitleLoaded) {
       fetch("https://api.liaoxyucm.top/fun/tip.php").then(resp => resp.text()).then((text: string) => {
         setSubtitle(text);
-        setSubtitleVisible(true);
+        setSubtitleLoaded(true);
       }).catch(() => {
-        setSubtitleVisible(true);
+        showToast.nohook(
+          t("index.load_failed.subt"),
+          {
+            type: ToastType.Error
+          }
+        );
+        setSubtitle("No data");
+        setSubtitleLoaded(true);
       });
     }
-  }, [loading]);
+  }, [subtitleLoaded, t]);
+
+  useEffect(() => {
+    if (loading || !subtitle) return;
+
+    let idx = 0;
+    let timer: ReturnType<typeof setTimeout>;
+
+    const step = () => {
+      if (idx >= subtitle.length) return;
+      idx += 1;
+      setSubtitleDsp(subtitle.slice(0, idx));
+      if (idx < subtitle.length) {
+        timer = setTimeout(step, 50);
+      }
+    };
+
+    step();
+
+    return () => clearTimeout(timer);
+  }, [loading, subtitle]);
 
   return (
     <>
       <LoadingPage
         isLoading={loading}
+        l_bg={bgLoaded}
+        l_subt={subtitleLoaded}
+        l_i18n={i18n.isInitialized}
       />
       <img
         className="homepage back-img"
         style={{ opacity: bgLoaded ? 1 : 0 }}
-        src="https://t.alcy.cc/pic/fj/119.webp"
+        src="https://t.alcy.cc/pic/fj/109.webp"
         onLoad={() => setBgLoaded(true)}
         onError={() => {
           setBgLoaded(true);
-          showToast.nohook(t("index.bg_load_failed"), { type: ToastType.Error });
+          showToast.nohook(t("index.load_failed.bg"), { type: ToastType.Error });
         }}
       />
       {!loading && (
@@ -86,8 +120,8 @@ function Homepage() {
           <NavBar fixpos={true} />
           <div className="homepage overlay">
             <h1 className="cur-target">{t("index.welcome")}</h1>
-            <p className={"homepage subtitle" + (subtitleVisible?"":" hidden")}>
-              {subtitle}
+            <p className="homepage subtitle">
+              {subtitleDsp}
             </p>
             <Icons.Scrolldown />
           </div>

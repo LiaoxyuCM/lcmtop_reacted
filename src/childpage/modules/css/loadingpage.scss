@@ -75,9 +75,17 @@
     align-items: baseline;
     gap: 4px;
 
+    &.loaditem {
+      flex-direction: column;
+    }
+
     &-text {
       font-size: 0.8rem;
       letter-spacing: 1px;
+      
+      &.loaditem {
+        transition: .2s opacity ease-out;
+      }
     }
 
     &-dots {
