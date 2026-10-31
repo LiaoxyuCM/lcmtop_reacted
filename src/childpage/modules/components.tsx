@@ -66,15 +66,15 @@ export function CardFriendLink({ title, content, link, imagesrc, targetblank = t
 }
 
 interface TimelineProps {
-  datetime: string,
+  title: string,
   content: string
 }
 
-export function TimelineItem({ datetime, content }: TimelineProps) {
+export function TimelineItem({ title, content }: TimelineProps) {
   return (
     <div className="timeline-item">
       <div className="timeline-dot"></div>
-      <div className="timeline-date">{datetime}</div>
+      <div className="timeline-date">{title}</div>
       <div className="timeline-content">
         <p>{content}</p>
       </div>

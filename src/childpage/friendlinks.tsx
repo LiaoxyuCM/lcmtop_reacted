@@ -12,7 +12,7 @@ function FriendLinksContent() {
     {
       link: "https://muah.top",
       title: "MuaHax",
-      content: `2024 - 2026 ${t("friendlinks.muahax.content")}`,
+      content: `2024 - 2026 ${t("friendlinks.muahax")}`,
       imagesrc: "https://assets.liaoxyucm.top/muah.top/g.jpg"
     },
     {
@@ -50,7 +50,5 @@ function FriendLinksContent() {
     </>
   )
 }
-
-
 
 export default FriendLinksContent;

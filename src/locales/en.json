@@ -12,7 +12,10 @@
   "index": {
     "loading": "Loading Resources",
     "welcome": "Welcome",
-    "bg_load_failed": "Cannot load wallpaper, refresh or check your network connection",
+    "load_failed": {
+      "bg": "Cannot load wallpaper",
+      "subt": "Cannot load subtitle"
+    },
     "version.update": "Welcome back, this has been updated 2 v{{ver}}, click here to see more details!",
     "portfolio": "Portfolio",
     "contact": "Contact",
@@ -29,7 +32,7 @@
     "comingup": {
       "main": "The new version of the homepage is under construction, and the original content has been moved to ",
       "here": "here",
-      "smooth_transition": "To enable the feature of smooth transition of cursor, please add the below content to this URL."
+      "smooth_transition": "To disable the feature of smooth transition of cursor, please add the below content to this URL."
     },
     "about": {
       "p1": "Hi, I'm LiaoxyuCM(Lclimir), ... (Actually I didn't know what to write), anyway, here is the hello.",
@@ -58,7 +61,8 @@
       "teststyle": {
         "title": "Test styles",
         "content": "Test display of HTML elements"
-      }
+      },
+      "return2liaoxyucmtop.content": "Return to liaoxyucm.top"
     },
     "filter": {
       "main": "Filter",

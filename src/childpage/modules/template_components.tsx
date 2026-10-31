@@ -47,7 +47,6 @@ const NavBarBaseContent = (
           <Icons.GitHub />
         }
       </a>
-      <a href="https://liaoxyucm.top" target="_blank">liaoxyucm.top</a>
       <a href="/friendlinks">{t("index.nav.friendlinks")}</a>
     </>
   )
@@ -101,7 +100,7 @@ export function NavBar({fixpos = false}: {fixpos?: boolean}) {
     >
       <div className="navbar-progress" style={{
         width: `${progress}%`,
-        backgroundColor: (darkmode ? `hsl(${progress*2.1298}deg 97.71% 65.69%)` : `hsl(${progress*2.2593}deg 70.73% 40.2%)`)
+        backgroundColor: (darkmode ? `hsl(${(212.98 + progress*3.6) % 360}deg 97.71% 65.69%)` : `hsl(${(225.93 + progress*3.6) % 360}deg 70.73% 40.2%)`)
       }}/>
       <a href="/">llcm.top</a>
       <div
@@ -193,7 +192,7 @@ export function Cursor() {
   }, []);
 
 
-  const enabledSmoothTransition: boolean = window.location.hash == "#smooth-transition";
+  const enabledSmoothTransition: boolean = !(window.location.hash.includes("#cursor:disable-smooth-transition"));
 
   useEffect(() => {
     const handleMouseMove = (ev: MouseEvent) => {

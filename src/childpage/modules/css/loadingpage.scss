@@ -69,22 +69,23 @@
     }
   }
 
-  &__percentage {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 0.8rem;
-    letter-spacing: 2px;
-  }
-
   &__tips {
     display: flex;
     justify-content: center;
     align-items: baseline;
     gap: 4px;
 
+    &.loaditem {
+      flex-direction: column;
+    }
+
     &-text {
       font-size: 0.8rem;
       letter-spacing: 1px;
+      
+      &.loaditem {
+        transition: .2s opacity ease-out;
+      }
     }
 
     &-dots {

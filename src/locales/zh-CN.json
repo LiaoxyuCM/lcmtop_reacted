@@ -12,7 +12,10 @@
   "index": {
     "loading": "正在加载资源",
     "welcome": "欢迎",
-    "bg_load_failed": "无法加载壁纸，请刷新或检查网络连接",
+    "load_failed": {
+      "bg": "无法加载壁纸",
+      "subt": "无法加载副标题"
+    },
     "version.update": "欢迎回来, 刚刚本站已经更新至v{{ver}}, 点击这里查看更多内容!",
     "portfolio": "作品集",
     "contact": "联系",
@@ -29,7 +32,7 @@
     "comingup": {
       "main": "新版主页正在建设中, 原内容已移动到",
       "here": "这里",
-      "smooth_transition": "若要启用光标缓动请在URL后面加上"
+      "smooth_transition": "若要禁用光标缓动请在URL后面加上"
     },
     "about": {
       "p1": "你好, 我叫LiaoxyuCM(Lclimir), ... (其实也不知道写啥), 反正就是你好啊.",
@@ -58,7 +61,8 @@
       "teststyle": {
         "title": "样式测试",
         "content": "测试各种HTML元素的样式展示"
-      }
+      },
+      "return2liaoxyucmtop.content": "返回 liaoxyucm.top"
     },
     "filter": {
       "main": "过滤",
