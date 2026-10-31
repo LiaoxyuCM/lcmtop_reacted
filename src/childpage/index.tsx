@@ -140,13 +140,7 @@ function Homepage() {
                         >
                           {t("index.comingup.here")}
                         </a>
-                        <br />
-                        {t("index.comingup.smooth_transition")}
                       </p>
-
-                      <CodeField>
-                        <div>#cursor:disable-smooth-transition</div>
-                      </CodeField>
                     </>)
                   },
                   {

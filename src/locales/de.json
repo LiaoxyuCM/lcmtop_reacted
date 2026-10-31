@@ -1,0 +1,154 @@
+{
+  "global": {
+    "yes": "Ja",
+    "no": "Nein",
+    "submit": "Absenden",
+    "global": "Global"
+  },
+  "index": {
+    "loading": "Ressourcen werden geladen",
+    "welcome": "Willkommen",
+    "load_failed": {
+      "bg": "Hintergrundbild konnte nicht geladen werden",
+      "subt": "Untertitel konnte nicht geladen werden"
+    },
+    "version.update": "Willkommen zurück! Die Seite wurde gerade auf v{{ver}} aktualisiert. Klicke hier für mehr!",
+    "portfolio": "Portfolio",
+    "contact": "Kontakt",
+    "greeting": {
+      "morning": "Guten Morgen!",
+      "forenoon": "Guten Vormittag!",
+      "noon": "Guten Mittag!",
+      "afternoon_early": "Guten Nachmittag!",
+      "afternoon": "Guten Nachmittag!",
+      "evening": "Guten Abend!",
+      "night": "Gute Nacht!",
+      "late_night": "Es ist schon mitten in der Nacht — pass auf deine Gesundheit auf!"
+    },
+    "comingup": {
+      "main": "Die neue Startseite wird gerade gebaut. Der ursprüngliche Inhalt wurde verschoben nach",
+      "here": "hier"
+    },
+    "about": {
+      "p1": "Hallo, ich bin LiaoxyuCM (Lclimir)... (ehrlich gesagt weiß ich auch nicht, was ich schreiben soll), jedenfalls: hallo!",
+      "p2": "Ja, derjenige, der ständig sagt „Chlor ist der Hammer“"
+    },
+    "nav": {
+      "friendlinks": "Freundeslinks",
+      "theme": {
+        "light": "Heller Modus",
+        "dark": "Dunkler Modus"
+      }
+    },
+    "timer": "Diese Seite lebt seit {{d}}T {{h}}Std {{m}}Min {{s}}Sek"
+  },
+  "content": {
+    "search.placeholder": "Drücke „/“, um mit Bing zu suchen",
+    "card": {
+      "siterepo": {
+        "title": "Seiten-Repository",
+        "content": "Quellcode dieser Seite ansehen"
+      },
+      "feedback": {
+        "title": "Problem melden",
+        "content": "Einen Bug gefunden? Oder Vorschläge?"
+      },
+      "teststyle": {
+        "title": "Stiltest",
+        "content": "Vorschau der Stile verschiedener HTML-Elemente"
+      },
+      "return2liaoxyucmtop.content": "Zurück zu liaoxyucm.top"
+    },
+    "filter": {
+      "main": "Filter",
+      "red2gh": "Zu GitHub",
+      "thissite": "Auf dieser Seite",
+      "program": "Projekte",
+      "sitetool": "Seiten-Tools",
+      "sitesupport": "Seiten-Support"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "Normal",
+      "error": "Fehler",
+      "warn": "Warnung",
+      "success": "Erfolg",
+      "info": "Info",
+      "debug": "Debug"
+    },
+    "element": {
+      "header": "Überschrift Ebene {{lvl}}",
+      "p": "Absatz",
+      "strong": "Fett",
+      "em": "Kursiv",
+      "u": "Unterstrichen",
+      "del": "Durchgestrichen",
+      "a": "Link",
+      "code.comment": "Ein Codestück",
+      "button": {
+        "default": "Button",
+        "toggle": "Umschalten",
+        "highlighted": "Hervorgehobener Button",
+        "disabled": "Deaktivierter Button"
+      },
+      "codefield": "Codeblock",
+      "input": "Texteingabe",
+      "textarea": "Textbereich",
+      "choice": "Auswahl",
+      "hint": {
+        "default": "Hinweis",
+        "single": "Einzelner Hinweis"
+      },
+      "hintgroup": "Hinweisgruppe",
+      "list": "Liste",
+      "card": {
+        "normal": "Karte",
+        "friendlink": "Freundeslink-Karte"
+      },
+      "table": {
+        "col": "Spalte",
+        "value": "Wert"
+      },
+      "timeline": "Zeitleiste",
+      "selectbar": "Auswahlleiste"
+    },
+    "doc.components": {
+      "learn": "Parameter der Komponente {{el}}",
+      "param": {
+        "name": "Parameter",
+        "type": "Typ",
+        "required": "Erforderlich",
+        "default": "Standard"
+      }
+    },
+    "toast": {
+      "enter": "Test-Toast",
+      "input": {
+        "content": "Inhalt eingeben",
+        "duration": "Dauer (ms) eingeben, Standard: 2000"
+      },
+      "onclick": {
+        "remove": "Beim Klick entfernen",
+        "redirect": "Beim Klick weiterleiten (URL)"
+      },
+      "default": "Standard-Toast-Nachricht",
+      "onclick_redirect.input": "URL eingeben, z. B. ein Link zu einem viralen Song"
+    }
+  },
+  "friendlinks": {
+    "muahax": "Alle Rechte vorbehalten von NexaCore Team",
+    "zhtech": "Zhonghe — Es leben die Arbeiter und Bauern 🅥",
+    "zi": "Niemandsland — eine gemeinnützige Organisation",
+    "sungge": "Eine persönliche Tech-Marke mit Fokus auf Webentwicklung, Open-Source-Sharing und technisches Schreiben"
+  },
+  "err.404": {
+    "message": "Hoppla, diese Seite wurde von einem mysteriösen Kätzchen zerstört",
+    "goback": "Einen Schritt zurück und der Horizont wird weit"
+  },
+  "settings": {
+    "entry": "Einstellungen",
+    "language": "Sprache",
+    "cursor_smooth_transition": "Cursor-Smoothing (Mauszeiger-Glättung)"
+  }
+}

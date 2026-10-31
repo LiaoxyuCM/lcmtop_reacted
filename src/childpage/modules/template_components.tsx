@@ -8,15 +8,10 @@ const NavBarBaseContent = (
   { darkmode, setDarkmode, verbose = false }:
   { darkmode: boolean, setDarkmode: Dispatch<SetStateAction<boolean>>, verbose?: boolean }
 ) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <>
-      <a href="#" onClick={
-        (e) => {
-          e.preventDefault();
-          i18n.changeLanguage(i18n.language === 'en' ? 'zh-CN' : 'en');
-        }
-      }>{t("translate.anotherlang." + (verbose ? "verbose" : "simple"))}</a>
+      <a href="/settings">{t("settings.entry")}</a>
       <a href="#" onClick={(e) => {
         e.preventDefault();
         const newDarkmode = !darkmode;
@@ -192,8 +187,7 @@ export function Cursor() {
   }, []);
 
 
-  const enabledSmoothTransition: boolean = !(window.location.hash.includes("#cursor:disable-smooth-transition"));
-
+  const enabledSmoothTransition: boolean = localStorage.getItem("cursor_smooth_transition") == "yes";
   useEffect(() => {
     const handleMouseMove = (ev: MouseEvent) => {
       let mcaX: number = ev.clientX;

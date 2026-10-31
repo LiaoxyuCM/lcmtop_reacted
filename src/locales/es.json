@@ -1,0 +1,154 @@
+{
+  "global": {
+    "yes": "Sí",
+    "no": "No",
+    "submit": "Enviar",
+    "global": "Global"
+  },
+  "index": {
+    "loading": "Cargando recursos",
+    "welcome": "Bienvenido",
+    "load_failed": {
+      "bg": "No se pudo cargar el fondo de pantalla",
+      "subt": "No se pudo cargar el subtítulo"
+    },
+    "version.update": "¡Bienvenido de nuevo! El sitio acaba de actualizarse a v{{ver}}. ¡Haz clic aquí para ver más!",
+    "portfolio": "Portafolio",
+    "contact": "Contacto",
+    "greeting": {
+      "morning": "¡Buenos días!",
+      "forenoon": "¡Buenos días!",
+      "noon": "¡Buen mediodía!",
+      "afternoon_early": "¡Buenas tardes!",
+      "afternoon": "¡Buenas tardes!",
+      "evening": "¡Buenas noches!",
+      "night": "¡Buenas noches!",
+      "late_night": "¡Ya es medianoche, cuida tu salud!"
+    },
+    "comingup": {
+      "main": "La nueva página de inicio está en construcción. El contenido original se ha movido a",
+      "here": "aquí"
+    },
+    "about": {
+      "p1": "Hola, soy LiaoxyuCM (Lclimir)... (la verdad tampoco sé qué escribir), en fin, ¡hola!",
+      "p2": "Sí, ese que siempre dice «el cloro mola»"
+    },
+    "nav": {
+      "friendlinks": "Enlaces de amigos",
+      "theme": {
+        "light": "Modo claro",
+        "dark": "Modo oscuro"
+      }
+    },
+    "timer": "Este sitio lleva vivo {{d}}d {{h}}h {{m}}m {{s}}s"
+  },
+  "content": {
+    "search.placeholder": "Pulsa «/» para buscar con Bing",
+    "card": {
+      "siterepo": {
+        "title": "Repositorio del sitio",
+        "content": "Ver el código fuente de este sitio"
+      },
+      "feedback": {
+        "title": "Reportar un problema",
+        "content": "¿Encontraste un bug? ¿O tienes sugerencias?"
+      },
+      "teststyle": {
+        "title": "Prueba de estilos",
+        "content": "Vista previa de estilos de varios elementos HTML"
+      },
+      "return2liaoxyucmtop.content": "Volver a liaoxyucm.top"
+    },
+    "filter": {
+      "main": "Filtrar",
+      "red2gh": "Ir a GitHub",
+      "thissite": "En este sitio",
+      "program": "Proyectos",
+      "sitetool": "Herramientas del sitio",
+      "sitesupport": "Soporte del sitio"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "Normal",
+      "error": "Error",
+      "warn": "Advertencia",
+      "success": "Éxito",
+      "info": "Info",
+      "debug": "Depuración"
+    },
+    "element": {
+      "header": "Encabezado de nivel {{lvl}}",
+      "p": "Párrafo",
+      "strong": "Negrita",
+      "em": "Cursiva",
+      "u": "Subrayado",
+      "del": "Tachado",
+      "a": "Enlace",
+      "code.comment": "Un fragmento de código",
+      "button": {
+        "default": "Botón",
+        "toggle": "Alternar",
+        "highlighted": "Botón resaltado",
+        "disabled": "Botón deshabilitado"
+      },
+      "codefield": "Bloque de código",
+      "input": "Campo de texto",
+      "textarea": "Área de texto",
+      "choice": "Selección",
+      "hint": {
+        "default": "Pista",
+        "single": "Pista única"
+      },
+      "hintgroup": "Grupo de pistas",
+      "list": "Lista",
+      "card": {
+        "normal": "Tarjeta",
+        "friendlink": "Tarjeta de enlace amigo"
+      },
+      "table": {
+        "col": "Columna",
+        "value": "Valor"
+      },
+      "timeline": "Línea de tiempo",
+      "selectbar": "Barra de selección"
+    },
+    "doc.components": {
+      "learn": "Parámetros del componente {{el}}",
+      "param": {
+        "name": "Parámetro",
+        "type": "Tipo",
+        "required": "Obligatorio",
+        "default": "Predeterminado"
+      }
+    },
+    "toast": {
+      "enter": "Toast de prueba",
+      "input": {
+        "content": "Introduce el contenido",
+        "duration": "Introduce la duración (ms), predeterminado: 2000"
+      },
+      "onclick": {
+        "remove": "Eliminar al hacer clic",
+        "redirect": "Redirigir al hacer clic (URL)"
+      },
+      "default": "Mensaje toast predeterminado",
+      "onclick_redirect.input": "Introduce una URL, por ejemplo un enlace a una canción viral"
+    }
+  },
+  "friendlinks": {
+    "muahax": "Todos los derechos reservados por NexaCore Team",
+    "zhtech": "Zhonghe — Vivan los obreros y campesinos 🅥",
+    "zi": "Tierra de Nadie — una organización sin ánimo de lucro",
+    "sungge": "Una marca técnica personal centrada en desarrollo web, compartir open source y escritura técnica"
+  },
+  "err.404": {
+    "message": "Vaya, esta página fue destruida por un misterioso gatito",
+    "goback": "Un paso atrás y el horizonte se abre"
+  },
+  "settings": {
+    "entry": "Ajustes",
+    "language": "Idioma",
+    "cursor_smooth_transition": "suavizado del cursor"
+  }
+}

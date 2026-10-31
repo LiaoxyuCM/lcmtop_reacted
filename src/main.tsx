@@ -6,6 +6,7 @@ import './i18n'
 import Template from './App.tsx'
 import Homepage from './childpage/index.tsx'
 import HomepageContent from './childpage/content.tsx'
+import Settings from './childpage/settings.tsx'
 import FriendLinksContent from './childpage/friendlinks.tsx'
 import FourZeroFour from './childpage/404.tsx'
 import ToastPlayground from './childpage/toast_playground.tsx'
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/content",
     element: <Template element={HomepageContent} />
+  },
+  {
+    path: "/settings",
+    element: <Template element={Settings} />
   },
   {
     path: "/friendlinks",

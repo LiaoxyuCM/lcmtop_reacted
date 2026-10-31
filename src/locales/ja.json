@@ -1,0 +1,154 @@
+{
+  "global": {
+    "yes": "はい",
+    "no": "いいえ",
+    "submit": "送信",
+    "global": "グローバル"
+  },
+  "index": {
+    "loading": "リソースを読み込み中",
+    "welcome": "ようこそ",
+    "load_failed": {
+      "bg": "壁紙を読み込めません",
+      "subt": "サブタイトルを読み込めません"
+    },
+    "version.update": "おかえりなさい！サイトが v{{ver}} に更新されました。ここをクリックして詳細をご覧ください！",
+    "portfolio": "ポートフォリオ",
+    "contact": "お問い合わせ",
+    "greeting": {
+      "morning": "おはようございます！",
+      "forenoon": "おはようございます！",
+      "noon": "こんにちは！",
+      "afternoon_early": "こんにちは！",
+      "afternoon": "こんにちは！",
+      "evening": "こんばんは！",
+      "night": "おやすみなさい！",
+      "late_night": "もう深夜です。体に気をつけてくださいね！"
+    },
+    "comingup": {
+      "main": "新しいホームページは制作中です。元のコンテンツはこちらに移動しました：",
+      "here": "ここ"
+    },
+    "about": {
+      "p1": "こんにちは、LiaoxyuCM（Lclimir）です。…（正直何を書けばいいか分かりませんが）、とにかくよろしくお願いします。",
+      "p2": "そうです、いつも「塩素が最高」と言っているあの人が私です"
+    },
+    "nav": {
+      "friendlinks": "リンク集",
+      "theme": {
+        "light": "ライトモード",
+        "dark": "ダークモード"
+      }
+    },
+    "timer": "このサイトは {{d}}日 {{h}}時間 {{m}}分 {{s}}秒 生きています"
+  },
+  "content": {
+    "search.placeholder": "「/」キーで Bing 検索",
+    "card": {
+      "siterepo": {
+        "title": "サイトリポジトリ",
+        "content": "このサイトのソースコードを見る"
+      },
+      "feedback": {
+        "title": "問題を報告",
+        "content": "バグを見つけましたか？ご意見はありますか？"
+      },
+      "teststyle": {
+        "title": "スタイルテスト",
+        "content": "各種 HTML 要素のスタイルをテスト"
+      },
+      "return2liaoxyucmtop.content": "liaoxyucm.top に戻る"
+    },
+    "filter": {
+      "main": "フィルター",
+      "red2gh": "GitHub へ移動",
+      "thissite": "サイト内",
+      "program": "開発プロジェクト",
+      "sitetool": "サイトツール",
+      "sitesupport": "サイトサポート"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "通常",
+      "error": "エラー",
+      "warn": "警告",
+      "success": "成功",
+      "info": "情報",
+      "debug": "デバッグ"
+    },
+    "element": {
+      "header": "レベル {{lvl}} 見出し",
+      "p": "段落",
+      "strong": "太字",
+      "em": "斜体",
+      "u": "下線",
+      "del": "取り消し線",
+      "a": "リンク",
+      "code.comment": "コードの一部",
+      "button": {
+        "default": "ボタン",
+        "toggle": "切り替え",
+        "highlighted": "ハイライトボタン",
+        "disabled": "無効なボタン"
+      },
+      "codefield": "コードブロック",
+      "input": "テキスト入力",
+      "textarea": "テキストエリア",
+      "choice": "選択",
+      "hint": {
+        "default": "ヒント",
+        "single": "単一ヒント"
+      },
+      "hintgroup": "ヒントグループ",
+      "list": "リスト",
+      "card": {
+        "normal": "カード",
+        "friendlink": "リンクカード"
+      },
+      "table": {
+        "col": "列",
+        "value": "値"
+      },
+      "timeline": "タイムライン",
+      "selectbar": "セレクトバー"
+    },
+    "doc.components": {
+      "learn": "コンポーネント {{el}} のパラメータ",
+      "param": {
+        "name": "パラメータ",
+        "type": "型",
+        "required": "必須",
+        "default": "デフォルト"
+      }
+    },
+    "toast": {
+      "enter": "テストトースト",
+      "input": {
+        "content": "内容を入力",
+        "duration": "表示時間 (ms) を入力、デフォルト: 2000"
+      },
+      "onclick": {
+        "remove": "クリックで削除",
+        "redirect": "クリックでリダイレクト (URL)"
+      },
+      "default": "デフォルトのトーストメッセージ",
+      "onclick_redirect.input": "URL を入力してください（例：ある流行曲へのリンク）"
+    }
+  },
+  "friendlinks": {
+    "muahax": "NexaCore Team がすべての権利を保有します",
+    "zhtech": "Zhonghe — 労働者と農民に栄光あれ 🅥",
+    "zi": "無人区 — 非営利組織",
+    "sungge": "Web 開発・オープンソース共有・技術執筆に注力する個人技術ブランド"
+  },
+  "err.404": {
+    "message": "おっと、このページは謎の子猫に壊されました",
+    "goback": "一歩下がれば広い海と空"
+  },
+  "settings": {
+    "entry": "設定",
+    "language": "言語",
+    "cursor_smooth_transition": "カーソルのスムージング (カーソル緩和)"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "global": {
+    "yes": "Oui",
+    "no": "Non",
+    "submit": "Envoyer",
+    "global": "Global"
+  },
+  "index": {
+    "loading": "Chargement des ressources",
+    "welcome": "Bienvenue",
+    "load_failed": {
+      "bg": "Impossible de charger le fond d'écran",
+      "subt": "Impossible de charger le sous-titre"
+    },
+    "version.update": "Bon retour ! Le site vient d'être mis à jour en v{{ver}}. Cliquez ici pour en savoir plus !",
+    "portfolio": "Portfolio",
+    "contact": "Contact",
+    "greeting": {
+      "morning": "Bonjour !",
+      "forenoon": "Bonjour !",
+      "noon": "Bon midi !",
+      "afternoon_early": "Bon après-midi !",
+      "afternoon": "Bon après-midi !",
+      "evening": "Bonsoir !",
+      "night": "Bonne nuit !",
+      "late_night": "Il est déjà très tard, prenez soin de votre santé !"
+    },
+    "comingup": {
+      "main": "La nouvelle page d'accueil est en construction. Le contenu original a été déplacé vers",
+      "here": "ici"
+    },
+    "about": {
+      "p1": "Bonjour, je m'appelle LiaoxyuCM (Lclimir)... (en vrai je ne sais pas quoi écrire non plus), bref, bonjour à vous.",
+      "p2": "Oui, c'est celui qui dit souvent « le chlore est génial »"
+    },
+    "nav": {
+      "friendlinks": "Liens amis",
+      "theme": {
+        "light": "Mode clair",
+        "dark": "Mode sombre"
+      }
+    },
+    "timer": "Ce site est en vie depuis {{d}}j {{h}}h {{m}}m {{s}}s"
+  },
+  "content": {
+    "search.placeholder": "Appuyez sur « / » pour rechercher avec Bing",
+    "card": {
+      "siterepo": {
+        "title": "Dépôt du site",
+        "content": "Voir le code source de ce site"
+      },
+      "feedback": {
+        "title": "Signaler un problème",
+        "content": "Un bug ? Ou des suggestions ?"
+      },
+      "teststyle": {
+        "title": "Test de styles",
+        "content": "Aperçu des styles de divers éléments HTML"
+      },
+      "return2liaoxyucmtop.content": "Retour à liaoxyucm.top"
+    },
+    "filter": {
+      "main": "Filtrer",
+      "red2gh": "Aller sur GitHub",
+      "thissite": "Sur ce site",
+      "program": "Projets",
+      "sitetool": "Outils du site",
+      "sitesupport": "Support du site"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "Normal",
+      "error": "Erreur",
+      "warn": "Avertissement",
+      "success": "Succès",
+      "info": "Info",
+      "debug": "Débogage"
+    },
+    "element": {
+      "header": "Titre de niveau {{lvl}}",
+      "p": "Paragraphe",
+      "strong": "Gras",
+      "em": "Italique",
+      "u": "Souligné",
+      "del": "Barré",
+      "a": "Lien",
+      "code.comment": "Un extrait de code",
+      "button": {
+        "default": "Bouton",
+        "toggle": "Basculer",
+        "highlighted": "Bouton mis en évidence",
+        "disabled": "Bouton désactivé"
+      },
+      "codefield": "Bloc de code",
+      "input": "Champ texte",
+      "textarea": "Zone de texte",
+      "choice": "Sélection",
+      "hint": {
+        "default": "Indice",
+        "single": "Indice unique"
+      },
+      "hintgroup": "Groupe d'indices",
+      "list": "Liste",
+      "card": {
+        "normal": "Carte",
+        "friendlink": "Carte de lien ami"
+      },
+      "table": {
+        "col": "Colonne",
+        "value": "Valeur"
+      },
+      "timeline": "Chronologie",
+      "selectbar": "Barre de sélection"
+    },
+    "doc.components": {
+      "learn": "Paramètres du composant {{el}}",
+      "param": {
+        "name": "Paramètre",
+        "type": "Type",
+        "required": "Obligatoire",
+        "default": "Par défaut"
+      }
+    },
+    "toast": {
+      "enter": "Toast de test",
+      "input": {
+        "content": "Saisir le contenu",
+        "duration": "Saisir la durée (ms), par défaut : 2000"
+      },
+      "onclick": {
+        "remove": "Supprimer au clic",
+        "redirect": "Rediriger au clic (URL)"
+      },
+      "default": "Message toast par défaut",
+      "onclick_redirect.input": "Saisissez une URL, par ex. un lien vers une chanson virale"
+    }
+  },
+  "friendlinks": {
+    "muahax": "Tous droits réservés par NexaCore Team",
+    "zhtech": "Zhonghe — Vive les ouvriers et les paysans 🅥",
+    "zi": "No Man's Land — une organisation à but non lucratif",
+    "sungge": "Une marque technique personnelle axée sur le développement Web, le partage open source et la rédaction technique"
+  },
+  "err.404": {
+    "message": "Oups, cette page a été détruite par un mystérieux petit chat",
+    "goback": "Un pas en arrière et l'horizon s'élargit"
+  },
+  "settings": {
+    "entry": "Paramètres",
+    "language": "Langue",
+    "cursor_smooth_transition": "lissage du curseur"
+  }
+}

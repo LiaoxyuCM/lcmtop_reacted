@@ -1,8 +1,4 @@
 {
-  "translate.anotherlang": {
-    "simple": "EN",
-    "verbose": "English"
-  },
   "global": {
     "yes": "是",
     "no": "否",
@@ -31,8 +27,7 @@
     },
     "comingup": {
       "main": "新版主页正在建设中, 原内容已移动到",
-      "here": "这里",
-      "smooth_transition": "若要禁用光标缓动请在URL后面加上"
+      "here": "这里"
     },
     "about": {
       "p1": "你好, 我叫LiaoxyuCM(Lclimir), ... (其实也不知道写啥), 反正就是你好啊.",
@@ -150,5 +145,10 @@
   "err.404": {
     "message": "布豪, 网页被某个神秘小猫干没了",
     "goback": "退一步海阔天空"
+  },
+  "settings": {
+    "entry": "设置",
+    "language": "语言",
+    "cursor_smooth_transition": "光标缓动"
   }
 }

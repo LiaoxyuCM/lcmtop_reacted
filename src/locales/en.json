@@ -1,8 +1,4 @@
 {
-  "translate.anotherlang": {
-    "simple": "中",
-    "verbose": "简体中文"
-  },
   "global": {
     "yes": "Yes",
     "no": "No",
@@ -31,8 +27,7 @@
     },
     "comingup": {
       "main": "The new version of the homepage is under construction, and the original content has been moved to ",
-      "here": "here",
-      "smooth_transition": "To disable the feature of smooth transition of cursor, please add the below content to this URL."
+      "here": "here"
     },
     "about": {
       "p1": "Hi, I'm LiaoxyuCM(Lclimir), ... (Actually I didn't know what to write), anyway, here is the hello.",
@@ -150,5 +145,10 @@
   "err.404": {
     "message": "Oh my goodness bro, this page is gone!!!",
     "goback": "Go Back"
+  },
+  "settings": {
+    "entry": "Settings",
+    "language": "Language",
+    "cursor_smooth_transition": "Cursor Smooth Transition"
   }
 }

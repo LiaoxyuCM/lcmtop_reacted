@@ -1,0 +1,154 @@
+{
+  "global": {
+    "yes": "是",
+    "no": "否",
+    "submit": "提交",
+    "global": "全局"
+  },
+  "index": {
+    "loading": "正在加載資源",
+    "welcome": "歡迎",
+    "load_failed": {
+      "bg": "無法加載壁紙",
+      "subt": "無法加載副標題"
+    },
+    "version.update": "歡迎回來, 剛剛本站已經更新至v{{ver}}, 點擊這裏查看更多內容!",
+    "portfolio": "作品集",
+    "contact": "聯繫",
+    "greeting": {
+      "morning": "早上好!",
+      "forenoon": "上午好!",
+      "noon": "中午好!",
+      "afternoon_early": "午安!",
+      "afternoon": "下午好!",
+      "evening": "晚上好!",
+      "night": "晚安!",
+      "late_night": "已經三更半夜了, 當心下身體哦!"
+    },
+    "comingup": {
+      "main": "新版主頁正在建設中, 原內容已移動到",
+      "here": "這裏"
+    },
+    "about": {
+      "p1": "你好, 我叫LiaoxyuCM(Lclimir), ... (其實也不知道寫啥), 反正就是你好啊.",
+      "p2": "對, 就是那個經常説氯氣衝NB的那個"
+    },
+    "nav": {
+      "friendlinks": "友鏈",
+      "theme": {
+        "light": "亮色模式",
+        "dark": "暗色模式"
+      }
+    },
+    "timer": "本站已活過 {{d}}天 {{h}}時 {{m}}分 {{s}}秒"
+  },
+  "content": {
+    "search.placeholder": "按下 \"/\" 使用Bing搜索",
+    "card": {
+      "siterepo": {
+        "title": "本站倉庫",
+        "content": "查看本站的源代碼"
+      },
+      "feedback": {
+        "title": "反饋問題",
+        "content": "發現Bug? 或者有任何建議?"
+      },
+      "teststyle": {
+        "title": "樣式測試",
+        "content": "測試各種HTML元素的樣式展示"
+      },
+      "return2liaoxyucmtop.content": "返回 liaoxyucm.top"
+    },
+    "filter": {
+      "main": "過濾",
+      "red2gh": "跳轉到GitHub",
+      "thissite": "站內",
+      "program": "開發項目",
+      "sitetool": "站內工具",
+      "sitesupport": "網站支持"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "普通",
+      "error": "錯誤",
+      "warn": "警告",
+      "success": "成功",
+      "info": "信息",
+      "debug": "調試"
+    },
+    "element": {
+      "header": "{{lvl}}級標題",
+      "p": "文本段",
+      "strong": "粗體",
+      "em": "斜體",
+      "u": "下劃線",
+      "del": "刪除",
+      "a": "鏈接",
+      "code.comment": "一段代碼",
+      "button": {
+        "default": "按鈕",
+        "toggle": "切換狀態",
+        "highlighted": "高亮的按鈕",
+        "disabled": "被禁用的按鈕"
+      },
+      "codefield": "代碼段",
+      "input": "文本框",
+      "textarea": "文本域",
+      "choice": "選擇",
+      "hint": {
+        "default": "提示",
+        "single": "單個提示"
+      },
+      "hintgroup": "提示組",
+      "list": "列表",
+      "card": {
+        "normal": "卡片",
+        "friendlink": "友鏈卡片"
+      },
+      "table": {
+        "col": "表格列",
+        "value": "表格值"
+      },
+      "timeline": "時間線",
+      "selectbar": "選擇欄"
+    },
+    "doc.components": {
+      "learn": "組件 {{el}} 的參數",
+      "param": {
+        "name": "參數",
+        "type": "類型",
+        "required": "是否必傳",
+        "default": "默認值"
+      }
+    },
+    "toast": {
+      "enter": "測試信息框",
+      "input": {
+        "content": "輸入內容",
+        "duration": "輸入持續時間 (ms), 默認: 2000"
+      },
+      "onclick": {
+        "remove": "點擊時移除",
+        "redirect": "點擊時跳轉 (鏈接)"
+      },
+      "default": "默認信息框信息",
+      "onclick_redirect.input": "輸入鏈接, 例如指向某豪俊金曲的鏈接"
+    }
+  },
+  "friendlinks": {
+    "muahax": "NexaCore Team報告所有權利",
+    "zhtech": "眾和-工農階級萬歲🅥",
+    "zi": "無人區 —— 非盈利組織",
+    "sungge": "是一個專注於 Web 開發、開源項目分享與技術寫作 的個人技術品牌"
+  },
+  "err.404": {
+    "message": "布豪, 網頁被某個神秘小貓乾沒了",
+    "goback": "退一步海闊天空"
+  },
+  "settings": {
+    "entry": "設置",
+    "language": "語言",
+    "cursor_smooth_transition": "光標緩動"
+  }
+}

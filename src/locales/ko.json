@@ -1,0 +1,154 @@
+{
+  "global": {
+    "yes": "예",
+    "no": "아니오",
+    "submit": "제출",
+    "global": "전역"
+  },
+  "index": {
+    "loading": "리소스 로딩 중",
+    "welcome": "환영합니다",
+    "load_failed": {
+      "bg": "배경화면을 불러올 수 없습니다",
+      "subt": "부제목을 불러올 수 없습니다"
+    },
+    "version.update": "다시 오신 것을 환영합니다! 사이트가 방금 v{{ver}}로 업데이트되었습니다. 여기를 클릭해 자세히 보세요!",
+    "portfolio": "포트폴리오",
+    "contact": "연락",
+    "greeting": {
+      "morning": "좋은 아침입니다!",
+      "forenoon": "좋은 오전입니다!",
+      "noon": "좋은 점심입니다!",
+      "afternoon_early": "좋은 오후입니다!",
+      "afternoon": "좋은 오후입니다!",
+      "evening": "좋은 저녁입니다!",
+      "night": "좋은 밤 되세요!",
+      "late_night": "이미 한밤중이에요. 건강 조심하세요!"
+    },
+    "comingup": {
+      "main": "새 홈페이지를 준비 중입니다. 기존 콘텐츠는 다음으로 이동했습니다:",
+      "here": "여기"
+    },
+    "about": {
+      "p1": "안녕하세요, LiaoxyuCM(Lclimir)입니다... (사실 뭘 써야 할지 모르겠지만) 어쨌든 반갑습니다.",
+      "p2": "네, 항상 '염소가 최고'라고 말하는 그 사람입니다"
+    },
+    "nav": {
+      "friendlinks": "친구 링크",
+      "theme": {
+        "light": "라이트 모드",
+        "dark": "다크 모드"
+      }
+    },
+    "timer": "이 사이트는 {{d}}일 {{h}}시간 {{m}}분 {{s}}초 동안 살아왔습니다"
+  },
+  "content": {
+    "search.placeholder": "\"/\" 키를 눌러 Bing 검색",
+    "card": {
+      "siterepo": {
+        "title": "사이트 저장소",
+        "content": "이 사이트의 소스 코드 보기"
+      },
+      "feedback": {
+        "title": "문제 신고",
+        "content": "버그를 발견했나요? 아니면 제안이 있나요?"
+      },
+      "teststyle": {
+        "title": "스타일 테스트",
+        "content": "다양한 HTML 요소의 스타일 미리보기"
+      },
+      "return2liaoxyucmtop.content": "liaoxyucm.top으로 돌아가기"
+    },
+    "filter": {
+      "main": "필터",
+      "red2gh": "GitHub로 이동",
+      "thissite": "사이트 내",
+      "program": "개발 프로젝트",
+      "sitetool": "사이트 도구",
+      "sitesupport": "사이트 지원"
+    }
+  },
+  "teststyle": {
+    "lvl": {
+      "normal": "일반",
+      "error": "오류",
+      "warn": "경고",
+      "success": "성공",
+      "info": "정보",
+      "debug": "디버그"
+    },
+    "element": {
+      "header": "레벨 {{lvl}} 제목",
+      "p": "문단",
+      "strong": "굵게",
+      "em": "기울임",
+      "u": "밑줄",
+      "del": "취소선",
+      "a": "링크",
+      "code.comment": "코드 조각",
+      "button": {
+        "default": "버튼",
+        "toggle": "토글",
+        "highlighted": "강조 버튼",
+        "disabled": "비활성화된 버튼"
+      },
+      "codefield": "코드 블록",
+      "input": "텍스트 입력",
+      "textarea": "텍스트 영역",
+      "choice": "선택",
+      "hint": {
+        "default": "힌트",
+        "single": "단일 힌트"
+      },
+      "hintgroup": "힌트 그룹",
+      "list": "목록",
+      "card": {
+        "normal": "카드",
+        "friendlink": "친구 링크 카드"
+      },
+      "table": {
+        "col": "열",
+        "value": "값"
+      },
+      "timeline": "타임라인",
+      "selectbar": "선택 바"
+    },
+    "doc.components": {
+      "learn": "컴포넌트 {{el}}의 매개변수",
+      "param": {
+        "name": "매개변수",
+        "type": "유형",
+        "required": "필수 여부",
+        "default": "기본값"
+      }
+    },
+    "toast": {
+      "enter": "테스트 토스트",
+      "input": {
+        "content": "내용 입력",
+        "duration": "표시 시간(ms) 입력, 기본값: 2000"
+      },
+      "onclick": {
+        "remove": "클릭 시 제거",
+        "redirect": "클릭 시 리디렉션 (URL)"
+      },
+      "default": "기본 토스트 메시지",
+      "onclick_redirect.input": "URL을 입력하세요. 예: 어떤 인기곡 링크"
+    }
+  },
+  "friendlinks": {
+    "muahax": "NexaCore Team 모든 권리 보유",
+    "zhtech": "Zhonghe — 노동자와 농민 만세 🅥",
+    "zi": "무인지대 — 비영리 단체",
+    "sungge": "웹 개발, 오픈소스 공유, 기술 글쓰기에 집중하는 개인 기술 브랜드"
+  },
+  "err.404": {
+    "message": "이런, 이 페이지가 정체불명의 고양이에게 망가졌어요",
+    "goback": "한 걸음 물러서면 넓은 바다와 하늘이 보입니다"
+  },
+  "settings": {
+    "entry": "설정",
+    "language": "언어",
+    "cursor_smooth_transition": "커서 스무딩 (커서 이징)"
+  }
+}
