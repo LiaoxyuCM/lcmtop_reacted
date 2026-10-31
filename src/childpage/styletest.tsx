@@ -184,11 +184,11 @@ export function Styletest() {
       </table>
       <div className="timeline">
         <TimelineItem
-          datetime={te("timeline")}
+          title={te("timeline")}
           content=".timeline&gt;.timeline-item+&gt;{.timeline-dot, .timeline-date, .timeline-content&gt;p}"
         />
         <TimelineItem
-          datetime={te("timeline")}
+          title={te("timeline")}
           content=".timeline&gt;TimelineItem(...)"
         />
       </div>

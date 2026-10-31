@@ -43,6 +43,13 @@ export default function HomepageContent() {
       content: t("content.card.teststyle.content"),
       filter: ["thissite", "sitetool"],
       targetblank: false
+    },
+    {
+      link: 'https://liaoxyucm.top',
+      title: "liaoxyucm.top",
+      content: t("content.card.return2liaoxyucmtop.content"),
+      filter: ["thissite", "sitesupport"],
+      targetblank: true
     }
   ];
 

@@ -145,7 +145,7 @@ function Homepage() {
                       </p>
 
                       <CodeField>
-                        <div>#smooth-transition</div>
+                        <div>#cursor:disable-smooth-transition</div>
                       </CodeField>
                     </>)
                   },
