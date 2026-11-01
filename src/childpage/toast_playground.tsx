@@ -1,6 +1,7 @@
 import { showToast, ToastType } from "./modules/toast";
 import { useTranslation } from "react-i18next";
 import { useRef } from "react";
+import config from "../../LCMTOP_CONFIG.json";
 
 export default function ToastPlayground() {
   const { t } = useTranslation();
@@ -68,7 +69,7 @@ export default function ToastPlayground() {
               {
                 onClick: () => {
                   window.open(
-                    urlInputRef.current?.value || "https://www.bilibili.com/video/BV1GJ411x7h7/", "_blank"
+                    urlInputRef.current?.value || config.toast_playground.default_redirect, "_blank"
                   )
                 },
                 type: selectRef.current?.value as ToastType,

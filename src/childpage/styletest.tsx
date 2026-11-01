@@ -255,7 +255,7 @@ export function ComponentsDoc() {
           </tr>
         </tbody>
       </table>
-      
+
       <h2 id="art:selectbar">{te("selectbar")} &lt;SelectBar /&gt;</h2>
       <table>
         <ParamThead />

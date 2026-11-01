@@ -1,31 +1,37 @@
 import { useTranslation } from "react-i18next";
 import { SelectBar } from "./modules/components.tsx";
+import config from "../../LCMTOP_CONFIG.json";
 
-const LANGS = [
+let LANGS = [
   "en",
   "zh-CN",
-  "zh-TW",
-  // 以下语言由 AI 生成，不保证后续同步翻译
-  "ja",
-  "ko",
-  "fr",
-  "de",
-  "es",
-  "ru",
+  "zh-TW"
 ];
 
-const LANGDISP = [
+let LANGDISP = [
   "English",
   "简体中文",
-  "繁體中文",
-  // 以下语言由 AI 生成，不保证后续同步翻译
-  "日本語 (AI 生成 - 同期更新なし)",
-  "한국어 (AI 생성, 동기화 미보장)",
-  "Français (traduit par IA, non synchronisé)",
-  "Deutsch (KI-generiert, nicht synchronisiert)",
-  "Español (generado por IA, sin sincronización)",
-  "Русский (сгенерировано ИИ, без синхронизации)"
+  "繁體中文"
 ];
+
+if (config.i18n.support_additional_lang) {
+  LANGS.push(
+    "ja",
+    "ko",
+    "fr",
+    "de",
+    "es",
+    "ru"
+  );
+  LANGDISP.push(
+    "日本語 (AI 生成 - 同期更新なし)",
+    "한국어 (AI 생성, 동기화 미보장)",
+    "Français (traduit par IA, non synchronisé)",
+    "Deutsch (KI-generiert, nicht synchronisiert)",
+    "Español (generado por IA, sin sincronización)",
+    "Русский (сгенерировано ИИ, без синхронизации)"
+  );
+}
 
 export default function Settings() {
   const { t, i18n } = useTranslation();

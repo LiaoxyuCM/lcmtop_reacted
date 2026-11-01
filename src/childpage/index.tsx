@@ -7,6 +7,7 @@ import LoadingPage from './modules/loadingpage';
 import { useState, useEffect, useRef, type JSX } from 'react';
 import './modules/css/homepage.scss';
 import { version } from "../../package.json";
+import config from "../../LCMTOP_CONFIG.json";
 
 function Homepage() {
   const { t, i18n } = useTranslation();
@@ -60,7 +61,7 @@ function Homepage() {
     if (subtitleFetchedRef.current) return;
     subtitleFetchedRef.current = true;
     if (!subtitleLoaded) {
-      fetch("https://api.liaoxyucm.top/fun/tip.php").then(resp => resp.text()).then((text: string) => {
+      fetch(config.homepage.subtitle).then(resp => resp.text()).then((text: string) => {
         setSubtitle(text);
         setSubtitleLoaded(true);
       }).catch(() => {
@@ -107,7 +108,7 @@ function Homepage() {
       <img
         className="homepage back-img"
         style={{ opacity: bgLoaded ? 1 : 0 }}
-        src="https://t.alcy.cc/pic/fj/109.webp"
+        src={config.homepage.wallpaper}
         onLoad={() => setBgLoaded(true)}
         onError={() => {
           setBgLoaded(true);
@@ -147,7 +148,6 @@ function Homepage() {
                     name: "about",
                     el: (<p>
                       {t("index.about.p1")}
-                      <br />{t("index.about.p2")}
                     </p>)
                   },
                   {

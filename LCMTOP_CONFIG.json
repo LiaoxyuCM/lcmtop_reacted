@@ -1,0 +1,12 @@
+{
+  "i18n": {
+    "support_additional_lang": false
+  },
+  "homepage": {
+    "wallpaper": "https://t.alcy.cc/pic/fj/109.webp",
+    "subtitle": "https://api.liaoxyucm.top/fun/tip.php"
+  },
+  "toast_playground": {
+    "default_redirect": "https://www.bilibili.com/video/BV1GJ411x7h7"
+  }
+}

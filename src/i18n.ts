@@ -12,17 +12,25 @@ import ru from './locales/ru.json';
 import zhCN from './locales/zh-CN.json';
 import zhTW from './locales/zh-TW.json';
 
-const resources = {
-  de: { translation: de },
+import config from '../LCMTOP_CONFIG.json';
+
+const resources: Record<string, { translation: unknown }> = {
+  // baseline
   en: { translation: en },
-  ja: { translation: ja },
-  ko: { translation: ko },
-  fr: { translation: fr },
-  es: { translation: es },
-  ru: { translation: ru },
   'zh-CN': { translation: zhCN },
-  'zh-TW': { translation: zhTW }
+  'zh-TW': { translation: zhTW },
 };
+
+if (config.i18n.support_additional_lang) {
+  Object.assign(resources, {
+    de: { translation: de },
+    ja: { translation: ja },
+    ko: { translation: ko },
+    fr: { translation: fr },
+    es: { translation: es },
+    ru: { translation: ru },
+  });
+}
 
 i18n
   .use(LanguageDetector)
